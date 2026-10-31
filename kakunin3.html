@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>N3 確認テスト（第3回模試）｜ライブ採点</title>
+<title>第3回模試 ふりかえりチャレンジ｜N3</title>
 <style>
 :root{
   --ink:#1a1a1a; --accent:#3b82f6; --accent2:#2f6fd6; --bg2:#faf9f6; --bd:#e2e0d8; --bd2:#d0cec6;
@@ -26,8 +26,8 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 #bar .sp{flex:1}
 #bar .timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:18px;color:#374151;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:4px 12px}
 #bar .timer.run{color:var(--accent)}
-#bar .timer.low{color:var(--ng);border-color:var(--ngbd)}
-#bar .timer.end{color:#fff;background:var(--ng);border-color:var(--ng)}
+#bar .timer.low{color:#b45309;border-color:var(--ambd)}
+#bar .timer.end{color:#92700e;background:var(--ambg);border-color:var(--ambd)}
 #bar .qcount{font-size:14px;font-weight:800;color:#555}
 
 #dots{height:34px;flex:none;display:flex;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--bd)}
@@ -93,7 +93,7 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 .sec{border:1px solid var(--bd);border-radius:10px;padding:8px 10px;background:var(--bg2)}
 .sec .t{font-size:12.5px;font-weight:800;color:#555}
 .sec .v{font-size:22px;font-weight:900}
-.sec .v.full{color:var(--ok)} .sec .v.part{color:var(--ng)}
+.sec .v.full{color:var(--ok)} .sec .v.part{color:var(--accent)}
 .rlist{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;max-height:300px;overflow:auto;padding-right:6px}
 .ritem{display:flex;align-items:center;gap:10px;font-size:14.5px;border-bottom:1px solid #eee;padding:3px 2px;cursor:pointer}
 .ritem:hover{background:#f7faff}
@@ -106,7 +106,7 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 .ritem .src{flex:none;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;border:1px solid var(--krbd);color:var(--kr);background:var(--krbg)}
 .ritem .src.rel{border-color:var(--bd2);color:#666;background:#f4f4f2}
 .focus{margin-top:8px;border-top:1px dashed var(--bd);padding-top:8px}
-.ftitle{font-size:14px;font-weight:800;color:var(--ng)}
+.ftitle{font-size:14px;font-weight:800;color:#92700e}
 .ftitle .fkr{font-size:12px;color:var(--kr);font-weight:600;margin-left:8px}
 .fchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .fchip{border:1px solid var(--ambd);background:var(--ambg);color:#92700e;font-weight:700;font-size:13px;padding:7px 13px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
@@ -172,7 +172,7 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 <body>
 <div id="app">
   <div id="bar">
-    <span class="brand">N3 確認テスト <span class="a">·</span></span>
+    <span class="brand">ふりかえりチャレンジ <span class="a">·</span></span>
     <span class="rng" id="rng">第3回模試から</span>
     <span class="sp"></span>
     <span class="qcount hidden" id="qcount">1 / 20</span>
@@ -182,9 +182,9 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 
   <div id="stage">
     <div class="start" id="startScreen">
-      <h1>N3 確認テスト <span class="a">ライブ採点</span></h1>
-      <div class="sub">第3回模試で迷ったところから、20問</div>
-      <div class="subk">제3회 모의고사에서 헷갈렸던 부분으로 20문제</div>
+      <h1>第3回模試 <span class="a">ふりかえりチャレンジ</span></h1>
+      <div class="sub">模試で迷ったところに、もう一度チャレンジ！ 20問</div>
+      <div class="subk">모의고사에서 헷갈렸던 부분에 다시 도전! 20문제</div>
       <div class="meta">
         <span>文字・語彙 12問</span><span>文法 8問</span><span>4択</span><span>10分</span>
       </div>
@@ -204,7 +204,7 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
     <div style="display:flex;gap:12px">
       <button class="btn" id="restartBtn">最初に戻る</button>
       <button class="btn primary" id="nextBtn">次へ →</button>
-      <button class="btn grade hidden" id="gradeBtn">採点する</button>
+      <button class="btn grade hidden" id="gradeBtn">答え合わせ</button>
       <button class="btn primary hidden" id="toResultBtn">結果に戻る</button>
     </div>
   </div>
@@ -355,7 +355,7 @@ function startTimer(){
     const m=String(Math.floor(timeLeft/60)).padStart(2,'0'), s=String(timeLeft%60).padStart(2,'0');
     el.textContent=`${m}:${s}`;
     el.classList.toggle('low', timeLeft<=60 && timeLeft>0);
-    if(timeLeft<=0){ clearInterval(timerId); el.textContent='時間です'; el.classList.add('end'); return; }
+    if(timeLeft<=0){ clearInterval(timerId); el.textContent='⏰ 時間！続けてOK'; el.classList.add('end'); return; }
     timeLeft--;
   };
   tick(); timerId=setInterval(tick,1000);
@@ -424,7 +424,7 @@ function showResult(){
       <span class="kj">${it.key}</span>
       <span class="co">${it.short||it.opts[it.ans]}</span>
       <span class="src ${it.src==='rel'?'rel':''}">${it.src==='rel'?'関連':'模試'}</span>
-      ${ok?'':`<span class="ua">답: ${ua}</span>`}
+      ${ok?'':`<span class="ua">내 답: ${ua}</span>`}
     </div>`;
   }).join('');
 
@@ -452,11 +452,11 @@ function showResult(){
   const keys=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
   const fb=$('focusBox');
   if(keys.length){
-    fb.innerHTML=`<div class="ftitle">要注意ポイント<span class="fkr">주의 포인트 — 누르면 해설 ／ 문제를 누르면 그 문제로 이동</span></div>`+
+    fb.innerHTML=`<div class="ftitle">のびしろポイント<span class="fkr">성장 포인트 — 누르면 해설 ／ 문제를 누르면 그 문제로 이동</span></div>`+
       `<div class="fchips">${keys.map(t=>`<button class="fchip" data-t="${t}">${ETYPE[t].jp} ×${cnt[t]} <span class="arw">解説 ▸</span></button>`).join('')}</div>`;
     fb.querySelectorAll('.fchip').forEach(bt=>bt.onclick=()=>openExplain(bt.dataset.t));
   } else {
-    fb.innerHTML=`<div class="ftitle" style="color:var(--ok)">満点です！<span class="fkr">만점입니다 🎉</span></div>`;
+    fb.innerHTML=`<div class="ftitle" style="color:var(--ok)">全問正解！<span class="fkr">전부 정답! 🎉</span></div>`;
   }
   $('copyBtn').onclick=()=>copyResult(n,total,pct,wrongIdx);
   $('backBtn').onclick=backToStart;
@@ -468,8 +468,8 @@ function openExplain(t){
   $('explain').classList.remove('hidden');
 }
 function copyResult(n,total,pct,wrongIdx){
-  const wrong = wrongIdx.length ? wrongIdx.map(i=>`${items[i].key}(${items[i].short||items[i].opts[items[i].ans]})`).join(', ') : '없음';
-  const txt=`[N3 확인 테스트 — 제3회 모의고사]\n점수: ${n}/${total} (${pct}%)\n✗ 오답: ${wrong}\n→ 11월 복습에 반영합니다`;
+  const wrong = wrongIdx.length ? wrongIdx.map(i=>`${items[i].key}(${items[i].short||items[i].opts[items[i].ans]})`).join(', ') : '없음 — 전부 정답!';
+  const txt=`[제3회 모의고사 복습 챌린지]\n결과: ${n}/${total} (${pct}%)\n🔁 다시 볼 것: ${wrong}`;
   const done=()=>{ $('copied').textContent='✓ 복사됨 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); setTimeout(()=>$('copied').classList.add('hidden'),2500); };
   if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(()=>showCopyBox(txt)); }
   else { showCopyBox(txt); }
