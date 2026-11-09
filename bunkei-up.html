@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="得点アップ 文型チャレンジ">
+<meta property="og:description" content="모의고사 오답에서 만든 N3 문형 216문제 · 6세트 · 세트당 36문제 10분">
+<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/bunkei-up.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<meta name="description" content="모의고사 오답에서 만든 N3 문형 216문제 · 6세트 · 세트당 36문제 10분">
+<title>得点アップ 文型チャレンジ｜N3 試験直前 満点サプリ</title>
+<style>
+:root{
+  --ink:#1a1a1a; --accent:#3b82f6; --accent2:#2f6fd6; --bg2:#faf9f6; --bd:#e2e0d8; --bd2:#d0cec6;
+  --mut:#7a7a7a; --ok:#166534; --okbg:#f0fdf4; --okbd:#86efac;
+  --ng:#dc2626; --ngbg:#fef2f2; --ngbd:#fca5a5; --amber:#f59e0b; --ambg:#fffbeb; --ambd:#fde68a;
+  --kr:#1e40af; --krbg:#eff6ff; --krbd:#bfdbfe;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto Sans JP","Malgun Gothic",sans-serif;
+  color:var(--ink);background:#e9eaee;display:flex;align-items:center;justify-content:center;min-height:100vh}
+#app{width:min(1280px,96vw);aspect-ratio:16/9;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.22);position:relative;display:flex;flex-direction:column}
+.hidden{display:none!important}
+
+#bar{height:56px;flex:none;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:1px solid var(--bd);background:var(--bg2)}
+#bar .brand{font-weight:900;font-size:17px}
+#bar .brand .a{color:var(--accent)}
+#bar .rng{font-size:13px;font-weight:700;color:var(--kr);background:var(--krbg);border:1px solid var(--krbd);border-radius:14px;padding:4px 11px}
+#bar .sp{flex:1}
+#bar .timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:18px;color:#374151;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:4px 12px}
+#bar .timer.run{color:var(--accent)}
+#bar .timer.low{color:#b45309;border-color:var(--ambd)}
+#bar .timer.end{color:#92700e;background:var(--ambg);border-color:var(--ambd)}
+#bar .qcount{font-size:14px;font-weight:800;color:#555}
+
+#dots{min-height:34px;padding:6px 10px;flex:none;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;border-bottom:1px solid var(--bd)}
+#dots .d{width:11px;height:11px;border-radius:50%;background:var(--bd2);transition:.15s}
+#dots .d.on{background:var(--accent);transform:scale(1.3)}
+#dots .d.done{background:#9dbef7}
+#dots .d.ok{background:var(--ok)} #dots .d.ng{background:var(--ng)}
+#dots .gap{width:10px}
+
+#stage{flex:1;display:flex;align-items:center;justify-content:center;padding:18px 44px;position:relative;overflow:auto}
+
+.start{text-align:center;max-width:860px}
+.start h1{font-size:36px;font-weight:900;margin-bottom:8px}
+.start h1 .a{color:var(--accent)}
+.start .sub{color:#444;font-size:17px;margin-bottom:6px}
+.start .subk{color:var(--kr);font-size:14px;margin-bottom:26px}
+.start .meta{display:flex;gap:12px;justify-content:center;margin-bottom:28px;flex-wrap:wrap}
+.start .meta span{border:1px solid var(--bd);border-radius:10px;padding:8px 14px;font-size:14px;font-weight:700;color:#444;background:var(--bg2)}
+.opts-toggle{margin-top:20px;font-size:14px;color:#444;display:flex;gap:10px;align-items:center;justify-content:center}
+.opts-toggle label{display:flex;gap:7px;align-items:center;cursor:pointer;user-select:none}
+.opts-toggle input{width:17px;height:17px}
+
+.qwrap{width:100%;max-width:1000px}
+.qtag{font-size:14px;font-weight:800;letter-spacing:1px;color:var(--accent);text-align:center}
+.inst{font-size:15px;color:var(--mut);text-align:center;margin-top:4px}
+.sent{font-size:34px;font-weight:600;text-align:center;margin:26px 0 30px;line-height:1.6}
+.sent u{text-decoration:none;border-bottom:3px solid var(--ink);padding:0 2px}
+.sent .blank{display:inline-block;min-width:110px;border-bottom:3px solid var(--ink);margin:0 4px}
+.sent .who{font-size:22px;color:var(--mut);display:block;margin-bottom:4px}
+.word{font-size:54px;font-weight:900;text-align:center;margin:18px 0 22px;letter-spacing:3px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+.choices.one{grid-template-columns:1fr;gap:10px}
+.choice{display:flex;align-items:center;gap:14px;border:2px solid var(--bd);border-radius:12px;padding:14px 18px;cursor:pointer;font-size:25px;font-weight:600;background:#fff;transition:.12s}
+.choices.one .choice{font-size:21px;padding:11px 18px}
+.choice:hover{border-color:#9dbef7;background:#f7faff}
+.choice .no{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#666}
+.choice.sel{border-color:var(--accent);background:#eff6ff}
+.choice.sel .no{background:var(--accent);border-color:var(--accent);color:#fff}
+.choice.correct{border-color:var(--okbd);background:var(--okbg)}
+.choice.correct .no{background:var(--ok);border-color:var(--ok);color:#fff}
+.choice.wrong{border-color:var(--ngbd);background:var(--ngbg)}
+.choice.wrong .no{background:var(--ng);border-color:var(--ng);color:#fff}
+.qnote{margin-top:16px;font-size:16px;line-height:1.6;background:var(--okbg);border:1px solid var(--okbd);border-radius:10px;padding:10px 14px}
+.qnote .k{display:block;color:var(--kr);font-size:14px}
+
+#ctrl{height:70px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-top:1px solid var(--bd);background:var(--bg2)}
+.btn{border:1px solid var(--bd2);background:#fff;color:#444;font-size:15px;font-weight:700;padding:11px 22px;border-radius:10px;cursor:pointer;font-family:inherit}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:.35;cursor:default}.btn:disabled:hover{border-color:var(--bd2);color:#444}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent2);color:#fff}
+.btn.grade{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.grade:hover{background:#12532b;color:#fff}
+.btn.big{font-size:20px;padding:15px 40px}
+
+.result{width:100%;max-width:1100px}
+.rtop{display:flex;align-items:center;gap:24px;margin-bottom:8px}
+.scorebig{flex:none;text-align:center;border:3px solid var(--accent);border-radius:16px;padding:12px 26px}
+.scorebig .n{font-size:44px;font-weight:900;line-height:1;color:var(--accent)}
+.scorebig .n small{font-size:24px;color:#9aa3af}
+.scorebig .p{font-size:15px;font-weight:800;color:#374151;margin-top:4px}
+.secs{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sec{border:1px solid var(--bd);border-radius:10px;padding:8px 10px;background:var(--bg2)}
+.sec .t{font-size:12.5px;font-weight:800;color:#555}
+.sec .v{font-size:22px;font-weight:900}
+.sec .v.full{color:var(--ok)} .sec .v.part{color:var(--accent)}
+.rlist{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;max-height:300px;overflow:auto;padding-right:6px}
+.ritem{display:flex;align-items:center;gap:10px;font-size:14.5px;border-bottom:1px solid #eee;padding:3px 2px;cursor:pointer}
+.ritem:hover{background:#f7faff}
+.ritem .qn{flex:none;width:26px;color:var(--mut);font-weight:700;font-size:13px;text-align:right}
+.ritem .mk{flex:none;width:22px;height:22px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.ritem .mk.o{background:var(--ok)} .ritem .mk.x{background:var(--ng)}
+.ritem .kj{flex:none;width:170px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ritem .co{color:var(--ok);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ritem .ua{color:var(--ng);font-size:13px;margin-left:auto;white-space:nowrap}
+.ritem .src{flex:none;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;border:1px solid var(--krbd);color:var(--kr);background:var(--krbg)}
+.ritem .src.rel{border-color:var(--bd2);color:#666;background:#f4f4f2}
+.focus{margin-top:8px;border-top:1px dashed var(--bd);padding-top:8px}
+.ftitle{font-size:14px;font-weight:800;color:#92700e}
+.ftitle .fkr{font-size:12px;color:var(--kr);font-weight:600;margin-left:8px}
+.fchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.fchip{border:1px solid var(--ambd);background:var(--ambg);color:#92700e;font-weight:700;font-size:13px;padding:7px 13px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.fchip:hover{border-color:var(--amber)}
+.fchip .arw{color:var(--accent);font-weight:800}
+.rbtns{display:flex;gap:12px;margin-top:8px;justify-content:flex-end}
+.copied{color:var(--ok);font-weight:700;font-size:14px;align-self:center;margin-right:auto}
+
+#explain{position:absolute;inset:0;background:rgba(20,20,25,.45);display:flex;align-items:center;justify-content:center;z-index:60}
+.ex-card{width:78%;max-width:800px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.ex-head{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:var(--ambg);border-bottom:1px solid var(--ambd)}
+.ex-head #ex-title{font-size:20px;font-weight:900;color:#92700e}
+#ex-close{background:#fff;border:1px solid var(--bd2);border-radius:8px;width:34px;height:34px;font-size:15px;cursor:pointer;color:#666;font-family:inherit}
+#ex-body{padding:20px}
+#ex-body .sk{font-size:18px;line-height:1.6;margin-bottom:14px}
+#ex-body .skr{display:block;color:var(--kr);font-weight:600;font-size:14px;margin-top:4px}
+#ex-body .sex{font-size:19px;background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;margin-bottom:12px;line-height:1.9}
+#ex-body .sex .ok{color:var(--ok);font-weight:800}
+#ex-body .sex .ng{color:var(--ng);font-weight:800}
+#ex-body .stip{font-size:14px;color:#444;background:var(--okbg);border:1px solid var(--okbd);border-radius:9px;padding:10px 13px;line-height:1.6}
+@media (max-width:820px), (orientation:portrait){
+  body{display:block;background:#fff}
+  #app{width:100%;aspect-ratio:auto;min-height:100vh;min-height:100dvh;border-radius:0;box-shadow:none}
+  #bar{padding:0 12px;gap:8px;height:50px}
+  #bar .brand{font-size:15px}
+  #bar .rng{display:none}
+  #dots{gap:5px;height:28px;flex-wrap:wrap}
+  #dots .d{width:9px;height:9px}
+  #dots .gap{width:4px}
+  #stage{padding:14px 14px;align-items:flex-start}
+  .start{padding-top:24px}
+  .start h1{font-size:26px}
+  .sent{font-size:22px;margin:16px 0 18px}
+  .sent .who{font-size:15px}
+  .sent .blank{min-width:70px}
+  .word{font-size:38px;margin:12px 0 14px}
+  .choices{grid-template-columns:1fr;gap:9px}
+  .choice{font-size:19px;padding:11px 14px}
+  .choices.one .choice{font-size:16px;padding:10px 12px}
+  .choice .no{width:28px;height:28px;font-size:14px}
+  .inst{font-size:13px}
+  #ctrl{position:sticky;bottom:0;height:auto;padding:10px 12px;gap:8px}
+  #ctrl .btn{padding:10px 14px;font-size:14px}
+  .rtop{flex-direction:column;align-items:stretch;gap:10px}
+  .secs{grid-template-columns:1fr 1fr}
+  .rlist{grid-template-columns:1fr;max-height:none}
+  .ritem .kj{width:auto;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+  .ritem{flex-wrap:wrap;row-gap:2px}
+  .ritem .ua{flex-basis:100%;padding-left:58px;margin-left:0;white-space:normal}
+  .rbtns{flex-wrap:wrap}
+  .ex-card{width:94%}
+  #explain{position:fixed}
+  #ex-body .sex{font-size:16px}
+}
+@media print{
+  body{background:#fff}
+  #app{box-shadow:none;width:100%;aspect-ratio:auto}
+  #ctrl,#bar .timer{display:none}
+  .rlist{max-height:none}
+}
+
+.sets{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:6px;text-align:left}
+.set{border:2px solid var(--bd);border-radius:12px;padding:12px 14px;cursor:pointer;background:#fff;transition:.12s}
+.set:hover{border-color:var(--accent);background:#f7faff}
+.set .no{font-size:13px;font-weight:800;color:var(--accent)}
+.set .th{font-size:14px;font-weight:700;line-height:1.55;margin-top:4px;color:#333}
+.set .best{font-size:12px;font-weight:700;color:var(--ok);margin-top:6px;min-height:16px}
+.set .best.none{color:var(--mut);font-weight:600}
+.qtag .tg{display:inline-block;margin-left:8px;font-size:11.5px;font-weight:700;border-radius:6px;padding:1px 7px;border:1px solid var(--krbd);color:var(--kr);background:var(--krbg);letter-spacing:0}
+.qtag .tg.kri{border-color:#ddd6fe;color:#7c3aed;background:#f5f3ff}
+.ex-rule{font-size:16px;line-height:1.6;border-bottom:1px solid #eee;padding:8px 2px}
+.ex-rule b{color:var(--ok)}
+.ex-rule .k{display:block;color:var(--kr);font-size:13.5px}
+#ex-body{max-height:62vh;overflow:auto}
+@media (max-width:820px), (orientation:portrait){
+  .sets{grid-template-columns:1fr;gap:8px}
+  .set{padding:10px 12px}
+  .secs{grid-template-columns:1fr 1fr 1fr}
+  .sec .t{font-size:11px}
+  .ex-rule{font-size:14.5px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="bar">
+    <span class="brand">文型チャレンジ <span class="a">·</span></span>
+    <span class="rng" id="rng">得点アップ</span>
+    <span class="sp"></span>
+    <span class="qcount hidden" id="qcount">1 / 36</span>
+    <span class="timer hidden" id="timer">10:00</span>
+  </div>
+  <div id="dots" class="hidden"></div>
+
+  <div id="stage">
+    <div class="start" id="startScreen">
+      <h1>得点アップ <span class="a">文型チャレンジ</span></h1>
+      <div class="sub">模試で迷った文型と、その仲間たち。好きなセットからどうぞ！</div>
+      <div class="subk">모의고사에서 헷갈렸던 문형과 그 친구들. 원하는 세트부터 도전!</div>
+      <div class="sets" id="sets"></div>
+      <div class="opts-toggle">
+        <label><input type="checkbox" id="useTimer" checked> 10分タイマーを使う</label>
+        <span style="color:#c9c7bf">|</span>
+        <span style="color:var(--mut);font-size:13px">1セット 36問・4択</span>
+      </div>
+    </div>
+    <div class="qwrap hidden" id="qScreen"></div>
+    <div class="result hidden" id="rScreen"></div>
+  </div>
+
+  <div id="ctrl" class="hidden">
+    <button class="btn" id="prevBtn">← 前へ</button>
+    <div style="display:flex;gap:12px">
+      <button class="btn" id="restartBtn">最初に戻る</button>
+      <button class="btn primary" id="nextBtn">次へ →</button>
+      <button class="btn grade hidden" id="gradeBtn">答え合わせ</button>
+      <button class="btn primary hidden" id="toResultBtn">結果に戻る</button>
+    </div>
+  </div>
+
+  <div id="explain" class="hidden">
+    <div class="ex-card">
+      <div class="ex-head"><span id="ex-title"></span><button id="ex-close">✕</button></div>
+      <div id="ex-body"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 得点アップドリル 文型 01〜06（n3_score_bunkei_01–06.html）のデータをそのまま移したもの。
+// q の {} が空欄。a＝正解（o[0]）。表示時に選択肢を混ぜ、デッキ内の出題順も混ぜる。
+// t：模試＝模試で間違えた形 ／ 対比＝まぎらわしい仲間 ／ 文型＝関連文型。kri＝韓国語の訳が同じになりやすい
+const SETS = [{"n":1,"decks":[{"name":"わけ・はず ― 模試の問13","desc":"「わけ」3兄弟と「はず」を見分ける","items":[{"q":"いくら周りに言われても、あんなひどいことをした人を許す{}。","a":"わけにはいかない","o":["わけにはいかない","わけがない","わけではない","ことにする"],"r":"事情があって、できない。問13の正解","k":"~할 수는 없다","t":"模試","kri":true},{"q":"遊んでばかりいる彼が合格する{}。","a":"わけがない","o":["わけがない","わけにはいかない","わけではない","はずだ"],"r":"可能性がない＝はずがない","k":"~일 리가 없다","t":"対比","kri":true},{"q":"野菜が嫌いな{}。ただ、あまり食べないだけだ。","a":"わけではない","o":["わけではない","わけがない","わけにはいかない","はずがない"],"r":"全部は否定しない（部分否定）","k":"~한 것은 아니다","t":"対比","kri":true},{"q":"寒いのにずっと外にいたから、顔が真っ赤な{}。","a":"わけだ","o":["わけだ","はずがない","わけではない","ことだ"],"r":"理由がわかって納得する","k":"~한 것이다","t":"文型","kri":false},{"q":"残念ですが、うちで犬を飼う{}。","a":"わけにはいきません","o":["わけにはいきません","わけがありません","わけではありません","はずです"],"r":"規則・事情があるので無理","k":"~할 수는 없습니다","t":"対比","kri":false},{"q":"社長に頼まれた仕事は、嫌でもしない{}。","a":"わけにはいかない","o":["わけにはいかない","わけがない","はずがない","ことはない"],"r":"ない形＋わけにはいかない＝しなければならない","k":"안 할 수는 없다","t":"文型","kri":true},{"q":"昨日買ったばかりの卵だから新鮮な{}。","a":"はずだ","o":["はずだ","わけにはいかない","はずがない","ところだ"],"r":"根拠がある推測","k":"~할 것이다","t":"文型","kri":false},{"q":"歴史に詳しい君が知らない{}。","a":"はずがない","o":["はずがない","はずだ","わけにはいかない","ことはない"],"r":"＝わけがない（可能性ゼロ）","k":"~할 리가 없다","t":"対比","kri":true},{"q":"部屋の明かりがついているから、留守の{}と思う。","a":"はずがない","o":["はずがない","はずだ","わけにはいかない","ことだ"],"r":"明かり＝根拠。だから「ない」と言える","k":"부재중일 리가 없다","t":"文型","kri":false},{"q":"遅刻したら、先生は怒る{}。","a":"に決まっている","o":["に決まっている","わけではない","ことにする","ようにする"],"r":"当然そうなる（強い確信・話し言葉）","k":"당연히 ~할 것이다","t":"文型","kri":false},{"q":"あの俳優は今年きっと売れる{}。","a":"に違いない","o":["に違いない","に決まる","わけではない","ことだ"],"r":"きっと〜に違いない＝強い推測","k":"~임에 틀림없다","t":"文型","kri":false},{"q":"お金がない{}けれど、むだづかいはしたくない。","a":"わけではない","o":["わけではない","わけがない","はずがない","わけにはいかない"],"r":"〜わけではないけれど＝そこまでではない","k":"~한 건 아니지만","t":"対比","kri":true}]},{"name":"さえ〜ば・たところ・させていただく","desc":"問2・問3・問12の形とその仲間","items":[{"q":"好きな人に「君{}いれば何もいらない」と言われた。","a":"さえ","o":["さえ","しか","ばかり","かも"],"r":"問2の正解。さえ〜ば＝それだけで十分","k":"~만 있으면","t":"模試","kri":false},{"q":"彼が携帯を持って{}いれば、連絡はできる。","a":"さえ","o":["さえ","しか","だけで","ほど"],"r":"て形＋さえいれば","k":"가지고 있기만 하면","t":"文型","kri":false},{"q":"何が必要なのか{}わかれば、それを買っていくのに。","a":"さえ","o":["さえ","しか","ばかり","まで"],"r":"〜さえ＋ば形","k":"~만 알면","t":"文型","kri":false},{"q":"宣伝の紙を配る{}、私にも手伝わせてください。","a":"だけでよければ","o":["だけでよければ","だけに","ばかりか","としても"],"r":"〜だけでよければ＝それだけでいいなら","k":"~만으로 좋다면","t":"文型","kri":false},{"q":"今日{}、買い物に付き合える。","a":"でなくてもよければ","o":["でなくてもよければ","でなければ","ではないと","だけに"],"r":"Nでなくてもよければ＝その日でなくていいなら","k":"~가 아니라도 좋다면","t":"文型","kri":false},{"q":"違いが気になって調べて{}、クッキーはビスケットの一種だとわかった。","a":"みたところ","o":["みたところ","みただけで","みるのは","みるだろうに"],"r":"問12の正解。たところ＝した結果","k":"조사해 본 결과","t":"模試","kri":false},{"q":"アンケート調査をして{}、意外な結果が出た。","a":"みたところ","o":["みたところ","みるところ","みたばかり","みるうちに"],"r":"た形＋ところ＝そうしたら…だった","k":"해 보니","t":"文型","kri":false},{"q":"空港に着いた{}、あやしい人が話しかけてきた。","a":"とたん","o":["とたん","ばかり","ものだ","うえで"],"r":"たとたん＝した瞬間（予想外のこと）","k":"~하자마자","t":"文型","kri":false},{"q":"買った{}のテレビなのに、壊れてしまった。","a":"ばかり","o":["ばかり","ところ","とたん","うえ"],"r":"たばかり＝してまだ時間がたっていない","k":"산 지 얼마 안 된","t":"文型","kri":false},{"q":"学生「資料をコピー{}いただけますか。」","a":"させて","o":["させて","して","されて","させられて"],"r":"問3の正解。自分がする＋許可をもらう","k":"(제가) 복사해도 될까요","t":"模試","kri":true},{"q":"先生、もう一度説明し{}いただけますか。","a":"て","o":["て","させて","られて","させられて"],"r":"ていただく＝相手にしてもらう（お願い）","k":"설명해 주실 수 있을까요","t":"対比","kri":true},{"q":"体調が悪いので、今日は早く帰らせて{}。","a":"いただけませんか","o":["いただけませんか","しまいませんか","おきませんか","みませんか"],"r":"させていただけませんか＝自分の行動の許可を求める","k":"가도 될까요","t":"文型","kri":false}]},{"name":"理由と結果 ― 読解の合図","desc":"せいで・おかげ・ことで・だけあって…","items":[{"q":"寝坊した{}、新幹線に乗れなかった。","a":"せいで","o":["せいで","おかげで","ことから","とおりに"],"r":"悪い結果の原因","k":"~탓에","t":"対比","kri":true},{"q":"外国人の友達が多いのは、海外で暮らしていた{}だ。","a":"おかげ","o":["おかげ","せい","くせ","わけに"],"r":"いい結果の原因","k":"~덕분","t":"対比","kri":true},{"q":"本田君は色々な知識がある{}、「歩く辞書」と呼ばれている。","a":"ことから","o":["ことから","ことに","ことには","ものの"],"r":"ことから＝名前・判断の理由","k":"~하기 때문에","t":"文型","kri":false},{"q":"早く起きる{}、ゆっくり朝食が食べられるようになった。","a":"ことで","o":["ことで","ことに","ように","くせに"],"r":"ことで＝それが手段・原因になって","k":"~함으로써","t":"文型","kri":false},{"q":"野菜をおいしく育てる{}は、水と太陽といい土が必要だ。","a":"ために","o":["ために","ように","ことに","おかげ"],"r":"目的（意志動詞）＋ためには","k":"~위해서는","t":"文型","kri":false},{"q":"A大学を目指している{}、山田さんは頭がいい。","a":"だけあって","o":["だけあって","くせに","わりに","せいで"],"r":"だけあって＝それにふさわしく（ほめる）","k":"~한 만큼","t":"文型","kri":false},{"q":"頭はいい{}、なんで勉強しないんだろう。","a":"くせに","o":["くせに","おかげで","だけあって","ために"],"r":"くせに＝非難・不満","k":"~주제에","t":"対比","kri":false},{"q":"友達は頭がいい{}成績は大して良くないらしい。","a":"わりに","o":["わりに","だけあって","おかげで","ために"],"r":"わりに＝予想と比べて","k":"~에 비해서","t":"対比","kri":false},{"q":"練習した{}結果があまりよくなかった。","a":"にしては","o":["にしては","によって","に対して","について"],"r":"にしては＝そこから予想するのと違う","k":"~치고는","t":"文型","kri":false},{"q":"最近無理をしているから、いつ病気になって{}と思う。","a":"もおかしくない","o":["もおかしくない","はいけない","ばかりいる","しまった"],"r":"てもおかしくない＝そうなっても当然","k":"~해도 이상하지 않다","t":"文型","kri":false},{"q":"昨日雨が降ったので、車が汚くても{}。","a":"不思議ではない","o":["不思議ではない","知らない","いけない","ならない"],"r":"ても不思議ではない＝当然だ","k":"~해도 이상하지 않다","t":"文型","kri":false},{"q":"小さい{}怒らないで。","a":"ことで","o":["ことで","ことから","ことに","ものを"],"r":"ことで＝そのくらいのことで","k":"작은 일로","t":"文型","kri":false}]}]},{"n":2,"decks":[{"name":"に〜て ― 立場と対象","desc":"にとって・に対して・について…","items":[{"q":"私{}人生でいちばん大切なのは家族の幸せだ。","a":"にとって","o":["にとって","に対して","について","によって"],"r":"立場から見た評価","k":"~에게 있어서","t":"対比","kri":true},{"q":"この美術館は学生{}割引サービスを行っている。","a":"に対して","o":["に対して","にとって","について","によって"],"r":"行為が向かう相手","k":"~에 대하여","t":"対比","kri":true},{"q":"農村{}調べている。","a":"について","o":["について","に対して","にとって","において"],"r":"テーマ（〜のことを）","k":"~에 대해서","t":"対比","kri":true},{"q":"人生{}もっとも重要だと思うことは何ですか。","a":"において","o":["において","に対して","に比べて","を通じて"],"r":"において＝〜で（場面・分野、かたい）","k":"~에 있어서","t":"文型","kri":false},{"q":"彼は歌手{}有名になった。","a":"として","o":["として","にとって","について","にして"],"r":"資格・立場","k":"~로서","t":"文型","kri":false},{"q":"私{}あなたの意見に賛成することはできません。","a":"としては","o":["としては","にとっては","については","によっては"],"r":"としては＝〜の立場では","k":"~의 입장으로서는","t":"対比","kri":false},{"q":"レポート{}、相談したいことがあるんですが…。","a":"のことで","o":["のことで","によって","に対して","にとって"],"r":"のことで＝〜の件で（相談・話）","k":"~에 대해서(용건)","t":"文型","kri":false},{"q":"そのうわさ{}いろんな意見がある。","a":"をめぐって","o":["をめぐって","をもとに","を中心に","を通じて"],"r":"をめぐって＝それについて意見が分かれる","k":"~를 둘러싸고","t":"文型","kri":false},{"q":"この小説は実際にあった事件{}している。","a":"をもとに","o":["をもとに","をめぐって","を中心に","に対して"],"r":"をもとにする＝材料・土台","k":"~를 토대로","t":"文型","kri":false},{"q":"先生{}写真を撮りましょう。","a":"を中心に","o":["を中心に","をもとに","をめぐって","によって"],"r":"を中心に＝真ん中に","k":"~을 중심으로","t":"文型","kri":false},{"q":"松本さんの努力{}今回のような成果はありえなかった。","a":"を抜きにして","o":["を抜きにして","をもとに","を中心に","を通じて"],"r":"を抜きにして＝それを除いて","k":"~을 빼고","t":"文型","kri":false},{"q":"この国は一年{}暖かいので、雪が降りません。","a":"を通じて","o":["を通じて","にかけて","をめぐって","に対して"],"r":"を通じて＝その期間ずっと","k":"~내내","t":"文型","kri":false}]},{"name":"によって・範囲・比較","desc":"によると・にわたって・に比べて…","items":[{"q":"人{}考え方が違う。","a":"によって","o":["によって","にとって","に対して","について"],"r":"によって＝それぞれ違う","k":"~에 따라서","t":"対比","kri":true},{"q":"台風{}被害が大きいそうです。","a":"による","o":["による","によると","にとって","について"],"r":"による＋名詞","k":"~에 의한","t":"文型","kri":false},{"q":"天気予報{}明日は晴れだそうです。","a":"によると","o":["によると","によって","による","について"],"r":"によると…そうだ（伝聞とセット）","k":"~에 의하면","t":"対比","kri":false},{"q":"中田先生の講義は2時間{}続いた。","a":"にわたって","o":["にわたって","にかけて","に対して","によって"],"r":"にわたって＝その長い範囲ずっと","k":"~에 걸쳐","t":"対比","kri":true},{"q":"この仕事は夏休み{}特に忙しくなる。","a":"にかけて","o":["にかけて","に対して","について","によって"],"r":"にかけて＝その時期のあたり","k":"~에 걸쳐","t":"対比","kri":true},{"q":"日本{}ベトナムの方が物価が安い。","a":"に比べて","o":["に比べて","に対して","について","に加えて"],"r":"比べる基準","k":"~에 비하여","t":"文型","kri":false},{"q":"彼女は仕事{}子育てもしている。","a":"に加えて","o":["に加えて","に比べて","に対して","に反して"],"r":"それだけでなく、さらに","k":"~에 더하여","t":"文型","kri":false},{"q":"予想{}、今年の試験は難しくなかったそうだ。","a":"に反して","o":["に反して","に比べて","に加えて","によって"],"r":"予想・期待と反対の結果","k":"~와 달리","t":"文型","kri":false},{"q":"タイ、ベトナム{}東南アジアに旅行に行きたい。","a":"といった","o":["といった","という","として","にとって"],"r":"A、BといったC＝例を挙げる","k":"~와 같은","t":"文型","kri":false},{"q":"母が作るケーキ{}おいしいものはない。","a":"ほど","o":["ほど","だけ","さえ","しか"],"r":"AほどBはない＝Aがいちばん","k":"~만큼 ~한 것은 없다","t":"文型","kri":false},{"q":"スマホはただの連絡手段{}。","a":"でしかない","o":["でしかない","しかない","にしかない","ほかない"],"r":"Nでしかない＝それ以上ではない","k":"~에 불과하다","t":"文型","kri":false},{"q":"この仕事はあなた{}できない。","a":"にしか","o":["にしか","でしか","だけ","さえ"],"r":"にしかできない＝その人だけができる","k":"~밖에 할 수 없다","t":"文型","kri":false}]},{"name":"韓国語で同じ訳 ― 見分け","desc":"だって・でいい・ごとに・たびに…","items":[{"q":"そのくらいは小学生{}知っているはずだ。","a":"だって","o":["だって","だけ","しか","ほど"],"r":"Nだって＝〜でも（話し言葉）","k":"~라도","t":"文型","kri":false},{"q":"おやつは一つ{}。","a":"でいい","o":["でいい","にいい","をいい","のいい"],"r":"Nでいい＝それで十分","k":"~면 된다","t":"文型","kri":false},{"q":"私はハンバーグ{}します。","a":"に","o":["に","を","で","が"],"r":"Nにする＝選ぶ・決める","k":"~로 하다","t":"文型","kri":false},{"q":"パンが焼ける{}、すぐお店に出して売っている。","a":"ごとに","o":["ごとに","ことに","ばかりに","とおりに"],"r":"ごとに＝〜のたびに","k":"~마다","t":"対比","kri":true},{"q":"アラームは10分{}鳴るようにしてある。","a":"ごとに","o":["ごとに","たびに","うちに","までに"],"r":"数量＋ごとに＝一定の間隔","k":"10분마다","t":"対比","kri":true},{"q":"親に会う{}、「いつ結婚するの」と聞かれる。","a":"たびに","o":["たびに","うちに","ついでに","とおりに"],"r":"たびに＝〜するときはいつも","k":"~할 때마다","t":"対比","kri":true},{"q":"この料理は、人{}好き嫌いが分かれる。","a":"によって","o":["によって","にとって","に対して","について"],"r":"によって＝それぞれ違う","k":"사람에 따라","t":"対比","kri":true},{"q":"この問題{}、みんなで話し合いましょう。","a":"について","o":["について","にとって","によって","に反して"],"r":"話し合う・調べる＋について","k":"~에 대해서","t":"対比","kri":true},{"q":"お客様{}、失礼なことを言ってはいけない。","a":"に対して","o":["に対して","にとって","について","によって"],"r":"態度・行為の相手","k":"~에게","t":"対比","kri":true},{"q":"健康な人{}、この運動は簡単だ。","a":"にとって","o":["にとって","に対して","によって","について"],"r":"評価の立場（簡単だ・難しい）","k":"~에게는","t":"対比","kri":true},{"q":"夏から秋{}、雨が多い。","a":"にかけて","o":["にかけて","を通じて","について","にとって"],"r":"AからBにかけて","k":"~에 걸쳐","t":"対比","kri":false},{"q":"10年{}研究を続けてきた。","a":"にわたって","o":["にわたって","にかけて","について","にとって"],"r":"長い期間・範囲の全部","k":"~에 걸쳐","t":"対比","kri":false}]}]},{"n":3,"decks":[{"name":"て形① 状態・準備・完了","desc":"てある・ておく・てしまう・たまま…","items":[{"q":"テーブルの上には花が飾って{}。","a":"ある","o":["ある","いる","おく","しまう"],"r":"他動詞て形＋ある＝誰かがした結果の状態","k":"~되어 있다","t":"対比","kri":true},{"q":"お客さんが来る前に、部屋を片付けて{}。","a":"おこう","o":["おこう","いこう","あろう","いよう"],"r":"ておく＝前もって準備する","k":"~해 두자","t":"文型","kri":false},{"q":"人が多いから待って{}。","a":"います","o":["います","あります","おきます","しまいます"],"r":"ている＝進行中","k":"~하고 있다","t":"文型","kri":false},{"q":"お皿を割って{}。","a":"しまいました","o":["しまいました","おきました","ありました","いきました"],"r":"てしまう＝残念・完了","k":"~해 버렸다","t":"文型","kri":false},{"q":"発表で大きな失敗をし{}。","a":"ちゃった","o":["ちゃった","とった","ておいた","てあった"],"r":"ちゃう＝てしまう（話し言葉）","k":"해 버렸다","t":"文型","kri":false},{"q":"雨が降りそうだから、傘を持って{}。","a":"いこう","o":["いこう","あろう","しまおう","いよう"],"r":"ていく＝持って出かける","k":"가지고 가자","t":"文型","kri":false},{"q":"友だちを待っている{}、音楽をきいていました。","a":"間に","o":["間に","ために","ばかりに","とたんに"],"r":"ている間に＝その時間の中で","k":"~하는 동안에","t":"文型","kri":false},{"q":"テレビをつけた{}寝てしまった。","a":"まま","o":["まま","ながら","うちに","たびに"],"r":"たまま＝その状態を変えずに","k":"켠 채","t":"文型","kri":false},{"q":"エアコンをつけ{}にしていると、電気代が高くなる。","a":"っぱなし","o":["っぱなし","ながら","まま","すぎ"],"r":"ます形＋っぱなし＝そのまま放っておく","k":"켜 놓은 채","t":"文型","kri":false},{"q":"量が多すぎて食べ{}なかった。","a":"きれ","o":["きれ","すぎ","はじめ","かけ"],"r":"ます形＋きれない＝全部はできない","k":"다 먹을 수 없었다","t":"文型","kri":false},{"q":"借りたDVDはもう全部見{}から、返しに行く。","a":"終わった","o":["終わった","始めた","直した","出した"],"r":"ます形＋終わる","k":"다 봤다","t":"文型","kri":false},{"q":"テーマを変えたので、レポートを最初から書き{}。","a":"直した","o":["直した","終わった","きれた","っぱなした"],"r":"ます形＋直す＝もう一度やる","k":"다시 썼다","t":"文型","kri":false}]},{"name":"て形② 順番と時間","desc":"てから・て以来・うちに・最中に…","items":[{"q":"宿題を終えて{}遊びに行きなさい。","a":"から","o":["から","まで","ので","ても"],"r":"てから＝順番","k":"~하고 나서","t":"文型","kri":false},{"q":"この仕事が全部終わって{}帰れません。","a":"からでないと","o":["からでないと","からでも","からには","からこそ"],"r":"てからでないと〜ない＝先にしないとできない","k":"~하지 않고서는","t":"文型","kri":false},{"q":"マラソンを始めて{}、毎朝走っている。","a":"以来","o":["以来","まで","ばかり","うえで"],"r":"て以来＝そのときからずっと","k":"~한 이래","t":"文型","kri":false},{"q":"社会人になって{}、お金を稼ぐことの大変さが分かった。","a":"はじめて","o":["はじめて","ばかり","ほしい","おいて"],"r":"てはじめて＝その経験をして初めて","k":"~하고 나서야 비로소","t":"文型","kri":false},{"q":"相手の意見を理解した{}自分の考えを話してください。","a":"うえで","o":["うえで","うちに","ところで","とたんに"],"r":"たうえで＝ちゃんと〜してから","k":"~한 후에","t":"文型","kri":false},{"q":"食事をする{}手を洗いましょう。","a":"前に","o":["前に","後に","うちに","間に"],"r":"Vる（辞書形）＋前に","k":"~하기 전에","t":"文型","kri":false},{"q":"忘れない{}、みんなに連絡しておきましょう。","a":"うちに","o":["うちに","前に","間に","までに"],"r":"ないうちに＝そうなる前に","k":"잊기 전에","t":"対比","kri":true},{"q":"料理は熱い{}食べたほうがおいしい。","a":"うちに","o":["うちに","間に","前に","ところに"],"r":"うちに＝その状態が変わる前に","k":"뜨거울 때","t":"文型","kri":false},{"q":"勉強をしている{}停電した。","a":"最中に","o":["最中に","前に","ついでに","たびに"],"r":"最中に＝ちょうどしているとき","k":"한창 ~하는 중에","t":"文型","kri":false},{"q":"郵便局に行く{}本屋によって雑誌を買って来てくれない？","a":"ついでに","o":["ついでに","うちに","たびに","最中に"],"r":"ついでに＝その機会に別のことも","k":"~하는 김에","t":"文型","kri":false},{"q":"仕事が終わって、これから帰る{}だった。","a":"ところ","o":["ところ","うち","まま","たび"],"r":"Vる＋ところだ＝ちょうど〜する直前","k":"~하려던 참","t":"文型","kri":false},{"q":"子供のころは、この公園でよく遊んだ{}。","a":"ものだ","o":["ものだ","ことだ","わけだ","はずだ"],"r":"たものだ＝昔の習慣をなつかしむ","k":"~하곤 했다","t":"文型","kri":false}]},{"name":"気持ち・経験・うえに／かわりに","desc":"てほしい・ばよかった・だけで…","items":[{"q":"もしよかったら、少し手伝って{}です。","a":"ほしい","o":["ほしい","たい","あげる","いい"],"r":"てほしい＝相手にしてもらいたい","k":"도와줬으면 좋겠다","t":"文型","kri":false},{"q":"食事が終わったら、1階でお土産を見ていて{}。","a":"もかまいません","o":["もかまいません","ばかりいません","しまいません","はじめません"],"r":"てもかまわない＝してもいい（許可）","k":"~해도 괜찮다","t":"文型","kri":false},{"q":"もう一度ゆっくりやって{}。","a":"ごらん","o":["ごらん","あげ","ばかり","おき"],"r":"てごらん＝やってみなさい（目下に）","k":"~해 보렴","t":"文型","kri":false},{"q":"最近遊んで{}いたせいで成績が落ちた。","a":"ばかり","o":["ばかり","だけ","しか","ほど"],"r":"てばかりいる＝そればかりしている（批判）","k":"~하기만 하다","t":"文型","kri":false},{"q":"日本の小説を読んだ{}がある。","a":"こと","o":["こと","もの","ところ","わけ"],"r":"たことがある＝経験","k":"~한 적이 있다","t":"文型","kri":false},{"q":"両親は飛行機に乗った{}がない。","a":"こと","o":["こと","もの","ところ","ため"],"r":"たことがない","k":"~한 적이 없다","t":"文型","kri":false},{"q":"私も行け{}よかった。","a":"ば","o":["ば","て","と","なら"],"r":"ばよかった＝後悔","k":"갈 걸 그랬다","t":"文型","kri":false},{"q":"この割引券がまだ有効なら{}よかったのに。","a":"ば","o":["ば","と","て","が"],"r":"ならばよかったのに","k":"좋았을 텐데","t":"文型","kri":false},{"q":"あなたが笑ってくれる{}、私は幸せです。","a":"だけで","o":["だけで","だけに","ばかりか","だけでなく"],"r":"だけで＝それだけで十分","k":"~만으로","t":"文型","kri":false},{"q":"一人で家事をするのは大変な{}、できないことではない。","a":"だけで","o":["だけで","だけに","だけあって","ばかりか"],"r":"だけで＝ただ〜というだけ","k":"힘들 뿐","t":"文型","kri":false},{"q":"友達は宿題を早く終わらせた{}、私の宿題もしてくれた。","a":"うえに","o":["うえに","うちに","ために","かわりに"],"r":"うえに＝さらに加えて","k":"~한 데다가","t":"文型","kri":false},{"q":"私が洗濯物をたたむ{}、あなたはお皿を洗ってね。","a":"かわりに","o":["かわりに","うえに","ついでに","ために"],"r":"かわりに＝代わりとして","k":"~대신에","t":"文型","kri":false}]}]},{"n":4,"decks":[{"name":"こと系 ― 決める・決まる","desc":"ことにする・ことになる・ことはない…","items":[{"q":"友だちと旅行に行く{}した。","a":"ことに","o":["ことに","ことが","ために","ところに"],"r":"ことにする＝自分で決める","k":"~하기로 했다","t":"対比","kri":true},{"q":"親の転勤でアメリカに行く{}なりました。","a":"ことに","o":["ことに","ために","そうに","ところに"],"r":"ことになる＝自分以外が決める","k":"~하게 되었다","t":"対比","kri":true},{"q":"運転免許は10年ごとに更新する{}なっている。","a":"ことに","o":["ことに","ように","ために","ところに"],"r":"ことになっている＝規則・予定","k":"~하게 되어 있다","t":"文型","kri":false},{"q":"失敗しただけで、そんなに泣く{}ない。","a":"ことは","o":["ことは","ことが","ものが","ほうは"],"r":"ことはない＝する必要はない","k":"~할 필요는 없다","t":"対比","kri":false},{"q":"かぜを早く治したいんだったら、ぐっすり寝る{}だ。","a":"こと","o":["こと","ところ","ばかり","ほど"],"r":"ことだ＝アドバイス","k":"~해야 한다","t":"文型","kri":false},{"q":"さまざまな方法を利用して感情を伝える{}できる。","a":"ことが","o":["ことが","ことに","ように","ほうが"],"r":"ことができる＝可能","k":"~할 수 있다","t":"文型","kri":false},{"q":"この辺りはタクシーも来ないので、歩いて行く{}ありません。","a":"ほか","o":["ほか","もの","ところ","ほう"],"r":"ほかない＝それしか方法がない","k":"~할 수밖에 없다","t":"文型","kri":false},{"q":"うそを言う{}ではない。","a":"もの","o":["もの","はず","ところ","ほう"],"r":"ものではない＝一般的に〜してはいけない","k":"~해서는 안 된다","t":"文型","kri":false},{"q":"このことは早く彼に言った{}がいい。","a":"ほう","o":["ほう","こと","もの","わけ"],"r":"ほうがいい＝アドバイス","k":"~하는 편이 좋다","t":"文型","kri":false},{"q":"この料理にはさとうを少々入れる{}いい。","a":"と","o":["と","たら","ても","のに"],"r":"Vる＋といい＝アドバイス","k":"~하면 좋다","t":"文型","kri":false},{"q":"この列車に乗る{}予約をとる必要があります。","a":"には","o":["には","ので","から","ても"],"r":"Vる＋には＝〜するためには","k":"~하려면","t":"文型","kri":false},{"q":"この山はそんなに高くないので、1時間で登れない{}もない。","a":"こと","o":["こと","もの","わけ","はず"],"r":"ないこともない＝遠回しの肯定","k":"못 할 것도 없다","t":"文型","kri":false}]},{"name":"よう系・つもり・一方","desc":"ようにする・ようになる・ようとする…","items":[{"q":"健康のために運動する{}します。","a":"ように","o":["ように","そうに","ために","はずに"],"r":"ようにする＝努力して続ける","k":"~하도록 하다","t":"対比","kri":true},{"q":"歴史をもっと学びたいと思う{}なった。","a":"ように","o":["ように","ことに","ために","そうに"],"r":"ようになる＝変化","k":"~하게 되었다","t":"対比","kri":true},{"q":"勉強し{}したのに、母に呼ばれた。","a":"ようと","o":["ようと","ように","そうと","たいと"],"r":"(よ)うとする＝しようとした直前","k":"~하려고 했다","t":"文型","kri":false},{"q":"今月から運動を始め{}思っている。","a":"ようと","o":["ようと","ように","そうと","ながら"],"r":"意向形＋と思う","k":"~하려고 생각하다","t":"文型","kri":false},{"q":"来年はヨーロッパへ旅行する{}だ。","a":"つもり","o":["つもり","ところ","ばかり","まま"],"r":"つもりだ＝予定・意志","k":"~할 계획이다","t":"文型","kri":false},{"q":"宿題が多いので今日は寝ない{}だ。","a":"つもり","o":["つもり","ところ","ばかり","まま"],"r":"ないつもりだ","k":"안 잘 생각이다","t":"文型","kri":false},{"q":"明日からは遅刻しない{}します。","a":"ように","o":["ように","ために","そうに","まで"],"r":"ないようにする","k":"지각하지 않도록","t":"文型","kri":false},{"q":"子どもの数は減る{}だ。","a":"一方","o":["一方","ところ","まま","ため"],"r":"一方だ＝どんどん〜する（悪い方向）","k":"~하기만 하다","t":"文型","kri":false},{"q":"自転車が健康にいいと注目される{}、自転車事故が増えている。","a":"一方で","o":["一方で","一方だ","ばかりで","ところで"],"r":"一方で＝その反面","k":"~하는 한편","t":"文型","kri":false},{"q":"生きる{}、一番重要なものは何だと思う？","a":"うえで","o":["うえで","ところで","うちに","まえに"],"r":"Vる＋うえで＝〜するのに","k":"~에 있어서","t":"文型","kri":false},{"q":"この料理は誰でも失敗せ{}おいしく作れる。","a":"ずに","o":["ずに","ないで","ないと","ずで"],"r":"ずに＝ないで（書き言葉）。する→せずに","k":"~하지 않고","t":"対比","kri":false},{"q":"一週間も授業に来{}何をしていたの？","a":"ないで","o":["ないで","ないと","なければ","ないから"],"r":"ないで＝〜しない状態で","k":"오지 않고","t":"対比","kri":false}]},{"name":"ます形につく文型","desc":"がちだ・かねない・そうになる…","items":[{"q":"子供は好きなものだけ食べ{}だ。","a":"がち","o":["がち","やすい","にくい","たい"],"r":"ます形＋がちだ＝そうなることが多い（悪い傾向）","k":"~하기 쉽다","t":"対比","kri":true},{"q":"週末も仕事していたら、病気になり{}よ。","a":"かねない","o":["かねない","がちな","そうな","きれない"],"r":"かねない＝悪いことが起こる可能性","k":"~할지도 모른다","t":"文型","kri":false},{"q":"いくら頑張っても、でき{}もない。","a":"そう","o":["そう","よう","たく","がち"],"r":"そうもない＝可能性がない","k":"~할 것 같지도 않다","t":"文型","kri":false},{"q":"雨はまだ降り{}にない。","a":"そう","o":["そう","よう","たく","がち"],"r":"そうにない＝そうもない","k":"내릴 것 같지 않다","t":"文型","kri":false},{"q":"事故を起こし{}になったことがある。","a":"そう","o":["そう","よう","たく","がち"],"r":"そうになる＝もう少しで","k":"~할 뻔하다","t":"文型","kri":false},{"q":"いまにも泣き{}な顔をしている。","a":"そう","o":["そう","たい","っぱなし","すぎ"],"r":"いまにも〜そうだ","k":"금세라도 울 것 같은","t":"文型","kri":false},{"q":"ここでは話し{}内容だから、あとで話すね。","a":"にくい","o":["にくい","やすい","がちな","たい"],"r":"にくい＝〜するのが難しい","k":"~하기 어렵다","t":"対比","kri":true},{"q":"日本は韓国から近いので行き{}。","a":"やすい","o":["やすい","にくい","がちだ","かねない"],"r":"やすい＝〜するのが簡単","k":"~하기 쉽다","t":"対比","kri":true},{"q":"先週からピアノを習い{}。","a":"始めた","o":["始めた","終わった","直した","きれた"],"r":"ます形＋始める","k":"~하기 시작했다","t":"文型","kri":false},{"q":"このコーヒーは熱{}。","a":"すぎる","o":["すぎる","がちだ","やすい","かねない"],"r":"イ形語幹＋すぎる","k":"너무 뜨겁다","t":"文型","kri":false},{"q":"彼女はいつも上品{}て、ただの一般人とは思えない。","a":"すぎ","o":["すぎ","がち","にくく","やすく"],"r":"ナ形語幹＋すぎる","k":"너무 고상해서","t":"文型","kri":false},{"q":"祖父は孫に会いた{}ている。","a":"がっ","o":["がっ","そうに","すぎ","らしく"],"r":"〜たがる＝第三者の希望","k":"만나고 싶어 한다","t":"文型","kri":false}]}]},{"n":5,"decks":[{"name":"条件 ― と・ば・たら・なら","desc":"と・ば・たら・なら・としたら…","items":[{"q":"砂糖を入れる{}甘くなります。","a":"と","o":["と","なら","のに","ても"],"r":"と＝いつも同じ結果になる","k":"넣으면","t":"対比","kri":true},{"q":"何でも積極的ではない{}せっかくの機会を失ってしまう。","a":"と","o":["と","なら","ので","のに"],"r":"ないと＝〜しなければ（悪い結果）","k":"~하지 않으면","t":"文型","kri":false},{"q":"薬を飲ん{}少し楽になりました。","a":"だら","o":["だら","だと","でも","だり"],"r":"たら＝〜したら（結果・発見）","k":"먹었더니","t":"対比","kri":true},{"q":"本{}何でも好きです。","a":"なら","o":["なら","たら","ので","ほど"],"r":"Nなら＝その話題なら","k":"책이라면","t":"対比","kri":true},{"q":"一人で処理するのが困難{}、誰かにお願いすることにします。","a":"なら","o":["なら","たら","ので","のに"],"r":"ナ形語幹＋なら","k":"곤란하다면","t":"文型","kri":false},{"q":"どの電車で行け{}いちばん便利なのか知っていますか。","a":"ば","o":["ば","と","て","ても"],"r":"ば＝条件","k":"가면","t":"対比","kri":true},{"q":"考えれ{}考えるほどむずかしいね。","a":"ば","o":["ば","たら","と","ても"],"r":"〜ば〜ほど","k":"~하면 ~할수록","t":"文型","kri":false},{"q":"この服、サイズが合う{}なら君にあげるよ。","a":"よう","o":["よう","そう","ため","こと"],"r":"ようなら＝〜の場合は","k":"맞을 것 같으면","t":"文型","kri":false},{"q":"もし自分を色で表す{}、何色だと思う？","a":"としたら","o":["としたら","としても","といっても","というのに"],"r":"としたら＝仮に〜と考えると","k":"~라고 하면","t":"対比","kri":false},{"q":"犬がおとなしい{}、お店に連れて行ってもいいですか。","a":"としたら","o":["としたら","としても","といっても","からといって"],"r":"としたら","k":"얌전하다면","t":"対比","kri":false},{"q":"必死であれ{}あるほど、不安にもなる。","a":"ば","o":["ば","と","たら","なら"],"r":"であればあるほど","k":"~일수록","t":"文型","kri":false},{"q":"電話番号が変わった{}は新しい番号を教えてくださいね。","a":"場合","o":["場合","間","うち","まま"],"r":"場合は＝そういうときは（案内・ルール）","k":"~한 경우는","t":"文型","kri":false}]},{"name":"逆接 ― としても・からといって","desc":"としても・といっても・というのに…","items":[{"q":"部屋を片付けた{}、また散らかしてしまうと思います。","a":"としても","o":["としても","としたら","というのに","からといって"],"r":"としても＝仮にそうでも","k":"~라고 해도","t":"対比","kri":true},{"q":"中国語ができる{}、あいさつぐらいです。","a":"といっても","o":["といっても","としても","としたら","というのに"],"r":"といっても＝実際はそれほどではない","k":"~라고 해도","t":"対比","kri":true},{"q":"来月友だちが結婚する{}、なぜか少し悲しくなった。","a":"というのに","o":["というのに","といっても","としたら","ということだ"],"r":"というのに＝〜なのに（意外な気持ち）","k":"~라고 하는데","t":"文型","kri":false},{"q":"失敗した{}あきらめる必要はない。","a":"からといって","o":["からといって","としたら","というのに","ということで"],"r":"からといって〜ない","k":"~라고 해서","t":"文型","kri":false},{"q":"安い{}、今はお金がなくて買えません。","a":"にしても","o":["にしても","にしては","によって","について"],"r":"にしても＝〜としても","k":"싸다고 해도","t":"対比","kri":true},{"q":"このコップは小さい{}重い。","a":"にしては","o":["にしては","によって","にとって","について"],"r":"にしては＝予想と違って","k":"~치고는","t":"対比","kri":true},{"q":"いつもお金がないって言ってる{}よく旅行に行くね。","a":"わりに","o":["わりに","だけに","せいで","おかげで"],"r":"わりに","k":"~에 비해서","t":"文型","kri":false},{"q":"彼は遅れてきた{}、席が悪いと文句を言った。","a":"くせに","o":["くせに","おかげで","だけあって","うえで"],"r":"くせに＝非難","k":"~주제에","t":"文型","kri":false},{"q":"必ずしも勝つ{}限りません。","a":"とは","o":["とは","には","のは","では"],"r":"必ずしも〜とは限らない","k":"반드시 ~라고는 할 수 없다","t":"文型","kri":false},{"q":"小学校から同じクラスだから{}、親しいとは限りません。","a":"といって","o":["といって","としたら","というのに","ことで"],"r":"からといって〜とは限らない","k":"~라고 해서","t":"文型","kri":false},{"q":"あの二人は姉妹の{}顔も性格も似ていない。","a":"わりに","o":["わりに","おかげで","ために","ついでに"],"r":"Nのわりに","k":"자매인 것에 비해","t":"文型","kri":false},{"q":"人生初めての面接{}、全く緊張しなかった。","a":"にしては","o":["にしては","にしても","によって","について"],"r":"Nにしては","k":"~치고는","t":"文型","kri":false}]},{"name":"伝聞・だけ系","desc":"って・ということだ・だけでなく…","items":[{"q":"日本ではスイカに塩をかけて食べるんだ{}。","a":"って","o":["って","と","で","か"],"r":"んだって＝〜そうだ（話し言葉の伝聞）","k":"~한대","t":"文型","kri":false},{"q":"林さんがやめる{}うわさを聞きました。","a":"という","o":["という","といった","として","によって"],"r":"普通形＋という＋N","k":"~라는","t":"文型","kri":false},{"q":"この店はしばらく休業する{}。","a":"ということだ","o":["ということだ","というのに","といっても","としたら"],"r":"ということだ＝〜そうだ（伝聞）","k":"~라고 한다","t":"文型","kri":false},{"q":"試合に勝つ{}、大会で優勝したいです。","a":"だけでなく","o":["だけでなく","だけで","だけに","だけあって"],"r":"だけでなく〜も","k":"~뿐만 아니라","t":"対比","kri":true},{"q":"よく旅行に行く{}彼は英語が上手だ。","a":"だけに","o":["だけに","だけでなく","だけで","だけでよければ"],"r":"だけに＝〜だから、なおさら","k":"~만큼","t":"対比","kri":true},{"q":"このクッキーは材料を混ぜて焼く{}だから、難しくない。","a":"だけ","o":["だけ","ばかり","しか","さえ"],"r":"だけだ＝それ以上ではない","k":"~뿐이다","t":"文型","kri":false},{"q":"親切な若者は道を教えてくれた{}荷物も運んでくれました。","a":"ばかりか","o":["ばかりか","ばかりに","だけで","うえで"],"r":"ばかりか＝〜だけでなく","k":"~뿐만 아니라","t":"対比","kri":true},{"q":"このお菓子は小麦粉と卵{}できています。","a":"だけで","o":["だけで","だけに","ばかりか","さえ"],"r":"Nだけで＝それだけを使って","k":"~만으로","t":"文型","kri":false},{"q":"兄は元気だ{}、骨折していることにかわりはない。","a":"といっても","o":["といっても","としたら","というのに","ということで"],"r":"といっても","k":"건강하다고 해도","t":"文型","kri":false},{"q":"お風呂の水を捨てるのはもったいない{}人もいます。","a":"という","o":["という","といっても","として","にとって"],"r":"〜という人＝〜と言う人","k":"아깝다고 하는","t":"文型","kri":false},{"q":"駅前にあるあの広告は効果的だ{}。","a":"ということだ","o":["ということだ","というのに","といっても","としても"],"r":"ということだ","k":"효과적이라고 한다","t":"文型","kri":false},{"q":"高橋さん、この頃店が暇なんだ{}。","a":"って","o":["って","と","で","や"],"r":"って＝〜そうだ","k":"한가하대","t":"文型","kri":false}]}]},{"n":6,"decks":[{"name":"時の文型","desc":"につれ・とおりに・まま・たびに…","items":[{"q":"発表する日が近づく{}緊張してきました。","a":"につれ","o":["につれ","によって","にとって","について"],"r":"につれ＝一方が変わると他方も","k":"~에 따라","t":"対比","kri":true},{"q":"高度が上昇する{}気圧は下がる。","a":"にしたがって","o":["にしたがって","に対して","について","にとって"],"r":"にしたがって＝につれ","k":"~에 따라","t":"対比","kri":true},{"q":"健康になる{}体力もついた。","a":"とともに","o":["とともに","について","に対して","によって"],"r":"とともに＝〜と同時に","k":"~와 함께","t":"文型","kri":false},{"q":"私の言う{}にしてください。","a":"とおり","o":["とおり","ところ","ほど","うち"],"r":"とおりに＝同じように","k":"~대로","t":"文型","kri":false},{"q":"説明書の{}組み立てたら簡単に完成しました。","a":"とおりに","o":["とおりに","ままに","うちに","ために"],"r":"Nのとおりに","k":"설명서대로","t":"文型","kri":false},{"q":"出かけた息子が帰って来なくて、心配な{}一日を過ごした。","a":"まま","o":["まま","うち","とおり","たび"],"r":"まま＝その状態が続く","k":"~한 채","t":"文型","kri":false},{"q":"誕生日のお祝いの{}就職のお祝いもしましょう。","a":"ついでに","o":["ついでに","ために","うちに","とおりに"],"r":"Nのついでに","k":"~하는 김에","t":"文型","kri":false},{"q":"事件の解決の{}ニュースで大きく取り上げられる。","a":"たびに","o":["たびに","ついでに","うちに","まま"],"r":"Nのたびに","k":"~때마다","t":"文型","kri":false},{"q":"英語を学ぶ{}留学に興味を持つようになった。","a":"うちに","o":["うちに","ついでに","前に","とおりに"],"r":"うちに＋変化","k":"~하는 동안에","t":"文型","kri":false},{"q":"商品の輸送の{}問題が発生した。","a":"最中に","o":["最中に","うちに","ついでに","たびに"],"r":"Nの最中に","k":"한창 ~중에","t":"文型","kri":false},{"q":"火事、地震など、非常の{}には、階段をご利用ください。","a":"場合","o":["場合","まま","うち","たび"],"r":"場合には","k":"경우에는","t":"文型","kri":false},{"q":"風邪予防には人の多い場所を避ける{}、手を洗うのが大切だ。","a":"ほかに","o":["ほかに","ついでに","とおりに","ままに"],"r":"ほかに＝〜以外に","k":"~외에","t":"文型","kri":false}]},{"name":"義務と推量","desc":"なければならない・かもしれない…","items":[{"q":"上司に報告する時は、話し方に気をつけ{}ならない。","a":"なければ","o":["なければ","なくても","ないで","ずに"],"r":"なければならない","k":"~하지 않으면 안 된다","t":"文型","kri":false},{"q":"急いで準備し{}。","a":"なくちゃ","o":["なくちゃ","なくても","ながら","たがる"],"r":"なくちゃ＝なくてはならない（話し言葉）","k":"해야 해","t":"文型","kri":false},{"q":"簡単に勝てる相手ではないので、強気でない{}いけない。","a":"と","o":["と","ば","て","で"],"r":"ないといけない","k":"~하지 않으면 안 된다","t":"文型","kri":false},{"q":"犯人は事件の現場にまた現れる{}。","a":"かもしれない","o":["かもしれない","ようにする","ことにする","わけにする"],"r":"かもしれない＝可能性","k":"~지도 모른다","t":"文型","kri":false},{"q":"来週には桜が咲く{}。","a":"だろう","o":["だろう","ようにする","ことだ","つもりだ"],"r":"だろう＝推量","k":"피겠지","t":"文型","kri":false},{"q":"その映画がおもしろい{}は見てみなければ分からない。","a":"かどうか","o":["かどうか","ことか","ばかり","ように"],"r":"かどうか","k":"재미있는지 어떤지","t":"文型","kri":false},{"q":"来週の遠足が中止{}は当日の天気で決まります。","a":"かどうか","o":["かどうか","ことか","ばかり","ように"],"r":"Nかどうか","k":"중지될지 어떨지","t":"文型","kri":false},{"q":"妹は犬を怖{}。","a":"がる","o":["がる","たい","らしい","ながら"],"r":"イ形語幹＋がる＝第三者の気持ち","k":"무서워한다","t":"文型","kri":false},{"q":"あの人はなんて親切な{}。","a":"んだろう","o":["んだろう","はずだ","わけがない","ようだ"],"r":"なんて〜だろう＝感動","k":"어쩜 이렇게 친절할까","t":"文型","kri":false},{"q":"昨日からご飯も食べなくて、なんか様子がおかしい{}。","a":"んです","o":["んです","ことです","ものです","わけにいきません"],"r":"のです／んです＝説明","k":"~한 것입니다","t":"文型","kri":false},{"q":"彼女が作った料理だから、おいしい{}決まっている。","a":"に","o":["に","と","で","が"],"r":"に決まっている","k":"당연히 맛있을 것","t":"文型","kri":false},{"q":"まさか私が代表だなんて。きっと冗談{}違いない。","a":"に","o":["に","と","で","が"],"r":"に違いない","k":"농담임에 틀림없다","t":"文型","kri":false}]},{"name":"模試の6文型 ― 総仕上げ","desc":"さえ〜ば・たところ・させていただく・わけ3種","items":[{"q":"アルバイト{}あれば、生活はなんとかなる。","a":"さえ","o":["さえ","しか","ばかり","だけに"],"r":"Nさえあれば","k":"아르바이트만 있으면","t":"模試","kri":false},{"q":"やせ{}すればいいという考えはよくない。","a":"さえ","o":["さえ","ばかり","しか","だけ"],"r":"ます形＋さえすれば","k":"마르기만 하면","t":"模試","kri":false},{"q":"あの時、彼女{}いればよかったのに。","a":"さえ","o":["さえ","しか","だけに","ほど"],"r":"さえいればよかった＝後悔","k":"그녀만 있었다면","t":"模試","kri":false},{"q":"お店に電話して{}、今日は休みだった。","a":"みたところ","o":["みたところ","みるところ","みたばかり","みるうちに"],"r":"たところ＝した結果","k":"전화해 보니","t":"模試","kri":false},{"q":"医者に相談した{}、心配ないと言われた。","a":"ところ","o":["ところ","ばかり","うえに","まま"],"r":"たところ＝した結果","k":"상담했더니","t":"模試","kri":false},{"q":"すみません、この会議室を少し使わ{}いただけませんか。","a":"せて","o":["せて","れて","なくて","ずに"],"r":"自分の行動＋させていただく","k":"사용해도 될까요","t":"模試","kri":true},{"q":"すみません、駅までの道を教えて{}ませんか。","a":"いただけ","o":["いただけ","させていただけ","されて","おき"],"r":"相手の行動＝ていただく","k":"가르쳐 주실 수","t":"模試","kri":true},{"q":"本日は私が司会を務め{}いただきます。","a":"させて","o":["させて","られて","て","させられて"],"r":"私が＋させていただく","k":"제가 맡겠습니다","t":"模試","kri":true},{"q":"大切な約束があるので、今日は休む{}。","a":"わけにはいかない","o":["わけにはいかない","わけがない","わけではない","はずだ"],"r":"事情があって、できない","k":"쉴 수는 없다","t":"模試","kri":true},{"q":"あんなに簡単な問題を、彼が間違える{}。","a":"わけがない","o":["わけがない","わけではない","はずだ","ことにする"],"r":"わけがない＝はずがない","k":"틀릴 리가 없다","t":"模試","kri":true},{"q":"日本語が話せない{}が、敬語はまだ難しい。","a":"わけではない","o":["わけではない","わけがない","わけにはいかない","はずがない"],"r":"部分否定","k":"못하는 건 아니지만","t":"模試","kri":true},{"q":"エアコンが消えていた。どうりで暑い{}。","a":"わけだ","o":["わけだ","わけがない","わけではない","はずがない"],"r":"どうりで〜わけだ＝納得","k":"어쩐지 덥더라","t":"模試","kri":false}]}]}];
+const INST='つぎの文の（　　）に入れるのに最もよいものを、1・2・3・4から一つえらびなさい。';
+const B='<span class="blank"></span>';
+const TIME=600;
+let cur=null, items=[], idx=0, answers=[], graded=false, review=false, timerId=null, timeLeft=TIME, useTimer=true;
+const $=id=>document.getElementById(id);
+
+function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+function shuffleArr(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function buildSets(){
+  $('sets').innerHTML=SETS.map((s,i)=>{
+    const best=store('n3bunkeiup_best_'+s.n);
+    return `<div class="set" data-i="${i}"><div class="no">セット ${'①②③④⑤⑥'[i]}</div>
+      <div class="th">${s.decks.map(d=>d.name).join('<br>')}</div>
+      <div class="best ${best?'':'none'}">${best?'ベスト '+best+' / 36':'まだ挑戦していません'}</div></div>`;
+  }).join('');
+  $('sets').querySelectorAll('.set').forEach(el=>el.onclick=()=>startTest(SETS[+el.dataset.i]));
+}
+
+function startTest(s){
+  cur=s; items=[];
+  s.decks.forEach((d,di)=>shuffleArr(d.items).forEach(it=>{
+    const opts=shuffleArr(it.o);
+    items.push(Object.assign({},it,{deck:di,opts,ans:opts.indexOf(it.a)}));
+  }));
+  idx=0; graded=false; review=false; answers=items.map(()=>null);
+  useTimer=$('useTimer').checked; timeLeft=TIME;
+  $('rng').textContent='セット'+'①②③④⑤⑥'[SETS.indexOf(s)];
+  $('startScreen').classList.add('hidden'); $('rScreen').classList.add('hidden');
+  $('qScreen').classList.remove('hidden'); $('ctrl').classList.remove('hidden');
+  $('dots').classList.remove('hidden'); $('qcount').classList.remove('hidden');
+  buildDots();
+  if(useTimer){ $('timer').classList.remove('hidden'); startTimer(); } else { $('timer').classList.add('hidden'); }
+  render();
+}
+function buildDots(){
+  const d=$('dots'); d.innerHTML='';
+  items.forEach((it,i)=>{
+    if(i>0 && it.deck!==items[i-1].deck){ const g=document.createElement('span'); g.className='gap'; d.appendChild(g); }
+    const s=document.createElement('div'); s.className='d'; s.dataset.i=i; s.onclick=()=>{ idx=i; render(); }; d.appendChild(s);
+  });
+}
+function updateDots(){
+  $('dots').querySelectorAll('.d').forEach(s=>{
+    const i=+s.dataset.i; s.className='d';
+    if(graded){ s.classList.add(isCorrect(i)?'ok':'ng'); if(i===idx && review) s.classList.add('on'); }
+    else { if(i===idx) s.classList.add('on'); else if(answers[i]!==null) s.classList.add('done'); }
+  });
+}
+function startTimer(){
+  clearInterval(timerId);
+  const el=$('timer'); el.classList.add('run'); el.classList.remove('end','low');
+  const tick=()=>{
+    const m=String(Math.floor(timeLeft/60)).padStart(2,'0'), s=String(timeLeft%60).padStart(2,'0');
+    el.textContent=`${m}:${s}`;
+    el.classList.toggle('low', timeLeft<=60 && timeLeft>0);
+    if(timeLeft<=0){ clearInterval(timerId); el.textContent='⏰ 時間！続けてOK'; el.classList.add('end'); return; }
+    timeLeft--;
+  };
+  tick(); timerId=setInterval(tick,1000);
+}
+function tagHtml(it){
+  const lab={'模試':'模試','対比':'まぎらわしい','文型':''}[it.t]||'';
+  return (lab?`<span class="tg">${lab}</span>`:'')+(it.kri?'<span class="tg kri">韓国語で同じ訳</span>':'');
+}
+function render(){
+  const it=items[idx], dk=cur.decks[it.deck];
+  $('qcount').textContent=`${idx+1} / ${items.length}`;
+  let html=`<div class="qtag">${dk.name}${tagHtml(it)}</div><div class="inst">${INST}</div>`;
+  html+=`<div class="sent">${it.q.replace('{}',B)}</div>`;
+  const one=it.opts.some(o=>o.length>9);
+  html+=`<div class="choices ${one?'one':''}">`+it.opts.map((o,i)=>`<div class="choice" data-i="${i}"><span class="no">${i+1}</span><span>${o}</span></div>`).join('')+'</div>';
+  if(graded && review){ html+=`<div class="qnote"><b>${it.a}</b>：${it.r}<span class="k">${it.k}</span></div>`; }
+  $('qScreen').innerHTML=html;
+  $('qScreen').querySelectorAll('.choice').forEach(c=>{
+    c.onclick=()=>{ if(graded) return; answers[idx]=+c.dataset.i; paintChoices(); updateDots(); };
+  });
+  paintChoices();
+  $('prevBtn').disabled=(idx===0);
+  const last=(idx===items.length-1);
+  $('nextBtn').classList.toggle('hidden', last);
+  $('gradeBtn').classList.toggle('hidden', !last || graded);
+  $('toResultBtn').classList.toggle('hidden', !graded);
+  $('restartBtn').classList.toggle('hidden', graded);
+  updateDots();
+}
+function paintChoices(){
+  const it=items[idx];
+  $('qScreen').querySelectorAll('.choice').forEach(c=>{
+    const i=+c.dataset.i; c.classList.remove('sel','correct','wrong');
+    if(graded){ if(i===it.ans) c.classList.add('correct'); else if(i===answers[idx]) c.classList.add('wrong'); }
+    else if(answers[idx]===i) c.classList.add('sel');
+  });
+}
+function go(d){ const n=idx+d; if(n<0||n>=items.length) return; idx=n; render(); }
+function isCorrect(i){ return answers[i]===items[i].ans; }
+function grade(){
+  graded=true; review=false;
+  if(timerId) clearInterval(timerId);
+  $('timer').classList.remove('run');
+  const n=items.filter((_,i)=>isCorrect(i)).length;
+  const k='n3bunkeiup_best_'+cur.n, prev=+(store(k)||0);
+  if(items.length===36 && n>prev) store(k,String(n));
+  showResult();
+}
+function showResult(){
+  review=false;
+  $('qScreen').classList.add('hidden'); $('ctrl').classList.add('hidden'); $('qcount').classList.add('hidden');
+  const correct=items.map((_,i)=>isCorrect(i));
+  const n=correct.filter(Boolean).length, total=items.length, pct=Math.round(n/total*100);
+  const wrongIdx=items.map((_,i)=>i).filter(i=>!correct[i]);
+  updateDots();
+  const secs=cur.decks.map((d,di)=>{
+    const ids=items.map((_,i)=>i).filter(i=>items[i].deck===di);
+    if(!ids.length) return '';
+    const k=ids.filter(i=>correct[i]).length;
+    return `<div class="sec"><div class="t">${d.name}</div><div class="v ${k===ids.length?'full':'part'}">${k} / ${ids.length}</div></div>`;
+  }).join('');
+  const rlist=items.map((it,i)=>{
+    const ok=correct[i], ua=answers[i]!==null?it.opts[answers[i]]:'—';
+    return `<div class="ritem" data-i="${i}">
+      <span class="qn">${i+1}</span>
+      <span class="mk ${ok?'o':'x'}">${ok?'○':'✗'}</span>
+      <span class="kj">${it.a}</span>
+      <span class="co">${it.k}</span>
+      ${it.t==='模試'?'<span class="src">模試</span>':''}
+      ${ok?'':`<span class="ua">내 답: ${ua}</span>`}
+    </div>`;
+  }).join('');
+  $('rScreen').innerHTML=`
+    <div class="rtop">
+      <div class="scorebig"><div class="n">${n}<small>/${total}</small></div><div class="p">${pct}%</div></div>
+      <div class="secs">${secs}</div>
+    </div>
+    <div class="rlist">${rlist}</div>
+    <div class="focus" id="focusBox"></div>
+    <div class="rbtns">
+      <span class="copied hidden" id="copied">✓ 복사됨 — 카카오에 붙여넣기</span>
+      <button class="btn" id="copyBtn">結果をコピー</button>
+      ${wrongIdx.length?'<button class="btn primary" id="retryBtn">まちがえた問題だけ もう一度</button>':''}
+      <button class="btn" id="backBtn">セットを選ぶ</button>
+    </div>`;
+  $('rScreen').classList.remove('hidden');
+  $('rScreen').querySelectorAll('.ritem').forEach(r=>{
+    r.onclick=()=>{ idx=+r.dataset.i; review=true;
+      $('rScreen').classList.add('hidden'); $('qScreen').classList.remove('hidden');
+      $('ctrl').classList.remove('hidden'); $('qcount').classList.remove('hidden'); render(); };
+  });
+  const fb=$('focusBox');
+  const decksWrong=cur.decks.map((d,di)=>wrongIdx.filter(i=>items[i].deck===di)).map((w,di)=>[di,w]).filter(([,w])=>w.length);
+  if(decksWrong.length){
+    fb.innerHTML=`<div class="ftitle">のびしろポイント<span class="fkr">성장 포인트 — 누르면 해설 ／ 문제를 누르면 그 문제로 이동</span></div>`+
+      `<div class="fchips">${decksWrong.map(([di,w])=>`<button class="fchip" data-d="${di}">${cur.decks[di].name} ×${w.length} <span class="arw">解説 ▸</span></button>`).join('')}</div>`;
+    fb.querySelectorAll('.fchip').forEach(bt=>bt.onclick=()=>{
+      const di=+bt.dataset.d, w=decksWrong.find(x=>x[0]===di)[1];
+      $('ex-title').textContent=cur.decks[di].name;
+      $('ex-body').innerHTML=`<div class="sk">${cur.decks[di].desc}</div>`+w.map(i=>{ const it=items[i];
+        return `<div class="ex-rule"><b>${it.a}</b>：${it.r}<span class="k">${it.k}</span></div>`; }).join('');
+      $('explain').classList.remove('hidden');
+    });
+  } else {
+    fb.innerHTML=`<div class="ftitle" style="color:var(--ok)">全問正解！<span class="fkr">전부 정답! 🎉</span></div>`;
+  }
+  $('copyBtn').onclick=()=>copyResult(n,total,pct,wrongIdx);
+  $('backBtn').onclick=backToStart;
+  if($('retryBtn')) $('retryBtn').onclick=()=>retryWrong(wrongIdx);
+}
+function retryWrong(wrongIdx){
+  const pick=wrongIdx.map(i=>items[i]);
+  items=pick.map(it=>{ const opts=shuffleArr(it.opts); return Object.assign({},it,{opts,ans:opts.indexOf(it.a)}); });
+  idx=0; graded=false; review=false; answers=items.map(()=>null);
+  if(timerId) clearInterval(timerId);
+  $('timer').classList.add('hidden');
+  $('rScreen').classList.add('hidden'); $('qScreen').classList.remove('hidden'); $('ctrl').classList.remove('hidden'); $('qcount').classList.remove('hidden');
+  buildDots(); render();
+}
+function copyResult(n,total,pct,wrongIdx){
+  const wrong=wrongIdx.length? wrongIdx.map(i=>items[i].a).join(', ') : '없음 — 전부 정답!';
+  const txt=`[득점 업 문형 챌린지 세트${'①②③④⑤⑥'[SETS.indexOf(cur)]}]\n결과: ${n}/${total} (${pct}%)\n🔁 다시 볼 것: ${wrong}`;
+  const done=()=>{ $('copied').textContent='✓ 복사됨 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); setTimeout(()=>$('copied').classList.add('hidden'),2500); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(()=>showCopyBox(txt)); }
+  else { showCopyBox(txt); }
+}
+function showCopyBox(txt){
+  let ta=document.getElementById('copyBox');
+  if(!ta){ ta=document.createElement('textarea'); ta.id='copyBox'; ta.readOnly=true;
+    ta.style.cssText='width:100%;height:96px;margin-top:8px;font-size:14px;padding:8px;border:1px solid #d0cec6;border-radius:8px;font-family:inherit';
+    $('rScreen').appendChild(ta); }
+  ta.value=txt; ta.focus(); ta.select();
+  $('copied').textContent='↓ 길게 눌러 복사 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden');
+}
+function backToStart(){
+  if(timerId) clearInterval(timerId);
+  graded=false; review=false;
+  ['rScreen','qScreen','ctrl','dots','qcount','timer'].forEach(id=>$(id).classList.add('hidden'));
+  $('rng').textContent='得点アップ';
+  buildSets();
+  $('startScreen').classList.remove('hidden');
+}
+
+$('prevBtn').onclick=()=>go(-1);
+$('nextBtn').onclick=()=>go(1);
+$('gradeBtn').onclick=grade;
+$('toResultBtn').onclick=showResult;
+let restartArmed=null;
+$('restartBtn').onclick=()=>{
+  const b=$('restartBtn');
+  if(restartArmed){ clearTimeout(restartArmed); restartArmed=null; b.textContent='最初に戻る'; backToStart(); return; }
+  b.textContent='もう一度押すと最初へ（答えは消えます）';
+  restartArmed=setTimeout(()=>{ restartArmed=null; b.textContent='最初に戻る'; },3000);
+};
+$('ex-close').onclick=()=>$('explain').classList.add('hidden');
+$('explain').onclick=e=>{ if(e.target.id==='explain') $('explain').classList.add('hidden'); };
+document.addEventListener('keydown',e=>{
+  if(!$('explain').classList.contains('hidden')){ if(e.key==='Escape') $('explain').classList.add('hidden'); return; }
+  if($('qScreen').classList.contains('hidden')) return;
+  if(!graded && ['1','2','3','4'].includes(e.key)){ answers[idx]=+e.key-1; paintChoices(); updateDots(); }
+  if(e.key==='ArrowRight') go(1);
+  if(e.key==='ArrowLeft') go(-1);
+});
+buildSets();
+</script>
+</body>
+</html>
