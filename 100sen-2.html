@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="紛らわしい濁音・長音 熟語100選 ②">
+<meta property="og:description" content="헷갈리는 탁음·장음 N3 한자어 50문제에 도전! 바로 정답 확인 + 해설">
+<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/100sen-2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<meta name="description" content="헷갈리는 탁음·장음 N3 한자어 50문제에 도전! 바로 정답 확인 + 해설">
+<title>紛らわしい濁音・長音 熟語100選 ②｜N3 試験直前 満点サプリ</title>
+<style>
+:root{
+  --ink:#1a1a1a; --accent:#3b82f6; --accent2:#2f6fd6; --bg2:#faf9f6; --bd:#e2e0d8; --bd2:#d0cec6;
+  --mut:#7a7a7a; --ok:#166534; --okbg:#f0fdf4; --okbd:#86efac;
+  --ng:#dc2626; --ngbg:#fef2f2; --ngbd:#fca5a5; --amber:#f59e0b; --ambg:#fffbeb; --ambd:#fde68a;
+  --kr:#1e40af; --krbg:#eff6ff; --krbd:#bfdbfe;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto Sans JP","Malgun Gothic",sans-serif;
+  color:var(--ink);background:#e9eaee;display:flex;align-items:center;justify-content:center;min-height:100vh}
+#app{width:min(1280px,96vw);aspect-ratio:16/9;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.22);position:relative;display:flex;flex-direction:column}
+.hidden{display:none!important}
+
+#bar{height:56px;flex:none;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:1px solid var(--bd);background:var(--bg2)}
+#bar .brand{font-weight:900;font-size:17px}
+#bar .brand .a{color:var(--accent)}
+#bar .rng{font-size:13px;font-weight:700;color:var(--kr);background:var(--krbg);border:1px solid var(--krbd);border-radius:14px;padding:4px 11px}
+#bar .sp{flex:1}
+#bar .timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:18px;color:#374151;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:4px 12px}
+#bar .timer.run{color:var(--accent)}
+#bar .timer.low{color:#b45309;border-color:var(--ambd)}
+#bar .timer.end{color:#92700e;background:var(--ambg);border-color:var(--ambd)}
+#bar .qcount{font-size:14px;font-weight:800;color:#555}
+
+#dots{min-height:34px;padding:6px 10px;flex:none;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;border-bottom:1px solid var(--bd)}
+#dots .d{width:11px;height:11px;border-radius:50%;background:var(--bd2);transition:.15s}
+#dots .d.on{background:var(--accent);transform:scale(1.3)}
+#dots .d.done{background:#9dbef7}
+#dots .d.ok{background:var(--ok)} #dots .d.ng{background:var(--ng)}
+#dots .gap{width:10px}
+
+#stage{flex:1;display:flex;align-items:center;justify-content:center;padding:18px 44px;position:relative;overflow:auto}
+
+.start{text-align:center;max-width:860px}
+.start h1{font-size:36px;font-weight:900;margin-bottom:8px}
+.start h1 .a{color:var(--accent)}
+.start .sub{color:#444;font-size:17px;margin-bottom:6px}
+.start .subk{color:var(--kr);font-size:14px;margin-bottom:26px}
+.start .meta{display:flex;gap:12px;justify-content:center;margin-bottom:28px;flex-wrap:wrap}
+.start .meta span{border:1px solid var(--bd);border-radius:10px;padding:8px 14px;font-size:14px;font-weight:700;color:#444;background:var(--bg2)}
+.opts-toggle{margin-top:20px;font-size:14px;color:#444;display:flex;gap:10px;align-items:center;justify-content:center}
+.opts-toggle label{display:flex;gap:7px;align-items:center;cursor:pointer;user-select:none}
+.opts-toggle input{width:17px;height:17px}
+
+.qwrap{width:100%;max-width:1000px}
+.qtag{font-size:14px;font-weight:800;letter-spacing:1px;color:var(--accent);text-align:center}
+.inst{font-size:15px;color:var(--mut);text-align:center;margin-top:4px}
+.sent{font-size:34px;font-weight:600;text-align:center;margin:26px 0 30px;line-height:1.6}
+.sent u{text-decoration:none;border-bottom:3px solid var(--ink);padding:0 2px}
+.sent .blank{display:inline-block;min-width:110px;border-bottom:3px solid var(--ink);margin:0 4px}
+.sent .who{font-size:22px;color:var(--mut);display:block;margin-bottom:4px}
+.word{font-size:54px;font-weight:900;text-align:center;margin:18px 0 22px;letter-spacing:3px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+.choices.one{grid-template-columns:1fr;gap:10px}
+.choice{display:flex;align-items:center;gap:14px;border:2px solid var(--bd);border-radius:12px;padding:14px 18px;cursor:pointer;font-size:25px;font-weight:600;background:#fff;transition:.12s}
+.choices.one .choice{font-size:21px;padding:11px 18px}
+.choice:hover{border-color:#9dbef7;background:#f7faff}
+.choice .no{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#666}
+.choice.sel{border-color:var(--accent);background:#eff6ff}
+.choice.sel .no{background:var(--accent);border-color:var(--accent);color:#fff}
+.choice.correct{border-color:var(--okbd);background:var(--okbg)}
+.choice.correct .no{background:var(--ok);border-color:var(--ok);color:#fff}
+.choice.wrong{border-color:var(--ngbd);background:var(--ngbg)}
+.choice.wrong .no{background:var(--ng);border-color:var(--ng);color:#fff}
+.qnote{margin-top:16px;font-size:16px;line-height:1.6;background:var(--okbg);border:1px solid var(--okbd);border-radius:10px;padding:10px 14px}
+.qnote .k{display:block;color:var(--kr);font-size:14px}
+
+#ctrl{height:70px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-top:1px solid var(--bd);background:var(--bg2)}
+.btn{border:1px solid var(--bd2);background:#fff;color:#444;font-size:15px;font-weight:700;padding:11px 22px;border-radius:10px;cursor:pointer;font-family:inherit}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:.35;cursor:default}.btn:disabled:hover{border-color:var(--bd2);color:#444}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent2);color:#fff}
+.btn.grade{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.grade:hover{background:#12532b;color:#fff}
+.btn.big{font-size:20px;padding:15px 40px}
+
+.result{width:100%;max-width:1100px}
+.rtop{display:flex;align-items:center;gap:24px;margin-bottom:8px}
+.scorebig{flex:none;text-align:center;border:3px solid var(--accent);border-radius:16px;padding:12px 26px}
+.scorebig .n{font-size:44px;font-weight:900;line-height:1;color:var(--accent)}
+.scorebig .n small{font-size:24px;color:#9aa3af}
+.scorebig .p{font-size:15px;font-weight:800;color:#374151;margin-top:4px}
+.secs{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sec{border:1px solid var(--bd);border-radius:10px;padding:8px 10px;background:var(--bg2)}
+.sec .t{font-size:12.5px;font-weight:800;color:#555}
+.sec .v{font-size:22px;font-weight:900}
+.sec .v.full{color:var(--ok)} .sec .v.part{color:var(--accent)}
+.rlist{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;max-height:300px;overflow:auto;padding-right:6px}
+.ritem{display:flex;align-items:center;gap:10px;font-size:14.5px;border-bottom:1px solid #eee;padding:3px 2px;cursor:pointer}
+.ritem:hover{background:#f7faff}
+.ritem .qn{flex:none;width:26px;color:var(--mut);font-weight:700;font-size:13px;text-align:right}
+.ritem .mk{flex:none;width:22px;height:22px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.ritem .mk.o{background:var(--ok)} .ritem .mk.x{background:var(--ng)}
+.ritem .kj{flex:none;width:72px;font-weight:800;white-space:nowrap}
+.ritem .co{color:var(--ok);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ritem .ua{color:var(--ng);font-size:13px;margin-left:auto;white-space:nowrap}
+.ritem .src{flex:none;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;border:1px solid var(--krbd);color:var(--kr);background:var(--krbg)}
+.ritem .src.rel{border-color:var(--bd2);color:#666;background:#f4f4f2}
+.focus{margin-top:8px;border-top:1px dashed var(--bd);padding-top:8px}
+.ftitle{font-size:14px;font-weight:800;color:#92700e}
+.ftitle .fkr{font-size:12px;color:var(--kr);font-weight:600;margin-left:8px}
+.fchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.fchip{border:1px solid var(--ambd);background:var(--ambg);color:#92700e;font-weight:700;font-size:13px;padding:7px 13px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.fchip:hover{border-color:var(--amber)}
+.fchip .arw{color:var(--accent);font-weight:800}
+.rbtns{display:flex;gap:12px;margin-top:8px;justify-content:flex-end}
+.copied{color:var(--ok);font-weight:700;font-size:14px;align-self:center;margin-right:auto}
+
+#explain{position:absolute;inset:0;background:rgba(20,20,25,.45);display:flex;align-items:center;justify-content:center;z-index:60}
+.ex-card{width:78%;max-width:800px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.ex-head{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:var(--ambg);border-bottom:1px solid var(--ambd)}
+.ex-head #ex-title{font-size:20px;font-weight:900;color:#92700e}
+#ex-close{background:#fff;border:1px solid var(--bd2);border-radius:8px;width:34px;height:34px;font-size:15px;cursor:pointer;color:#666;font-family:inherit}
+#ex-body{padding:20px}
+#ex-body .sk{font-size:18px;line-height:1.6;margin-bottom:14px}
+#ex-body .skr{display:block;color:var(--kr);font-weight:600;font-size:14px;margin-top:4px}
+#ex-body .sex{font-size:19px;background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;margin-bottom:12px;line-height:1.9}
+#ex-body .sex .ok{color:var(--ok);font-weight:800}
+#ex-body .sex .ng{color:var(--ng);font-weight:800}
+#ex-body .stip{font-size:14px;color:#444;background:var(--okbg);border:1px solid var(--okbd);border-radius:9px;padding:10px 13px;line-height:1.6}
+@media (max-width:820px), (orientation:portrait){
+  body{display:block;background:#fff}
+  #app{width:100%;aspect-ratio:auto;min-height:100vh;min-height:100dvh;border-radius:0;box-shadow:none}
+  #bar{padding:0 12px;gap:8px;height:50px}
+  #bar .brand{font-size:15px}
+  #bar .rng{display:none}
+  #dots{gap:5px;height:28px;flex-wrap:wrap}
+  #dots .d{width:9px;height:9px}
+  #dots .gap{width:4px}
+  #stage{padding:14px 14px;align-items:flex-start}
+  .start{padding-top:24px}
+  .start h1{font-size:26px}
+  .sent{font-size:22px;margin:16px 0 18px}
+  .sent .who{font-size:15px}
+  .sent .blank{min-width:70px}
+  .word{font-size:38px;margin:12px 0 14px}
+  .choices{grid-template-columns:1fr;gap:9px}
+  .choice{font-size:19px;padding:11px 14px}
+  .choices.one .choice{font-size:16px;padding:10px 12px}
+  .choice .no{width:28px;height:28px;font-size:14px}
+  .inst{font-size:13px}
+  #ctrl{position:sticky;bottom:0;height:auto;padding:10px 12px;gap:8px}
+  #ctrl .btn{padding:10px 14px;font-size:14px}
+  .rtop{flex-direction:column;align-items:stretch;gap:10px}
+  .secs{grid-template-columns:1fr 1fr}
+  .rlist{grid-template-columns:1fr;max-height:none}
+  .ritem .kj{width:auto;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+  .ritem{flex-wrap:wrap;row-gap:2px}
+  .ritem .ua{flex-basis:100%;padding-left:58px;margin-left:0;white-space:normal}
+  .rbtns{flex-wrap:wrap}
+  .ex-card{width:94%}
+  #explain{position:fixed}
+  #ex-body .sex{font-size:16px}
+}
+@media print{
+  body{background:#fff}
+  #app{box-shadow:none;width:100%;aspect-ratio:auto}
+  #ctrl,#bar .timer{display:none}
+  .rlist{max-height:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="bar">
+    <span class="brand">N3 濁音・長音100選 <span class="a">·</span></span>
+    <span class="rng" id="rng">② 51〜100</span>
+    <span class="sp"></span>
+    <span class="qcount hidden" id="qcount">1 / 50</span>
+    <span class="timer hidden" id="timer">15:00</span>
+  </div>
+  <div id="dots" class="hidden"></div>
+
+  <div id="stage">
+    <div class="start" id="startScreen">
+      <h1>紛らわしい濁音・長音 <span class="a">熟語100選 ②</span></h1>
+      <div class="sub">耳と目でまちがえやすい熟語、50問にチャレンジ！（51〜100）</div>
+      <div class="subk">헷갈리는 탁음·장음 N3 한자어 100선 — 50문제에 도전!</div>
+      <div class="meta">
+        <span>濁音 24問</span><span>長音 26問</span><span>4択</span><span>15分</span>
+      </div>
+      <button class="btn primary big" id="startBtn">はじめる</button>
+      <div class="opts-toggle">
+        <label><input type="checkbox" id="useTimer" checked> 15分タイマーを使う</label>
+        <span style="color:#c9c7bf">|</span>
+        <span style="color:var(--mut);font-size:13px">数字キー 1–4＝選択　／　← → 移動</span>
+      </div>
+    </div>
+    <div class="qwrap hidden" id="qScreen"></div>
+    <div class="result hidden" id="rScreen"></div>
+  </div>
+
+  <div id="ctrl" class="hidden">
+    <button class="btn" id="prevBtn">← 前へ</button>
+    <div style="display:flex;gap:12px">
+      <button class="btn" id="restartBtn">最初に戻る</button>
+      <button class="btn primary" id="nextBtn">次へ →</button>
+      <button class="btn grade hidden" id="gradeBtn">答え合わせ</button>
+      <button class="btn primary hidden" id="toResultBtn">結果に戻る</button>
+    </div>
+  </div>
+
+  <div id="explain" class="hidden">
+    <div class="ex-card">
+      <div class="ex-head"><span id="ex-title"></span><button id="ex-close">✕</button></div>
+      <div id="ex-body"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 紛らわしい濁音・長音 N3熟語100選 ②（51〜100）
+// ans は並べ替え前の正解位置（すべて0）。表示時に選択肢と出題順を混ぜる。
+// 51〜100 を足すときは ITEMS の末尾に同じ形で追加するだけでよい。
+const SECTIONS = {
+  s1:{name:'漢字読み　濁音・長音', inst:'＿＿＿のことばの読み方として最もよいものを、1・2・3・4から一つえらびなさい。'},
+};
+const ITEMS = [
+  // ---------- 濁音（清濁・連濁・半濁音） ----------
+  {sec:'s1', etype:'seidaku', key:'全部', sent:'お菓子を<u>全部</u>食べてしまった。', opts:['ぜんぶ','せんぶ','ぜんぷ','せんぷ'], ans:0,
+   note:'ぜんぶ。「全」は濁る（全員 ぜんいん）。「部」も「ぶ」。', kr:'全部 전부 → ぜんぶ'},
+  {sec:'s1', etype:'seidaku', key:'地震', sent:'昨日の夜、大きな<u>地震</u>があった。', opts:['じしん','ちしん','じじん','ちじん'], ans:0,
+   note:'じしん。「地」は「じ」（地面 じめん）。「ち」と読む語（地図 ちず）もあるので注意。', kr:'地震 지진 → じしん'},
+  {sec:'s1', etype:'seidaku', key:'外国', sent:'<u>外国</u>に住んでいる友だちから手紙が届いた。', opts:['がいこく','かいこく','がいごく','かいごく'], ans:0,
+   note:'がいこく。「外」は濁る（外出 がいしゅつ）。「国」は濁らない。', kr:'外 외(ㅇ으로 시작) → がい'},
+  {sec:'s1', etype:'seidaku', key:'銀行', sent:'給料が入ったので、<u>銀行</u>でお金をおろした。', opts:['ぎんこう','きんこう','ぎんごう','きんごう'], ans:0,
+   note:'ぎんこう。「銀」は濁る。「金 きん」とまちがえやすい。', kr:'銀 은(ㅇ으로 시작) → ぎん'},
+  {sec:'s1', etype:'seidaku', key:'原因', sent:'事故の<u>原因</u>を調べている。', opts:['げんいん','けんいん','げんにん','けんにん'], ans:0,
+   note:'げんいん。「原」は濁る（原料 げんりょう）。', kr:'原 원(ㅇ으로 시작) → げん'},
+  {sec:'s1', etype:'seidaku', key:'文化', sent:'日本の<u>文化</u>について発表した。', opts:['ぶんか','ぶんが','ふんか','ふんが'], ans:0,
+   note:'ぶんか。「化」は濁らない（変化 へんか）。「ふんか」は噴火。', kr:'文化 문화 → ぶんか'},
+  {sec:'s1', etype:'seidaku', key:'番号', sent:'電話<u>番号</u>を教えてください。', opts:['ばんごう','ばんこう','はんごう','ばんご'], ans:0,
+   note:'ばんごう。「号」は濁ってのばす（記号 きごう）。', kr:'番号 번호 → ばんごう'},
+  {sec:'s1', etype:'seidaku', key:'残業', sent:'今週は仕事が多くて、毎日<u>残業</u>している。', opts:['ざんぎょう','さんぎょう','ざんきょう','さんきょう'], ans:0,
+   note:'ざんぎょう。「さんぎょう」は産業。', kr:'業 업(ㅇ으로 시작, ㅂ받침) → ぎょう'},
+  {sec:'s1', etype:'seidaku', key:'相談', sent:'進路について先生に<u>相談</u>した。', opts:['そうだん','そうたん','そだん','そたん'], ans:0,
+   note:'そうだん。「相」はのばし、「談」は濁る（冗談 じょうだん）。', kr:'相 상(ㅇ) → そう ／ 談 담 → だん'},
+  {sec:'s1', etype:'seidaku', key:'期限', sent:'レポートの提出<u>期限</u>は金曜日です。', opts:['きげん','ぎげん','きけん','ぎけん'], ans:0,
+   note:'きげん。「限」は「げん」（限界 げんかい）。「きけん」は危険。', kr:'期限 기한 → きげん'},
+  {sec:'s1', etype:'seidaku', key:'平日', sent:'<u>平日</u>は仕事で忙しいので、週末に会いましょう。', opts:['へいじつ','へいにち','べいじつ','へいしつ'], ans:0,
+   note:'へいじつ。「日」を「じつ」と読む（休日 きゅうじつ・祝日 しゅくじつ）。', kr:'日 일 → じつ'},
+  {sec:'s1', etype:'seidaku', key:'屋上', sent:'デパートの<u>屋上</u>から町がよく見える。', opts:['おくじょう','おくしょう','おくじょ','おくしょ'], ans:0,
+   note:'おくじょう。「上」は濁ってのばす（上手 じょうず）。', kr:'上 상(ㅇ) → じょう'},
+  {sec:'s1', etype:'seidaku', key:'雑誌', sent:'電車の中で<u>雑誌</u>を読んだ。', opts:['ざっし','さっし','ざつし','さつし'], ans:0,
+   note:'ざっし。「雑」は濁る（雑音 ざつおん）。小さい「っ」も入る。', kr:'雑 잡 → ざっ'},
+  {sec:'s1', etype:'seidaku', key:'大会', sent:'来月、スピーチ<u>大会</u>に出る。', opts:['たいかい','だいかい','たいがい','だいがい'], ans:0,
+   note:'たいかい。「大」は濁らない（大切 たいせつ と同じ）。', kr:'大会 대회 → たいかい'},
+  {sec:'s1', etype:'handaku', key:'新聞', sent:'父は毎朝<u>新聞</u>を読んでいる。', opts:['しんぶん','しんぷん','じんぶん','しんふん'], ans:0,
+   note:'しんぶん。「ん」の後でも「ぷ」にはならない例外。', kr:'聞 문 → ぶん'},
+  {sec:'s1', etype:'handaku', key:'出発', sent:'飛行機は午前十時に<u>出発</u>します。', opts:['しゅっぱつ','しゅうはつ','しゅっぱち','しゅはつ'], ans:0,
+   note:'しゅっぱつ。「っ」の後の「発」は「ぱつ」。', kr:'っ 뒤 は행 → ぱ행'},
+  {sec:'s1', etype:'handaku', key:'一般', sent:'この部屋には<u>一般</u>の人は入れません。', opts:['いっぱん','いちはん','いっはん','いっばん'], ans:0,
+   note:'いっぱん。「っ」の後の「般」は「ぱん」。', kr:'一般 일반 → いっぱん'},
+  {sec:'s1', etype:'handaku', key:'失敗', sent:'<u>失敗</u>してもあきらめないで、もう一度やってみよう。', opts:['しっぱい','しつはい','しっばい','しつばい'], ans:0,
+   note:'しっぱい。「っ」の後の「敗」は「ぱい」。', kr:'失敗 실패 → しっぱい'},
+  {sec:'s1', etype:'handaku', key:'文法', sent:'この<u>文法</u>の使い方がよくわからない。', opts:['ぶんぽう','ぶんほう','ぶんぼう','ぶんぽ'], ans:0,
+   note:'ぶんぽう。「ん」の後の「法」は「ぽう」。のばすのも忘れずに。', kr:'法 법(ㅂ) → ほう → ぽう'},
+  {sec:'s1', etype:'rendaku', key:'手袋', sent:'寒いので<u>手袋</u>をして出かけた。', opts:['てぶくろ','てふくろ','でぶくろ','てぶぐろ'], ans:0,
+   note:'手＋袋（ふくろ）→ てぶくろ。', kr:'연탁: ふくろ → ぶくろ'},
+  {sec:'s1', etype:'rendaku', key:'雨傘', sent:'<u>雨傘</u>を電車の中に忘れてしまった。', opts:['あまがさ','あまかさ','あめがさ','あめかさ'], ans:0,
+   note:'雨（あめ→あま）＋傘（かさ）→ あまがさ。', kr:'연탁: かさ → がさ'},
+  {sec:'s1', etype:'rendaku', key:'花火', sent:'夏祭りで<u>花火</u>を見た。', opts:['はなび','はなひ','ばなび','はなぴ'], ans:0,
+   note:'花＋火（ひ）→ はなび。', kr:'연탁: ひ → び'},
+  {sec:'s1', etype:'rendaku', key:'小包', sent:'母から<u>小包</u>が届いた。', opts:['こづつみ','こつつみ','こずつみ','こづづみ'], ans:0,
+   note:'小＋包み（つつみ）→ こづつみ。「ず」ではなく「づ」。', kr:'연탁: つつみ → づつみ'},
+  {sec:'s1', etype:'rendaku', key:'人々', sent:'駅の前にたくさんの<u>人々</u>が集まっている。', opts:['ひとびと','ひとひと','ひとぴと','ひどびと'], ans:0,
+   note:'人＋人 → ひとびと。くり返しの後ろが濁る（時々 ときどき）。', kr:'연탁: ひと → びと'},
+
+  // ---------- 長音（のばす・のばさない・よ／ょ） ----------
+  {sec:'s1', etype:'patchim', key:'映画', sent:'週末に友だちと<u>映画</u>を見に行った。', opts:['えいが','えが','えいか','えか'], ans:0,
+   note:'えいが。「映」はのばし、「画」は濁る。', kr:'映 영(ㅇ) → えい'},
+  {sec:'s1', etype:'patchim', key:'生活', sent:'日本での<u>生活</u>にもだいぶ慣れた。', opts:['せいかつ','せかつ','せいがつ','せがつ'], ans:0,
+   note:'せいかつ。「生」はのばす。', kr:'生 생(ㅇ) → せい'},
+  {sec:'s1', etype:'patchim', key:'状態', sent:'体の<u>状態</u>がよくなるまで、ゆっくり休んでください。', opts:['じょうたい','じょたい','じょうだい','しょうたい'], ans:0,
+   note:'じょうたい。「しょうたい」は招待。', kr:'状 상(ㅇ) → じょう'},
+  {sec:'s1', etype:'patchim', key:'方法', sent:'もっと簡単な<u>方法</u>はありませんか。', opts:['ほうほう','ほほう','ほうぼう','ほうほ'], ans:0,
+   note:'ほうほう。どちらものばす。', kr:'方 방(ㅇ) → ほう ／ 法 법(ㅂ) → ほう'},
+  {sec:'s1', etype:'patchim', key:'競争', sent:'この仕事は<u>競争</u>がとても激しい。', opts:['きょうそう','きょそう','きょうぞう','きょうそ'], ans:0,
+   note:'きょうそう。どちらものばす。「争」は濁らない。', kr:'競争 경쟁(ㅇ,ㅇ) → きょう・そう'},
+  {sec:'s1', etype:'patchim', key:'用事', sent:'急な<u>用事</u>ができて、パーティーに行けなくなった。', opts:['ようじ','よじ','ようし','よし'], ans:0,
+   note:'ようじ。「用」はのばし、「事」は「じ」。', kr:'用 용(ㅇ) → よう'},
+  {sec:'s1', etype:'patchim', key:'正直', sent:'<u>正直</u>に話してくれて、ありがとう。', opts:['しょうじき','しょじき','しょうちき','せいじき'], ans:0,
+   note:'しょうじき。「正」は「しょう」（正月 しょうがつ）。', kr:'正 정(ㅇ) → しょう'},
+  {sec:'s1', etype:'patchim', key:'丈夫', sent:'このかばんはとても<u>丈夫</u>で、十年も使っている。', opts:['じょうぶ','じょぶ','しょうぶ','じょうぷ'], ans:0,
+   note:'じょうぶ。「しょうぶ」は勝負。', kr:'丈 장(ㅇ) → じょう'},
+  {sec:'s1', etype:'patchim', key:'応募', sent:'デザインコンテストに作品を<u>応募</u>した。', opts:['おうぼ','おぼ','おうぼう','おうも'], ans:0,
+   note:'おうぼ。「応」はのばし、「募」はのばさない。', kr:'応 응(ㅇ) → おう ／ 募 모 → ぼ'},
+  {sec:'s1', etype:'patchim', key:'協力', sent:'みなさんのご<u>協力</u>をお願いします。', opts:['きょうりょく','きょりょく','きょうりょうく','きょうりき'], ans:0,
+   note:'きょうりょく。「協」はのばし、「力」はのばさない。', kr:'協 협(ㅂ) → きょう'},
+  {sec:'s1', etype:'patchim', key:'急行', sent:'<u>急行</u>に乗れば、二十分早く着く。', opts:['きゅうこう','きゅこう','きゅうごう','きゅうこ'], ans:0,
+   note:'きゅうこう。どちらものばす。', kr:'急 급(ㅂ) → きゅう ／ 行 행(ㅇ) → こう'},
+  {sec:'s1', etype:'nobasu', key:'表情', sent:'彼女はうれしそうな<u>表情</u>をしていた。', opts:['ひょうじょう','ひょじょう','ひょうしょう','ひょうじょ'], ans:0,
+   note:'ひょうじょう。「表」はのばし、「情」は濁ってのばす。', kr:'表 표 → ひょう（받침 없어도 장음）'},
+  {sec:'s1', etype:'nobasu', key:'調子', sent:'今日は体の<u>調子</u>があまりよくない。', opts:['ちょうし','ちょし','ちょうじ','ちょじ'], ans:0,
+   note:'ちょうし。「子」は濁らない。', kr:'調 조 → ちょう（받침 없어도 장음）'},
+  {sec:'s1', etype:'nobasu', key:'優勝', sent:'私たちのチームが<u>優勝</u>した。', opts:['ゆうしょう','ゆしょう','ゆうじょう','ゆうしょ'], ans:0,
+   note:'ゆうしょう。「ゆうじょう」は友情。', kr:'優 우 → ゆう ／ 勝 승(ㅇ) → しょう'},
+  {sec:'s1', etype:'nobasu', key:'数学', sent:'高校のとき、<u>数学</u>が苦手だった。', opts:['すうがく','すがく','すうかく','すかく'], ans:0,
+   note:'すうがく。「数」はのばし、「学」は濁る。', kr:'数 수 → すう（받침 없어도 장음）'},
+  {sec:'s1', etype:'nobasu', key:'計画', sent:'夏休みの旅行の<u>計画</u>を立てた。', opts:['けいかく','けかく','けいがく','けいかぐ'], ans:0,
+   note:'けいかく。「画」は「かく」（映画 えいが とは別の読み）。', kr:'計 계 → けい（받침 없어도 장음）'},
+  {sec:'s1', etype:'nobasu', key:'効果', sent:'この薬は<u>効果</u>がすぐに出る。', opts:['こうか','こか','ごうか','こうが'], ans:0,
+   note:'こうか。「ごうか」は豪華（①に出たことば）。', kr:'効 효 → こう（받침 없어도 장음）'},
+  {sec:'s1', etype:'mijikai', key:'予定', sent:'週末の<u>予定</u>はもう決まりましたか。', opts:['よてい','ようてい','よでい','ようでい'], ans:0,
+   note:'よてい。「予」はのばさない（予約 よやく）。', kr:'予 예 → よ（짧게）'},
+  {sec:'s1', etype:'mijikai', key:'図書館', sent:'<u>図書館</u>で本を三冊借りた。', opts:['としょかん','とうしょかん','としょうかん','ずしょかん'], ans:0,
+   note:'としょかん。「書」はのばさない（辞書 じしょ）。', kr:'書 서 → しょ（짧게）'},
+  {sec:'s1', etype:'mijikai', key:'女性', sent:'あの<u>女性</u>は私の先生です。', opts:['じょせい','じょうせい','じょせ','じょうせ'], ans:0,
+   note:'じょせい。「女」はのばさない（彼女 かのじょ）。', kr:'女 녀 → じょ（짧게）'},
+  {sec:'s1', etype:'mijikai', key:'部長', sent:'<u>部長</u>に会議の資料を渡した。', opts:['ぶちょう','ぶうちょう','ぶちょ','ふちょう'], ans:0,
+   note:'ぶちょう。「部」は短く、「長」はのばす。', kr:'部 부 → ぶ ／ 長 장(ㅇ) → ちょう'},
+  {sec:'s1', etype:'mijikai', key:'個人', sent:'これは会社のものではなく、私<u>個人</u>のパソコンです。', opts:['こじん','こうじん','こしん','こうしん'], ans:0,
+   note:'こじん。「こ」はのばさない。', kr:'個 개 → こ（짧게）'},
+  {sec:'s1', etype:'mijikai', key:'余裕', sent:'時間に<u>余裕</u>を持って家を出た。', opts:['よゆう','ようゆう','よゆ','ようゆ'], ans:0,
+   note:'よゆう。「余」は短く、「裕」はのばす。', kr:'余 여 → よ ／ 裕 유 → ゆう'},
+  {sec:'s1', etype:'yoon', key:'研究', sent:'大学で日本の歴史を<u>研究</u>している。', opts:['けんきゅう','けんきゆう','けんきゅ','げんきゅう'], ans:0,
+   note:'けんきゅう。「きゅ」は小さい「ゅ」で1拍。', kr:'究 구 → きゅう'},
+  {sec:'s1', etype:'yoon', key:'旅館', sent:'京都では古い<u>旅館</u>に泊まった。', opts:['りょかん','りよかん','りょうかん','りようかん'], ans:0,
+   note:'りょかん。小さい「ょ」で、のばさない。', kr:'旅 려 → りょ'},
+  {sec:'s1', etype:'yoon', key:'器用', sent:'兄は手先が<u>器用</u>で、何でも自分で作る。', opts:['きよう','きょう','きよ','きょうよう'], ans:0,
+   note:'き・よう。大きい「よ」。「きょう」は今日。', kr:'器用 기용 → きよう（3박）'},
+];
+
+const ETYPE = {
+  seidaku:{jp:'清音・濁音（漢語）',       kr:'탁음 여부',             tag:'濁音'},
+  rendaku:{jp:'連濁（ことばがつながると濁る）', kr:'연탁',              tag:'連濁'},
+  handaku:{jp:'半濁音（ぱ・ぽ）',          kr:'반탁음',               tag:'半濁'},
+  patchim:{jp:'ㅇ・ㅂパッチム → のばす',    kr:'ㅇ·ㅂ 받침 → 장음',      tag:'長音'},
+  nobasu: {jp:'パッチムなしでも のばす字',  kr:'받침 없어도 장음',       tag:'長音'},
+  mijikai:{jp:'のばさない字',             kr:'짧게 읽는 글자',         tag:'短音'},
+  yoon:   {jp:'「よ」と「ょ」',            kr:'큰 よ / 작은 ょ',       tag:'拗音'},
+};
+const GROUPS = [
+  ['濁音（清濁・連濁・半濁）', ['seidaku','rendaku','handaku']],
+  ['長音（のばす・のばさない）', ['patchim','nobasu','mijikai']],
+  ['「よ」と「ょ」', ['yoon']],
+];
+const STOCK = {
+  seidaku:`<div class="sk">韓国語では語頭の濁る・濁らないを区別しないので、耳だけでは判断しにくい。濁る字は一語ずつ覚える。<span class="skr">한국어는 어두의 청음·탁음을 구별하지 않아서 귀로만 판단하기 어렵다. 탁음 글자는 하나씩 외운다.</span></div>
+    <div class="sex"><span class="ok">大切 たいせつ</span> ⇔ <span class="ok">大事 だいじ</span>（同じ「大」でも違う）<br><span class="ok">価格 かかく</span> ⇔ 科学 かがく　　<span class="ok">遅刻 ちこく</span> ⇔ 地獄 じごく</div>
+    <div class="stip">ヒント：韓国語で「ㅇ」で始まる字は、ガ行（濁音）になりやすい。外 외→がい・銀 은→ぎん・額 액→がく・原 원→げん</div>`,
+  rendaku:`<div class="sk">二つのことばがつながると、後ろのことばの最初の音が濁ることがある（連濁）。<span class="skr">두 단어가 이어지면 뒤 단어 첫소리가 탁음이 되기도 한다.</span></div>
+    <div class="sex">手＋<span class="ng">かみ</span> → <span class="ok">てがみ</span>　番＋<span class="ng">くみ</span> → <span class="ok">ばんぐみ</span>　本＋<span class="ng">たな</span> → <span class="ok">ほんだな</span></div>
+    <div class="stip">後ろのことばの「もとの読み」を思い出して、濁らせる。</div>`,
+  handaku:`<div class="sk">「ん」「っ」の後のハ行は、ぱ行になりやすい。<span class="skr">ん・っ 뒤의 は행은 ぱ행이 되기 쉽다.</span></div>
+    <div class="sex"><span class="ok">心配 しんぱい</span>　<span class="ok">散歩 さんぽ</span>　<span class="ok">一般 いっぱん</span>　<span class="ok">出発 しゅっぱつ</span><br>※ ただし 新聞 しんぶん のような例外もある</div>
+    <div class="stip">「ん」の後に「は・ひ・ふ・へ・ほ」が来たら、ぱ行を疑う。</div>`,
+  patchim:`<div class="sk">韓国語読みに ㅇパッチム がある字は、日本語ではほぼ必ず のばす。ㅂパッチム も「う」でのばすことが多い。<span class="skr">ㅇ 받침이 있는 한자는 일본어에서 거의 반드시 장음. ㅂ 받침도 う로 길어지는 경우가 많다.</span></div>
+    <div class="sex">ㅇ：<span class="ok">病 병→びょう</span>　<span class="ok">空港 공항→くうこう</span>　<span class="ok">想像 상상→そうぞう</span><br>ㅂ：<span class="ok">合 합→ごう</span>　<span class="ok">給 급→きゅう</span>　<span class="ok">習 습→しゅう</span></div>
+    <div class="stip">迷ったら、韓国語読みのパッチムを確かめる。</div>`,
+  nobasu:`<div class="sk">パッチムがなくても のばす字がある。これは一つずつ覚える。<span class="skr">받침이 없어도 장음인 글자. 하나씩 외운다.</span></div>
+    <div class="sex"><span class="ok">交 교→こう</span>　<span class="ok">制 제→せい</span>　<span class="ok">住 주→じゅう</span><br><span class="ok">留 류→りゅう</span>　<span class="ok">掃 소→そう</span>　<span class="ok">夫 부→ふう</span>（婦 부→ふ）</div>
+    <div class="stip">制度 せいど ⇔ 生徒 せいと のように、ペアで覚えると忘れにくい。</div>`,
+  mijikai:`<div class="sk">パッチムのない字は短いことが多い。のばしすぎると別のことばになる。<span class="skr">받침 없는 글자는 짧은 경우가 많다. 길게 읽으면 다른 단어가 된다.</span></div>
+    <div class="sex"><span class="ok">主人 しゅじん</span> ⇔ <span class="ng">囚人 しゅうじん</span>　<span class="ok">努力 どりょく</span> ⇔ <span class="ng">動力 どうりょく</span><br><span class="ok">旅 려→りょ</span>　<span class="ok">慮 려→りょ</span>　<span class="ok">貯 저→ちょ</span>　<span class="ok">秘書 비서→ひしょ</span></div>
+    <div class="stip">声に出して、拍（はく）の数を手でたたいて確かめる。</div>`,
+  yoon:`<div class="sk">大きい「よ・ゆ」と小さい「ょ・ゅ」で、まったく別のことばになる。<span class="skr">큰 よ·ゆ 와 작은 ょ·ゅ 로 전혀 다른 단어가 된다.</span></div>
+    <div class="sex"><span class="ok">美容院 び・よ・う・い・ん</span>（5拍） ⇔ <span class="ok">病院 びょ・う・い・ん</span>（4拍）<br><span class="ok">自由 じ・ゆ・う</span>（3拍） ⇔ <span class="ok">十 じゅ・う</span>（2拍）</div>
+    <div class="stip">拍を数える。「びょ」「じゅ」は1拍。</div>`,
+};
+
+// ---------- state ----------
+let items=[], idx=0, answers=[], graded=false, review=false, timerId=null, timeLeft=900, useTimer=true;
+const TIME=900;
+const $=id=>document.getElementById(id);
+
+function shuffleArr(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function shuffleItems(list){
+  return list.map(it=>{
+    const pairs=it.opts.map((o,i)=>({o,isAns:i===it.ans}));
+    const sh=shuffleArr(pairs);
+    return Object.assign({}, it, {opts:sh.map(p=>p.o), ans:sh.findIndex(p=>p.isAns)});
+  });
+}
+
+function startTest(){
+  items=shuffleArr(shuffleItems(ITEMS)); idx=0; graded=false; review=false;
+  answers=items.map(()=>null);
+  useTimer=$('useTimer').checked; timeLeft=TIME;
+  $('startScreen').classList.add('hidden'); $('rScreen').classList.add('hidden');
+  $('qScreen').classList.remove('hidden'); $('ctrl').classList.remove('hidden');
+  $('dots').classList.remove('hidden'); $('qcount').classList.remove('hidden');
+  buildDots();
+  if(useTimer){ $('timer').classList.remove('hidden'); startTimer(); } else { $('timer').classList.add('hidden'); }
+  render();
+}
+function buildDots(){
+  const d=$('dots'); d.innerHTML='';
+  items.forEach((it,i)=>{
+    if(i>0 && it.sec!==items[i-1].sec){ const g=document.createElement('span'); g.className='gap'; d.appendChild(g); }
+    const s=document.createElement('div'); s.className='d'; s.dataset.i=i; s.onclick=()=>{ idx=i; render(); }; d.appendChild(s);
+  });
+}
+function updateDots(){
+  $('dots').querySelectorAll('.d').forEach(s=>{
+    const i=+s.dataset.i; s.className='d';
+    if(graded){ s.classList.add(isCorrect(i)?'ok':'ng'); if(i===idx && review) s.classList.add('on'); }
+    else { if(i===idx) s.classList.add('on'); else if(answers[i]!==null) s.classList.add('done'); }
+  });
+}
+function startTimer(){
+  clearInterval(timerId);
+  const el=$('timer'); el.classList.add('run'); el.classList.remove('end','low');
+  const tick=()=>{
+    const m=String(Math.floor(timeLeft/60)).padStart(2,'0'), s=String(timeLeft%60).padStart(2,'0');
+    el.textContent=`${m}:${s}`;
+    el.classList.toggle('low', timeLeft<=60 && timeLeft>0);
+    if(timeLeft<=0){ clearInterval(timerId); el.textContent='⏰ 時間！続けてOK'; el.classList.add('end'); return; }
+    timeLeft--;
+  };
+  tick(); timerId=setInterval(tick,1000);
+}
+
+function render(){
+  const it=items[idx], sec=SECTIONS[it.sec];
+  $('qcount').textContent=`${idx+1} / ${items.length}`;
+  let html=`<div class="qtag">${sec.name}</div><div class="inst">${sec.inst}</div>`;
+  if(it.word){ html+=`<div class="word">${it.word}</div>`; }
+  else { html+=`<div class="sent">${it.sent}</div>`; }
+  const one = it.opts.some(o=>o.length>9);
+  html+=`<div class="choices ${one?'one':''}">`+it.opts.map((o,i)=>`<div class="choice" data-i="${i}"><span class="no">${i+1}</span><span>${o}</span></div>`).join('')+'</div>';
+  if(graded && review){ html+=`<div class="qnote">${it.note}<span class="k">${it.kr}</span></div>`; }
+  $('qScreen').innerHTML=html;
+  $('qScreen').querySelectorAll('.choice').forEach(c=>{
+    c.onclick=()=>{ if(graded) return; answers[idx]=+c.dataset.i; paintChoices(); updateDots(); };
+  });
+  paintChoices();
+  $('prevBtn').disabled=(idx===0);
+  const last=(idx===items.length-1);
+  $('nextBtn').classList.toggle('hidden', (last && !graded) || (graded && last));
+  $('nextBtn').disabled=false;
+  $('gradeBtn').classList.toggle('hidden', !last || graded);
+  $('toResultBtn').classList.toggle('hidden', !graded);
+  $('restartBtn').classList.toggle('hidden', graded);
+  updateDots();
+}
+function paintChoices(){
+  const it=items[idx];
+  $('qScreen').querySelectorAll('.choice').forEach(c=>{
+    const i=+c.dataset.i; c.classList.remove('sel','correct','wrong');
+    if(graded){ if(i===it.ans) c.classList.add('correct'); else if(i===answers[idx]) c.classList.add('wrong'); }
+    else if(answers[idx]===i) c.classList.add('sel');
+  });
+}
+function go(d){ const n=idx+d; if(n<0||n>=items.length) return; idx=n; render(); }
+
+function isCorrect(i){ return answers[i]===items[i].ans; }
+function grade(){
+  graded=true; review=false;
+  if(timerId) clearInterval(timerId);
+  $('timer').classList.remove('run');
+  showResult();
+}
+function showResult(){
+  review=false;
+  $('qScreen').classList.add('hidden'); $('ctrl').classList.add('hidden'); $('qcount').classList.add('hidden');
+  const correct=items.map((_,i)=>isCorrect(i));
+  const n=correct.filter(Boolean).length, total=items.length, pct=Math.round(n/total*100);
+  const wrongIdx=items.map((_,i)=>i).filter(i=>!correct[i]);
+  updateDots();
+
+  const secs=GROUPS.map(([nm,ss])=>{
+    const ids=items.map((it,i)=>i).filter(i=>ss.includes(items[i].etype));
+    const k=ids.filter(i=>correct[i]).length;
+    return `<div class="sec"><div class="t">${nm}</div><div class="v ${k===ids.length?'full':'part'}">${k} / ${ids.length}</div></div>`;
+  }).join('');
+
+  const rlist=items.map((it,i)=>{
+    const ok=correct[i], ua=answers[i]!==null?(it.word?it.opts[answers[i]].slice(0,9)+'…':it.opts[answers[i]]):'—';
+    return `<div class="ritem" data-i="${i}">
+      <span class="qn">${i+1}</span>
+      <span class="mk ${ok?'o':'x'}">${ok?'○':'✗'}</span>
+      <span class="kj">${it.key}</span>
+      <span class="co">${it.short||it.opts[it.ans]}</span>
+      <span class="src ${['mijikai','yoon'].includes(it.etype)?'rel':''}">${ETYPE[it.etype].tag}</span>
+      ${ok?'':`<span class="ua">내 답: ${ua}</span>`}
+    </div>`;
+  }).join('');
+
+  $('rScreen').innerHTML=`
+    <div class="rtop">
+      <div class="scorebig"><div class="n">${n}<small>/${total}</small></div><div class="p">${pct}%</div></div>
+      <div class="secs">${secs}</div>
+    </div>
+    <div class="rlist">${rlist}</div>
+    <div class="focus" id="focusBox"></div>
+    <div class="rbtns">
+      <span class="copied hidden" id="copied">✓ 복사됨 — 카카오에 붙여넣기</span>
+      <button class="btn" id="copyBtn">結果をコピー</button>
+      <button class="btn" id="backBtn">最初に戻る</button>
+    </div>`;
+  $('rScreen').classList.remove('hidden');
+
+  $('rScreen').querySelectorAll('.ritem').forEach(r=>{
+    r.onclick=()=>{ idx=+r.dataset.i; review=true;
+      $('rScreen').classList.add('hidden'); $('qScreen').classList.remove('hidden');
+      $('ctrl').classList.remove('hidden'); $('qcount').classList.remove('hidden'); render(); };
+  });
+
+  const cnt={}; wrongIdx.forEach(i=>{ const t=items[i].etype; cnt[t]=(cnt[t]||0)+1; });
+  const keys=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
+  const fb=$('focusBox');
+  if(keys.length){
+    fb.innerHTML=`<div class="ftitle">のびしろポイント<span class="fkr">성장 포인트 — 누르면 해설 ／ 문제를 누르면 그 문제로 이동</span></div>`+
+      `<div class="fchips">${keys.map(t=>`<button class="fchip" data-t="${t}">${ETYPE[t].jp} ×${cnt[t]} <span class="arw">解説 ▸</span></button>`).join('')}</div>`;
+    fb.querySelectorAll('.fchip').forEach(bt=>bt.onclick=()=>openExplain(bt.dataset.t));
+  } else {
+    fb.innerHTML=`<div class="ftitle" style="color:var(--ok)">全問正解！<span class="fkr">전부 정답! 🎉</span></div>`;
+  }
+  $('copyBtn').onclick=()=>copyResult(n,total,pct,wrongIdx);
+  $('backBtn').onclick=backToStart;
+}
+function openExplain(t){
+  const m=ETYPE[t]; if(!m) return;
+  $('ex-title').textContent=m.jp+'　'+m.kr;
+  $('ex-body').innerHTML=STOCK[t]||'';
+  $('explain').classList.remove('hidden');
+}
+function copyResult(n,total,pct,wrongIdx){
+  const wrong = wrongIdx.length ? wrongIdx.map(i=>`${items[i].key}(${items[i].short||items[i].opts[items[i].ans]})`).join(', ') : '없음 — 전부 정답!';
+  const txt=`[헷갈리는 탁음·장음 100선 ② (51–100)]\n결과: ${n}/${total} (${pct}%)\n🔁 다시 볼 것: ${wrong}`;
+  const done=()=>{ $('copied').textContent='✓ 복사됨 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); setTimeout(()=>$('copied').classList.add('hidden'),2500); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(()=>showCopyBox(txt)); }
+  else { showCopyBox(txt); }
+}
+function showCopyBox(txt){
+  let ta=document.getElementById('copyBox');
+  if(!ta){ ta=document.createElement('textarea'); ta.id='copyBox'; ta.readOnly=true;
+    ta.style.cssText='width:100%;height:96px;margin-top:8px;font-size:14px;padding:8px;border:1px solid #d0cec6;border-radius:8px;font-family:inherit';
+    $('rScreen').appendChild(ta); }
+  ta.value=txt; ta.focus(); ta.select();
+  $('copied').textContent='↓ 길게 눌러 복사 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden');
+}
+function backToStart(){
+  if(timerId) clearInterval(timerId);
+  graded=false; review=false;
+  ['rScreen','qScreen','ctrl','dots','qcount','timer'].forEach(id=>$(id).classList.add('hidden'));
+  $('startScreen').classList.remove('hidden');
+}
+
+$('startBtn').onclick=startTest;
+$('prevBtn').onclick=()=>go(-1);
+$('nextBtn').onclick=()=>go(1);
+$('gradeBtn').onclick=grade;
+$('toResultBtn').onclick=showResult;
+let restartArmed=null;
+$('restartBtn').onclick=()=>{
+  const b=$('restartBtn');
+  if(restartArmed){ clearTimeout(restartArmed); restartArmed=null; b.textContent='最初に戻る'; backToStart(); return; }
+  b.textContent='もう一度押すと最初へ（答えは消えます）';
+  restartArmed=setTimeout(()=>{ restartArmed=null; b.textContent='最初に戻る'; },3000);
+};
+$('ex-close').onclick=()=>$('explain').classList.add('hidden');
+$('explain').onclick=e=>{ if(e.target.id==='explain') $('explain').classList.add('hidden'); };
+document.addEventListener('keydown',e=>{
+  if(!$('explain').classList.contains('hidden')){ if(e.key==='Escape') $('explain').classList.add('hidden'); return; }
+  if($('qScreen').classList.contains('hidden')) return;
+  if(!graded && ['1','2','3','4'].includes(e.key)){ answers[idx]=+e.key-1; paintChoices(); updateDots(); }
+  if(e.key==='ArrowRight') go(1);
+  if(e.key==='ArrowLeft') go(-1);
+});
+</script>
+</body>
+</html>
