@@ -29,6 +29,9 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 
 #bar{height:56px;flex:none;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:1px solid var(--bd);background:var(--bg2)}
 #bar .brand{font-weight:900;font-size:17px}
+#bar .home{flex:none;font-size:13px;font-weight:700;color:#555;text-decoration:none;border:1px solid var(--bd2);border-radius:8px;padding:5px 10px;background:#fff}
+#bar .home:hover{border-color:var(--accent);color:var(--accent)}
+
 #bar .brand .a{color:var(--accent)}
 #bar .rng{font-size:13px;font-weight:700;color:var(--kr);background:var(--krbg);border:1px solid var(--krbd);border-radius:14px;padding:4px 11px}
 #bar .sp{flex:1}
@@ -180,6 +183,7 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 <body>
 <div id="app">
   <div id="bar">
+    <a class="home" href="index.html" onclick="return leaveOk()">‹ 一覧</a>
     <span class="brand">N3 濁音・長音100選 <span class="a">·</span></span>
     <span class="rng" id="rng">① 1〜50</span>
     <span class="sp"></span>
@@ -576,6 +580,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight') go(1);
   if(e.key==='ArrowLeft') go(-1);
 });
+function leaveOk(){ const q=document.getElementById('qScreen'); if(q && !q.classList.contains('hidden') && !graded) return confirm('答えは消えます。一覧に戻りますか？\n답이 사라집니다. 목록으로 돌아갈까요?'); return true; }
 </script>
 </body>
 </html>
