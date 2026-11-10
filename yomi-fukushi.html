@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="得点アップ 読み方＆副詞チャレンジ">
+<meta property="og:description" content="탁음·장음·음독과 훈독·부사와 접속사 — 본 적 있는 단어로 64문제. 바로 정답 확인 + 해설">
+<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/index.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<meta name="description" content="탁음·장음·음독과 훈독·부사와 접속사 — 본 적 있는 단어로 64문제. 바로 정답 확인 + 해설">
+<title>得点アップ 読み方＆副詞チャレンジ｜N3 試験直前 満点サプリ</title>
+<style>
+:root{
+  --ink:#1a1a1a; --accent:#3b82f6; --accent2:#2f6fd6; --bg2:#faf9f6; --bd:#e2e0d8; --bd2:#d0cec6;
+  --mut:#7a7a7a; --ok:#166534; --okbg:#f0fdf4; --okbd:#86efac;
+  --ng:#dc2626; --ngbg:#fef2f2; --ngbd:#fca5a5; --amber:#f59e0b; --ambg:#fffbeb; --ambd:#fde68a;
+  --kr:#1e40af; --krbg:#eff6ff; --krbd:#bfdbfe;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto Sans JP","Malgun Gothic",sans-serif;color:var(--ink);background:#e9eaee;-webkit-text-size-adjust:100%}
+#app{max-width:560px;margin:0 auto;background:#fff;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.hidden{display:none!important}
+#bar{position:sticky;top:0;z-index:5;height:50px;flex:none;display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid var(--bd);background:var(--bg2)}
+#bar .home{flex:none;font-size:13px;font-weight:700;color:#555;text-decoration:none;border:1px solid var(--bd2);border-radius:8px;padding:5px 10px;background:#fff}
+#bar .brand{font-weight:900;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bar .brand .a{color:var(--accent)}
+#bar .sp{flex:1}
+#bar .cnt{font-size:13px;font-weight:800;color:#555;white-space:nowrap}
+#prog{height:5px;background:var(--bd);flex:none}
+#prog div{height:100%;background:var(--accent);width:0;transition:width .2s}
+#stage{flex:1;padding:16px 14px 24px}
+#ctrl{position:sticky;bottom:0;flex:none;display:flex;gap:10px;justify-content:flex-end;padding:10px 12px;border-top:1px solid var(--bd);background:var(--bg2)}
+.btn{border:1px solid var(--bd2);background:#fff;color:#444;font-size:15px;font-weight:700;padding:12px 18px;border-radius:10px;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.wide{width:100%}
+.btn:disabled{opacity:.4}
+
+.start h1{font-size:25px;font-weight:900;line-height:1.35;margin:8px 0 6px}
+.start h1 .a{color:var(--accent)}
+.start .sub{font-size:14px;color:#444;line-height:1.6}
+.start .subk{font-size:13px;color:var(--kr);margin:4px 0 18px;line-height:1.5}
+.setcard{border:2px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px;background:var(--bg2)}
+.setcard h2{font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.setcard h2 .n{background:var(--accent);color:#fff;border-radius:8px;padding:1px 10px}
+.setcard h2 small{font-size:12px;color:#777;font-weight:700}
+.setcard ol{list-style:none;margin-bottom:10px}
+.setcard li{font-size:14.5px;font-weight:700;padding:6px 2px;border-bottom:1px dashed var(--bd);display:flex;gap:8px;align-items:baseline}
+.setcard li .no{color:var(--accent);font-weight:900}
+.setcard li .k{margin-left:auto;font-size:11.5px;color:var(--kr);font-weight:600;white-space:nowrap}
+.again{display:block;margin-top:8px;font-size:13px;color:#92700e;background:var(--ambg);border:1px solid var(--ambd);border-radius:10px;padding:9px;text-align:center;font-weight:700;cursor:pointer;font-family:inherit;width:100%}
+
+.cover .rno{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:1px;margin-top:6px}
+.cover h2{font-size:27px;font-weight:900}
+.cover .krn{font-size:15px;color:var(--kr);font-weight:700;margin-bottom:14px}
+.kotsu{border:2px solid var(--ambd);background:var(--ambg);border-radius:14px;padding:14px}
+.kotsu .lab{font-size:13px;font-weight:900;color:#92700e;margin-bottom:4px}
+.kotsu .jp{font-size:16px;line-height:1.65;font-weight:600}
+.kotsu .kr{font-size:13.5px;color:var(--kr);margin-top:6px;line-height:1.55}
+.kotsu ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+.kotsu li{font-size:15px;background:#fff;border:1px solid var(--ambd);border-radius:9px;padding:7px 10px;line-height:1.5}
+.kotsu li b{color:var(--ng)}
+
+.qtag{font-size:12.5px;font-weight:800;color:var(--accent)}
+.inst{font-size:12.5px;color:var(--mut);margin-top:2px;line-height:1.5}
+.sent{font-size:21px;font-weight:600;margin:18px 0 18px;line-height:1.65;white-space:pre-line}
+.sent u{text-decoration:none;border-bottom:3px solid var(--ink);padding:0 2px}
+.word{font-size:36px;font-weight:900;text-align:center;margin:12px 0 14px;letter-spacing:3px}
+.choices{display:grid;gap:9px}
+.choice{display:flex;align-items:center;gap:12px;border:2px solid var(--bd);border-radius:12px;padding:12px 13px;font-size:19px;font-weight:600;background:#fff;cursor:pointer;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.choice.long{font-size:15.5px;line-height:1.45}
+.choice .no{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#666}
+.choice.correct{border-color:var(--okbd);background:var(--okbg)}
+.choice.correct .no{background:var(--ok);border-color:var(--ok);color:#fff}
+.choice.wrong{border-color:var(--ngbd);background:var(--ngbg)}
+.choice.wrong .no{background:var(--ng);border-color:var(--ng);color:#fff}
+.fb{margin-top:14px;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6}
+.fb.ok{background:var(--okbg);border:1px solid var(--okbd)}
+.fb.ng{background:var(--ambg);border:1px solid var(--ambd)}
+.fb .h{font-weight:900;font-size:16px;margin-bottom:3px}
+.fb.ok .h{color:var(--ok)} .fb.ng .h{color:#92700e}
+.fb .k{display:block;color:var(--kr);font-size:13.5px;margin-top:4px;font-weight:600}
+
+.res h2{font-size:23px;font-weight:900;margin:6px 0 4px}
+.res .krs{font-size:13.5px;color:var(--kr);margin-bottom:12px;line-height:1.5}
+.rounds{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.rd{border:1px solid var(--bd);border-radius:10px;padding:8px 10px;background:var(--bg2)}
+.rd .t{font-size:12px;font-weight:800;color:#555}
+.rd .v{font-size:20px;font-weight:900;color:var(--accent)}
+.rd .v.full{color:var(--ok)}
+.nobi .t{font-size:15px;font-weight:900;color:#92700e}
+.nobi .t span{display:block;font-size:12px;color:var(--kr);font-weight:600}
+.nchips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.nchip{border:1px solid var(--ambd);background:var(--ambg);color:#92700e;font-weight:800;font-size:14.5px;padding:7px 11px;border-radius:10px;cursor:pointer;font-family:inherit}
+.great{font-size:19px;font-weight:900;color:var(--ok);margin:10px 0 14px}
+.rbtns{display:grid;gap:9px}
+.copied{color:var(--ok);font-weight:700;font-size:13px;text-align:center}
+#copyBox{width:100%;height:96px;margin-top:8px;font-size:14px;padding:8px;border:1px solid var(--bd2);border-radius:8px;font-family:inherit}
+
+#explain{position:fixed;inset:0;background:rgba(20,20,25,.45);display:flex;align-items:center;justify-content:center;z-index:60;padding:14px}
+.ex-card{width:100%;max-width:520px;background:#fff;border-radius:14px;overflow:hidden}
+.ex-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--ambg);border-bottom:1px solid var(--ambd)}
+.ex-head b{font-size:17px;color:#92700e}
+#ex-close{background:#fff;border:1px solid var(--bd2);border-radius:8px;width:32px;height:32px;font-size:14px;cursor:pointer;font-family:inherit}
+#ex-body{padding:14px;font-size:15px;line-height:1.65}
+#ex-body .s{font-size:16px;background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:10px 12px;margin-bottom:10px}
+#ex-body .a{color:var(--ok);font-weight:800}
+#ex-body .k{display:block;color:var(--kr);font-size:13.5px;font-weight:600;margin-top:4px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="bar">
+    <a class="home" href="index.html" onclick="return leaveOk()">‹ 一覧</a>
+    <span class="brand">得点アップ <span class="a">読み方＆副詞</span></span>
+    <span class="sp"></span>
+    <span class="cnt" id="cnt"></span>
+  </div>
+  <div id="prog" class="hidden"><div id="progBar"></div></div>
+  <div id="stage"></div>
+  <div id="ctrl" class="hidden"><button class="btn primary" id="nextBtn">次へ →</button></div>
+  <div id="explain" class="hidden"><div class="ex-card"><div class="ex-head"><b id="ex-title"></b><button id="ex-close">✕</button></div><div id="ex-body"></div></div></div>
+</div>
+<script>
+// 第4回模試前 得点アップ 読み方＆副詞チャレンジ — 共通データ
+// o[0] が正解。表示時に選択肢を混ぜる。f: yomi=漢字読み / hyoki=表記 / bun=文脈・文法 / yoho=用法
+const INST = {
+  yomi: '＿＿＿のことばの読み方として最もよいものを、1・2・3・4から一つえらびなさい。',
+  hyoki:'＿＿＿のことばを漢字で書くとき、最もよいものを、1・2・3・4から一つえらびなさい。',
+  bun:  '（　　）に入れるのに最もよいものを、1・2・3・4から一つえらびなさい。',
+  yoho: 'つぎのことばの使い方として最もよいものを、1・2・3・4から一つえらびなさい。'
+};
+const FMT = { yomi:'問題1 漢字読み', hyoki:'問題2 表記', bun:'問題3 文脈規定・文法', yoho:'問題5 用法' };
+
+const SETS = [
+// ======================= コマ① =======================
+{ n:1, label:'①', title:'セット①', rounds:[
+ { id:'daku', name:'濁る？ 濁らない？', kr:'탁음일까? 청음일까?',
+   tip:{ jp:'韓国語は、ことばの最初の音が濁るかどうかを区別しない。だから耳ではなく「この字は濁る」と字ごとに覚える。同じ字でも、ことばによって変わるものがある。',
+         kr:'한국어는 어두의 청음·탁음을 구별하지 않는다. 귀가 아니라 "이 글자는 탁음"이라고 글자별로 외운다.',
+         ex:['大会 <b>た</b>いかい ⇔ 大学 <b>だ</b>いがく（同じ「大」）','期限・門限 → 「限」は <b>げん</b>','本＋たな → ほん<b>だ</b>な（つながると濁る＝連濁）'] },
+   items:[
+    {f:'yomi',k:'移転',s:'会社が来月、駅の近くに<u>移転</u>する。',o:['いてん','いでん','いってん','いてい'],n:'いてん。「転」は濁らない（運転 うんてん）。「いでん」は遺伝で、別のことば。',kr:'転 전 → てん（運転 운전 = うんてん）'},
+    {f:'yomi',k:'門限',s:'この寮の<u>門限</u>は夜11時です。',o:['もんげん','もんけん','もうげん','もんがん'],n:'もんげん。「限」は「げん」と濁る（期限 きげん・制限 せいげん）。',kr:'限 한 → げん（ㅎ로 시작하는 글자는 か·が행이 되기 쉽다）'},
+    {f:'yomi',k:'番組',s:'好きなテレビ<u>番組</u>は何ですか。',o:['ばんぐみ','ばんくみ','はんぐみ','ばんこみ'],n:'番＋組（くみ）→ ばんぐみ。後ろの「くみ」が濁る。',kr:'연탁: くみ → ぐみ'},
+    {f:'yomi',k:'期限',s:'借りた本の返却<u>期限</u>は2週間です。',o:['きげん','きけん','ぎげん','きかん'],n:'きげん。「きけん」は危険、「きかん」は期間。門限と同じ「げん」。',kr:'期限 기한 → きげん'},
+    {f:'yomi',k:'大会',s:'来週、サッカーの<u>大会</u>に出る。',o:['たいかい','だいかい','たいがい','だいがい'],n:'たいかい。大会・大切は「たい」、大学・大事は「だい」。',kr:'大 대 → たい／だい 둘 다 있음. 단어로 외운다'},
+    {f:'yomi',k:'本棚',s:'部屋に新しい<u>本棚</u>を置いた。',o:['ほんだな','ほんたな','ぼんだな','ぼんたな'],n:'本＋棚（たな）→ ほんだな。',kr:'연탁: たな → だな'},
+    {f:'yomi',k:'価格',s:'この店は、ほかの店より<u>価格</u>が安い。',o:['かかく','かがく','がかく','かかぐ'],n:'かかく。「かがく」は科学。',kr:'価格 가격 → かかく（둘 다 청음）'},
+    {f:'yomi',k:'中止',s:'雨のため、試合は<u>中止</u>になった。',o:['ちゅうし','ちゅうじ','じゅうし','じゅうじ'],n:'ちゅうし。「止」は濁らない（禁止 きんし）。',kr:'止 지 → し（청음）'}
+   ]},
+ { id:'nobasu', name:'のばす？ のばさない？', kr:'장음일까? 단음일까?',
+   tip:{ jp:'韓国語読みに ㅇ・ㅂ パッチムがある字は、ほぼのばす。パッチムがない字は短いことが多い。ただし「豪・交・表・調」のように、パッチムがなくてものばす字は一つずつ覚える。',
+         kr:'ㅇ·ㅂ 받침 → 거의 장음. 받침 없음 → 대부분 단음. 단, 받침 없어도 장음인 글자(豪·交·表·調)는 따로 외운다.',
+         ex:['ㅇ：交通 교<b>통</b> → こう<b>つう</b>','받침 없음：主人 <b>주</b>인 → <b>しゅ</b>じん（のばさない）','例外：豪 <b>호</b> → <b>ごう</b>（のばす）'] },
+   items:[
+    {f:'yomi',k:'小型',s:'旅行用に<u>小型</u>のカメラを買った。',o:['こがた','こうがた','こかた','しょうがた'],n:'こがた。「小」は訓読みの「こ」（小鳥 ことり）、「型」は「がた」と濁る（大型 おおがた）。',kr:'小型 = こ＋がた（훈독 + 탁음）. のばさない'},
+    {f:'yomi',k:'豪華',s:'結婚式は<u>豪華</u>なホテルで行われた。',o:['ごうか','ごか','こうか','ごうが'],n:'ごうか。「こうか」は効果。',kr:'豪 호 → ごう（받침 없어도 장음＋탁음）'},
+    {f:'yomi',k:'主人',s:'少々お待ちください。<u>主人</u>を呼んでまいります。',o:['しゅじん','しゅうじん','しゅにん','しゅうにん'],n:'しゅじん。のばすと「囚人（しゅうじん）」。「しゅにん」は主任。',kr:'主 주 → しゅ（짧게）. 住 주 → じゅう 와 구별'},
+    {f:'yomi',k:'交通',s:'駅のまわりは<u>交通</u>が便利だ。',o:['こうつう','こつう','こうつ','こうずう'],n:'こうつう。どちらものばす。',kr:'交 교 → こう ／ 通 통(ㅇ) → つう'},
+    {f:'yomi',k:'美容院',s:'姉は駅前の<u>美容院</u>で働いている。',o:['びよういん','びょういん','びよいん','びょいん'],n:'び・よう・いん。大きい「よ」。「びょういん」は病院。',kr:'美 미 → び（짧게）／ 容 용(ㅇ) → よう'},
+    {f:'yomi',k:'貯金',s:'毎月少しずつ<u>貯金</u>している。',o:['ちょきん','ちょうきん','ちょぎん','ちょうぎん'],n:'ちょきん。「貯」はのばさない。「金」は濁らない。',kr:'貯 저 → ちょ（짧게）'},
+    {f:'yomi',k:'都合',s:'今日は<u>都合</u>が悪いので、明日にしてください。',o:['つごう','つうごう','とごう','つこう'],n:'つごう。「都」は短く、「合」は濁ってのばす。',kr:'合 합(ㅂ) → ごう'},
+    {f:'yomi',k:'努力',s:'毎日<u>努力</u>を続けることが大切だ。',o:['どりょく','どうりょく','とりょく','どりょうく'],n:'どりょく。「どうりょく」は動力。',kr:'努 노 → ど（짧게）'}
+   ]},
+ { id:'onkun', name:'音読み？ 訓読み？', kr:'음독일까? 훈독일까?',
+   tip:{ jp:'漢字1字に送りがなが付いていたら、まず訓読み。送りがなで読み方が決まる。2字の熟語は音読みが多いが、「場所・小型・手紙」のように訓読みが入るものもある。',
+         kr:'한 글자 + 오쿠리가나 → 먼저 훈독. 오쿠리가나가 읽는 법을 정한다. 두 글자 숙어는 음독이 많지만, 훈독이 섞인 말도 있다.',
+         ex:['生<b>える</b> はえる ／ 生<b>まれる</b> うまれる ／ 生<b>活</b> せいかつ','下<b>る</b> くだる ／ 下<b>がる</b> さがる ／ 下<b>りる</b> おりる','場所 = <b>ば</b>（訓）＋しょ（音）'] },
+   items:[
+    {f:'yomi',k:'生える',s:'庭に雑草がたくさん<u>生えて</u>いる。',o:['はえて','うえて','いきて','はいて'],n:'はえて。草・毛・歯が出てくるのは「生える」。生まれる・生きる・生活（せいかつ）も同じ「生」。',kr:'풀·털·이가 나다 = 生える(はえる)'},
+    {f:'yomi',k:'明ける',s:'夜が<u>明けて</u>、空が明るくなってきた。',o:['あけて','あかけて','あきて','ひらけて'],n:'あけて。夜が明ける・年が明ける。明るい（あかるい）・説明（せつめい）も同じ字。',kr:'날이 새다 = 夜が明ける(あける)'},
+    {f:'hyoki',k:'もちいる',s:'この方法を<u>もちいて</u>、問題を解いてください。',o:['用いて','使いて','持いて','率いて'],n:'もちいる＝用いる。「用」の音読みは「よう」（用事・利用）。「使う」は「使って」になる。「率いる」はひきいる。',kr:'もちいる = 用いる（이용하다）'},
+    {f:'hyoki',k:'ささえる',s:'父は一人で家族の生活を<u>ささえて</u>きた。',o:['支えて','仕えて','指えて','差えて'],n:'ささえる＝支える。「仕える」はつかえる。音読みは「し」（支店 してん）。',kr:'ささえる = 支える（지탱하다·부양하다）'},
+    {f:'yomi',k:'下る',s:'坂を<u>下って</u>いくと、駅が見える。',o:['くだって','さがって','おりて','したって'],n:'くだって。送りがな「る」だけ→くだる（坂・川を下る）。下がる（さがる）・下りる（おりる）は送りがなが違う。',kr:'下る(くだる) 내려가다 — 오쿠리가나로 구별'},
+    {f:'yomi',k:'上手',s:'兄は料理がとても<u>上手</u>だ。',o:['じょうず','うえて','じょうしゅ','うわず'],n:'じょうず。特別な読み方なので、ことばごと覚える。上着（うわぎ）・上る（のぼる）・上下（じょうげ）。',kr:'上手 = じょうず（잘하다）. 특별한 읽기'},
+    {f:'yomi',k:'場所',s:'待ち合わせの<u>場所</u>を決めよう。',o:['ばしょ','じょうしょ','ばところ','じょうじょ'],n:'ばしょ。「場」は訓読みの「ば」、「所」は音読みの「しょ」。',kr:'場所 장소 → ば(훈)＋しょ(음)'},
+    {f:'yomi',k:'重要',s:'<u>重要</u>な書類をなくしてしまった。',o:['じゅうよう','おもよう','ちょうよう','じゅよう'],n:'じゅうよう。重い（おもい）は訓読み。「じゅよう」は需要。',kr:'重 중(ㅇ) → じゅう ／ 要 요 → よう'}
+   ]},
+ { id:'fuku1', name:'副詞 ― 使い方が2つ', kr:'부사 — 쓰임이 두 가지',
+   tip:{ jp:'副詞は意味を1つだけで覚えない。「後ろに何が来るか」とセットで覚える。',
+         kr:'부사는 뜻 하나로만 외우지 않는다. "뒤에 무엇이 오는가"와 세트로 외운다.',
+         ex:['なかなか＋〜ない ＝ 簡単には〜ない ／ なかなか＋いい ＝ 思ったより','さっぱり＋〜ない ＝ 全然 ／ さっぱりした ＝ すっきり','ずっと〜している ＝ 長く続く ／ 〜よりずっと ＝ 差が大きい'] },
+   items:[
+    {f:'bun',k:'なかなか①',c:'なかなか〜ない',s:'バスが（　　）来ないので、タクシーで行った。',o:['なかなか','ずいぶん','すっかり','かなり'],n:'なかなか＋ない＝思うようには〜ない。',kr:'なかなか〜ない = 좀처럼 ~하지 않다'},
+    {f:'bun',k:'なかなか②',c:'なかなか＝思ったより',s:'初めて作ったにしては、（　　）おいしいケーキだ。',o:['なかなか','ちっとも','さっぱり','めったに'],n:'なかなか＋いい評価＝思ったより〜だ。ちっとも・さっぱり・めったには後ろに「ない」が来る。',kr:'なかなか + 좋은 평가 = 꽤, 제법'},
+    {f:'yoho',k:'さっぱり',s:'さっぱり',o:['お風呂に入って、気分がさっぱりした。','明日はさっぱり雨が降るでしょう。','この料理はさっぱり辛くて食べられない。','さっぱり急いだので、電車に間に合った。'],n:'さっぱりした＝すっきり気持ちがいい。もう一つの使い方は「さっぱりわからない」（全然〜ない）。',kr:'さっぱりする = 개운하다 ／ さっぱり〜ない = 전혀 ~않다'},
+    {f:'bun',k:'ずっと①',c:'〜よりずっと',s:'今年の夏は、去年より（　　）暑い。',o:['ずっと','もっとも','たいてい','けっして'],n:'AよりBのほうがずっと〜＝差が大きい。',kr:'〜より ずっと = 훨씬'},
+    {f:'yoho',k:'ずっと②',c:'ずっと〜している',s:'ずっと',o:['朝から晩まで、ずっと部屋で勉強していた。','ずっと時間があったら、手伝ってください。','ずっとしたら、雨がやんだ。','ずっと会議が始まるので、急いでください。'],n:'ずっと〜している＝長い時間続く。比べるときの「ずっと」（①）と両方使える。',kr:'ずっと = 계속 (시간) ／ 훨씬 (비교)'},
+    {f:'bun',k:'すっかり',s:'宿題のことを（　　）忘れていた。',o:['すっかり','しっかり','はっきり','ぐっすり'],n:'すっかり＝全部・完全に。しっかり＝確実に、はっきり＝よくわかる、ぐっすり＝よく眠る。',kr:'すっかり = 완전히 ／ しっかり = 확실히 ／ ぐっすり = 푹(자다)'},
+    {f:'bun',k:'ぴったり',s:'この服はサイズが私に（　　）だ。',o:['ぴったり','ぎっしり','そっくり','がっかり'],n:'ぴったり＝ちょうど合う。ぎっしり＝すきまなくつまる、そっくり＝よく似ている。',kr:'ぴったり = 딱 맞다 ／ ぎっしり = 꽉 차다 ／ そっくり = 꼭 닮다'},
+    {f:'yoho',k:'しっかり',s:'しっかり',o:['朝ご飯をしっかり食べてから出かけよう。','急にしっかり雨が降ってきた。','彼は昨日しっかり国に帰った。','この部屋はしっかり広い。'],n:'しっかり＝確実に・十分に（しっかり食べる・しっかり覚える）。',kr:'しっかり = 제대로, 든든히'}
+   ]}
+]},
+// ======================= コマ② =======================
+{ n:2, label:'②', title:'セット②', rounds:[
+ { id:'daku', name:'濁る？ 濁らない？', kr:'탁음일까? 청음일까?',
+   tip:{ jp:'「ん」「っ」の後のハ行は、ぱ行になりやすい。ことばがつながると後ろが濁ることもある（連濁）。迷ったら、知っている別のことばで同じ字を思い出す。',
+         kr:'ん·っ 뒤의 は행은 ぱ행이 되기 쉽다. 단어가 이어지면 뒤가 탁음이 되기도 한다. 헷갈리면 같은 글자가 든 아는 단어를 떠올린다.',
+         ex:['心配 しん<b>ぱ</b>い ／ 出発 しゅっ<b>ぱ</b>つ','雨＋かさ → あま<b>が</b>さ','豪雨 → 豪華と同じ <b>ごう</b>'] },
+   items:[
+    {f:'yomi',k:'豪雨',s:'昨夜の<u>豪雨</u>で、川の水が増えた。',o:['ごうう','こうう','ごうあめ','こうあめ'],n:'ごうう。「豪」は豪華（ごうか）と同じで、濁ってのばす。',kr:'豪 호 → ごう'},
+    {f:'yomi',k:'返事',s:'メールの<u>返事</u>がまだ来ない。',o:['へんじ','へんし','べんじ','べんし'],n:'へんじ。「事」はここでは「じ」（大事 だいじ・用事 ようじ）。',kr:'返事 반사 → へんじ'},
+    {f:'yomi',k:'文化',s:'日本の<u>文化</u>に興味がある。',o:['ぶんか','ぶんが','ふんか','ふんが'],n:'ぶんか。「ふんか」は噴火。「化」は濁らない。',kr:'文 문 → ぶん ／ 化 화 → か'},
+    {f:'yomi',k:'出発',s:'明日の朝8時に<u>出発</u>します。',o:['しゅっぱつ','しゅっはつ','しゅっばつ','しゅうはつ'],n:'しゅっぱつ。「っ」の後の「は」は「ぱ」になる。',kr:'っ 뒤 は → ぱ'},
+    {f:'yomi',k:'心配',s:'母はいつも私のことを<u>心配</u>している。',o:['しんぱい','しんはい','しんばい','じんぱい'],n:'しんぱい。「ん」の後の「は」が「ぱ」になる。',kr:'ん 뒤 は → ぱ'},
+    {f:'yomi',k:'雨傘',s:'玄関に<u>雨傘</u>を忘れてきた。',o:['あまがさ','あめかさ','あまかさ','あめがさ'],n:'あまがさ。雨（あめ）は前に付くと「あま」になり、傘（かさ）は「がさ」と濁る。',kr:'あめ→あま ／ かさ→がさ（연탁）'},
+    {f:'yomi',k:'原因',s:'事故の<u>原因</u>を調べている。',o:['げんいん','けんいん','げいいん','げんにん'],n:'げんいん。「原」は濁る（原料 げんりょう）。',kr:'原 원 → げん（ㅇ으로 시작 → が행이 되기 쉽다）'},
+    {f:'yomi',k:'大事',s:'これは母からもらった<u>大事</u>な指輪だ。',o:['だいじ','たいじ','だいし','たいし'],n:'だいじ。大切（たいせつ）とは違って「だい」。「たいし」は大使。',kr:'大事 → だいじ ／ 大切 → たいせつ'}
+   ]},
+ { id:'nobasu', name:'のばす？ のばさない？', kr:'장음일까? 단음일까?',
+   tip:{ jp:'迷ったら、韓国語読みのパッチムを確かめる。それから、のばしすぎると別のことばになることを思い出す。',
+         kr:'헷갈리면 한국어 읽기의 받침을 확인한다. 길게 읽으면 다른 단어가 되는 경우를 떠올린다.',
+         ex:['給料 <b>급</b>료 → <b>きゅう</b>りょう（ㅂ）','制度 せいど ⇔ 生徒 せいと','予定 <b>예</b>정 → <b>よ</b>てい（予はのばさない）'] },
+   items:[
+    {f:'yomi',k:'旅行',s:'夏休みに家族で<u>旅行</u>した。',o:['りょこう','りょうこう','りょこ','りよこう'],n:'りょこう。「旅」は短く、「行」はのばす。',kr:'旅 려 → りょ ／ 行 행(ㅇ) → こう'},
+    {f:'yomi',k:'給料',s:'今月から<u>給料</u>が少し上がった。',o:['きゅうりょう','きゅりょう','きゅうりょ','きゅりょ'],n:'きゅうりょう。どちらものばす。',kr:'給 급(ㅂ) → きゅう ／ 料 료 → りょう'},
+    {f:'yomi',k:'制度',s:'来年から新しい<u>制度</u>が始まる。',o:['せいど','せいと','せど','せいどう'],n:'せいど。「せいと」は生徒。',kr:'制 제 → せい（받침 없어도 장음）／ 度 도 → ど'},
+    {f:'yomi',k:'遠慮',s:'<u>遠慮</u>しないで、たくさん食べてください。',o:['えんりょ','えんりょう','えんろ','えんりよ'],n:'えんりょ。最後はのばさない。',kr:'慮 려 → りょ（짧게）'},
+    {f:'yomi',k:'表情',s:'彼女はうれしそうな<u>表情</u>をしていた。',o:['ひょうじょう','ひょじょう','ひょうじょ','ひょうしょう'],n:'ひょうじょう。「表」はのばし、「情」は濁ってのばす。',kr:'表 표 → ひょう（받침 없어도 장음）／ 情 정(ㅇ) → じょう'},
+    {f:'yomi',k:'予定',s:'週末の<u>予定</u>はもう決まりましたか。',o:['よてい','ようてい','よで','ようでい'],n:'よてい。「予」はのばさない（予約 よやく）。',kr:'予 예 → よ（짧게）／ 定 정(ㅇ) → てい'},
+    {f:'yomi',k:'留学',s:'来年、日本へ<u>留学</u>するつもりだ。',o:['りゅうがく','りゅがく','りゅうかく','るがく'],n:'りゅうがく。「留」はのばし、「学」は濁る。',kr:'留 류 → りゅう（받침 없어도 장음）'},
+    {f:'yomi',k:'個人',s:'これは会社ではなく、<u>個人</u>の意見です。',o:['こじん','こうじん','こにん','こうにん'],n:'こじん。「こ」はのばさない。',kr:'個 개 → こ（짧게）'}
+   ]},
+ { id:'onkun', name:'音読み？ 訓読み？', kr:'음독일까? 훈독일까?',
+   tip:{ jp:'同じ漢字でも、送りがなとことばで読み方が変わる。漢字を見たら「送りがなは何か」を先に見る。',
+         kr:'같은 한자라도 오쿠리가나와 단어에 따라 읽기가 바뀐다. 한자를 보면 먼저 오쿠리가나를 본다.',
+         ex:['分<b>ける</b> わける ／ 分<b>かる</b> わかる ／ 自分 じ<b>ぶん</b> ／ 5分 ご<b>ふん</b>','後<b>ろ</b> うしろ ／ 後<b>で</b> あと ／ 午後 ご<b>ご</b>','荷物 に<b>もつ</b> ／ 動物 どう<b>ぶつ</b> ／ 食べ物 たべ<b>もの</b>'] },
+   items:[
+    {f:'hyoki',k:'ひきいる',s:'新しいチームは田中部長が<u>ひきいる</u>ことになった。',o:['率いる','引いる','導いる','用いる'],n:'ひきいる＝率いる。音読みは「りつ」（確率 かくりつ）。',kr:'ひきいる = 率いる（이끌다·통솔하다）'},
+    {f:'hyoki',k:'みちびく',s:'先生が私を合格に<u>みちびいて</u>くれた。',o:['導いて','導びいて','道いて','満いて'],n:'みちびく＝導く。送りがなは「く」だけ（導びく ×）。音読みは「どう」（指導 しどう）。',kr:'みちびく = 導く（이끌다）. 오쿠리가나는 く만'},
+    {f:'yomi',k:'高まる',s:'環境問題への関心が<u>高まって</u>いる。',o:['たかまって','こうまって','あがって','たかって'],n:'たかまって。高い・高める・高まるは訓読み、高校（こうこう）は音読み。',kr:'高まる(たかまる) = 높아지다'},
+    {f:'yomi',k:'二十日',s:'毎月<u>二十日</u>に給料が出る。',o:['はつか','にじゅうにち','ふつか','はつび'],n:'はつか。特別な読み方（一日 ついたち・二日 ふつか と同じ仲間）。',kr:'20일 = はつか（특별한 읽기）'},
+    {f:'yomi',k:'荷物',s:'重い<u>荷物</u>はここに置いてください。',o:['にもつ','にぶつ','かもつ','にもの'],n:'にもつ。「物」は もつ（荷物）・ぶつ（動物）・もの（食べ物）と3つある。',kr:'物 → もつ／ぶつ／もの. 荷物 = にもつ'},
+    {f:'yomi',k:'最後',s:'映画の<u>最後</u>で泣いてしまった。',o:['さいご','さいこう','さいあと','さいこ'],n:'さいご。「後」は音読みで「ご」（午後 ごご）。訓読みは 後ろ（うしろ）・後で（あとで）。「さいこう」は最高。',kr:'最後 최후 → さいご ／ 後ろ = うしろ（훈독）'},
+    {f:'yomi',k:'人間',s:'<u>人間</u>は一人では生きられない。',o:['にんげん','じんかん','ひとま','にんかん'],n:'にんげん。「間」は濁って「げん」。時間（じかん）・間（あいだ）・間に合う（まにあう）。',kr:'人間 인간 → にんげん'},
+    {f:'yomi',k:'分ける',s:'ケーキを四つに<u>分けて</u>ください。',o:['わけて','ぶけて','ふけて','わかって'],n:'わけて。送りがな「ける」→わける。「分かる（わかる）」とは送りがなが違う。',kr:'分ける(わける) 나누다 ／ 分かる(わかる) 알다'}
+   ]},
+ { id:'setsu', name:'接続詞と副詞のセット', kr:'접속사와 부사의 짝',
+   tip:{ jp:'接続詞は「前と後ろの関係」で選ぶ。副詞は後ろの形とセットで選ぶ。',
+         kr:'접속사는 "앞뒤 관계"로 고른다. 부사는 뒤에 오는 형태와 세트로 고른다.',
+         ex:['予想と反対 → <b>ところが</b> ／ 話を変える → <b>ところで</b>','相手の話を受けて決める → <b>それなら</b> ／ 思い出した → <b>そういえば</b>','<b>せっかく</b>〜のに ／ <b>まるで</b>〜ようだ'] },
+   items:[
+    {f:'bun',k:'ところが',s:'急いで駅へ行った。（　　）、電車はもう出た後だった。',o:['ところが','ところで','だから','それなら'],n:'ところが＝予想と反対のことが起きた。ところで＝話題を変える。',kr:'ところが = 그런데(예상과 반대) ／ ところで = 그런데(화제 전환)'},
+    {f:'bun',k:'ところで',s:'今日の会議はこれで終わります。（　　）、来週の予定はどうなっていますか。',o:['ところで','ところが','だから','そのため'],n:'ところで＝話題を変える。',kr:'ところで = 그런데(화제 전환)'},
+    {f:'bun',k:'そういえば',s:'A「田中さん、来月結婚するそうですよ。」\nB「（　　）、最近うれしそうだったね。」',o:['そういえば','それなら','ところが','ただし'],n:'そういえば＝相手の話で関係のあることを思い出した。',kr:'そういえば = 그러고 보니'},
+    {f:'bun',k:'それなら',s:'A「この店、今日は休みみたい。」\nB「（　　）、駅前のカフェに行こうか。」',o:['それなら','それに','そういえば','ところが'],n:'それなら＝相手の話を受けて、どうするか決める（＝じゃあ）。',kr:'それなら = 그렇다면, 그럼'},
+    {f:'bun',k:'それに',s:'この店の料理はおいしい。（　　）、値段も安い。',o:['それに','それで','ところで','だから'],n:'それに＝さらに付け加える（「も」とよくいっしょに使う）。',kr:'それに = 게다가'},
+    {f:'bun',k:'せっかく',s:'（　　）の休みなのに、雨で出かけられなかった。',o:['せっかく','わざわざ','やっと','なるべく'],n:'せっかく〜のに＝いい機会がむだになって残念。',kr:'せっかく〜のに = 모처럼 ~인데'},
+    {f:'bun',k:'まるで',s:'あの二人は（　　）本当の兄弟のように仲がいい。',o:['まるで','たとえ','けっして','いくら'],n:'まるで〜ようだ＝本当は違うが、とても似ている。たとえ〜ても、けっして〜ない、いくら〜ても。',kr:'まるで〜ようだ = 마치 ~같다'},
+    {f:'yoho',k:'どうも',s:'どうも',o:['薬を飲んだが、どうも体の調子がよくない。','どうも雨が降らなければいいですね。','どうも明日は必ず来てください。','このケーキはどうも甘くておいしい。'],n:'どうも＝はっきりしないが、なんとなく（どうも調子が悪い）。もう一つは「どうもありがとう」のあいさつ。',kr:'どうも = 아무래도, 왠지 ／ どうもありがとう'}
+   ]}
+]}
+];
+
+</script>
+<script>
+const $=id=>document.getElementById(id);
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function prep(it){ const p=shuffle(it.o.map((o,i)=>({o,a:i===0}))); return Object.assign({},it,{opts:p.map(x=>x.o),ans:p.findIndex(x=>x.a)}); }
+const kName=it=>it.c||it.k.replace(/[①②]/,'');
+const chipText=it=> it.f==='yomi' ? `${kName(it)}　${it.o[0]}` : it.f==='hyoki' ? `${kName(it)} → ${it.o[0]}` : kName(it);
+
+// 前回の「のびしろ」を覚えておく（この端末・このブラウザだけ）
+const LS='n3_yomifuku_nobi';
+function loadNobi(){ try{ return JSON.parse(localStorage.getItem(LS)||'{}'); }catch(e){ return {}; } }
+function saveNobi(o){ try{ localStorage.setItem(LS, JSON.stringify(o)); }catch(e){} }
+
+let S=null, seq=[], pos=0, log=[], retry=false, inRun=false;
+
+function start(){
+  inRun=false; S=null;
+  $('cnt').textContent=''; $('prog').classList.add('hidden'); $('ctrl').classList.add('hidden');
+  const nobi=loadNobi();
+  $('stage').innerHTML=`<div class="start">
+    <h1>得点アップ<br><span class="a">読み方＆副詞チャレンジ</span></h1>
+    <div class="sub">濁る・のばす・音と訓、使い方が2つある副詞と接続詞。見たことのあることばで、模試の前に総仕上げ！</div>
+    <div class="subk">탁음·장음·음독과 훈독, 쓰임이 두 가지인 부사와 접속사. 본 적 있는 단어로 모의고사 전 마무리!</div>
+    ${SETS.map(s=>`<div class="setcard"><h2><span class="n">${s.label}</span>${s.title}<small>32問・約15分</small></h2>
+      <ol>${s.rounds.map((r,ri)=>`<li><span class="no">${ri+1}</span>${r.name}<span class="k">${r.kr}</span></li>`).join('')}</ol>
+      <button class="btn primary wide" data-s="${s.n}">${s.label} をはじめる</button>
+      ${(nobi[s.n]||[]).length?`<button class="again" data-r="${s.n}">前回ののびしろ ${nobi[s.n].length}問だけ もう一度</button>`:''}
+    </div>`).join('')}
+  </div>`;
+  $('stage').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>run(+b.dataset.s,false));
+  $('stage').querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>run(+b.dataset.r,true));
+  scrollTo(0,0);
+}
+function run(n, isRetry){
+  S=SETS.find(s=>s.n===n); retry=isRetry; seq=[]; log=[]; pos=0; inRun=true;
+  if(isRetry){
+    const keys=loadNobi()[n]||[];
+    S.rounds.forEach((r,ri)=>r.items.forEach((it,i)=>{ if(keys.includes(it.k)) seq.push({t:'q',r:ri,it:prep(it)}); }));
+  } else {
+    S.rounds.forEach((r,ri)=>{ seq.push({t:'cover',r:ri}); r.items.forEach(it=>seq.push({t:'q',r:ri,it:prep(it)})); });
+  }
+  $('prog').classList.remove('hidden'); $('ctrl').classList.remove('hidden');
+  render();
+}
+function qTotal(){ return seq.filter(x=>x.t==='q').length; }
+function render(){
+  const sl=seq[pos], r=S.rounds[sl.r];
+  const done=seq.slice(0,pos).filter(x=>x.t==='q').length;
+  $('progBar').style.width=(done/qTotal()*100)+'%';
+  $('nextBtn').disabled=false;
+  if(sl.t==='cover'){
+    $('cnt').textContent=`${S.label} ROUND ${sl.r+1}/4`;
+    $('nextBtn').textContent='はじめる →';
+    $('stage').innerHTML=`<div class="cover"><div class="rno">ROUND ${sl.r+1} ／ 4</div><h2>${r.name}</h2><div class="krn">${r.kr}</div>
+      <div class="kotsu"><div class="lab">得点のコツ　점수 따는 요령</div><div class="jp">${r.tip.jp}</div><div class="kr">${r.tip.kr}</div>
+      <ul>${r.tip.ex.map(e=>`<li>${e}</li>`).join('')}</ul></div></div>`;
+  } else {
+    const it=sl.it;
+    $('cnt').textContent=`${done+1} / ${qTotal()}`;
+    $('nextBtn').textContent= pos===seq.length-1 ? '結果を見る →' : '次へ →';
+    $('nextBtn').disabled=!sl.done;
+    const long = it.f==='yoho' || it.opts.some(o=>o.length>9);
+    $('stage').innerHTML=`<div class="qtag">${retry?'もう一度 · ':''}${r.name}　${FMT[it.f]}</div><div class="inst">${INST[it.f]}</div>
+      ${it.f==='yoho'?`<div class="word">${it.s}</div>`:`<div class="sent">${it.s.replace('（　　）','（<span style="display:inline-block;min-width:60px"></span>）')}</div>`}
+      <div class="choices">${it.opts.map((o,i)=>`<button class="choice ${long?'long':''}" data-i="${i}"><span class="no">${i+1}</span><span>${o}</span></button>`).join('')}</div>
+      <div id="fb"></div>`;
+    $('stage').querySelectorAll('.choice').forEach(c=>c.onclick=()=>answer(+c.dataset.i));
+    if(sl.done) paint();
+  }
+  scrollTo(0,0);
+}
+function answer(i){
+  const sl=seq[pos]; if(sl.done) return;
+  sl.done=true; sl.sel=i; log.push({r:sl.r, it:sl.it, ok:i===sl.it.ans});
+  paint(); $('nextBtn').disabled=false;
+  $('fb').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function paint(){
+  const sl=seq[pos], it=sl.it, ok=sl.sel===it.ans;
+  $('stage').querySelectorAll('.choice').forEach(c=>{ const i=+c.dataset.i; c.classList.toggle('correct',i===it.ans); c.classList.toggle('wrong',i===sl.sel&&!ok); });
+  $('fb').innerHTML=`<div class="fb ${ok?'ok':'ng'}"><div class="h">${ok?'○ そのとおり！':'のびしろ発見！ 正しくは「'+it.opts[it.ans]+'」'}</div>${it.n}<span class="k">${it.kr}</span></div>`;
+}
+function next(){ if(pos<seq.length-1){ pos++; render(); } else result(); }
+
+function result(){
+  inRun=false;
+  $('prog').classList.add('hidden'); $('ctrl').classList.add('hidden'); $('cnt').textContent='';
+  const ok=log.filter(x=>x.ok).length, nobi=log.filter(x=>!x.ok).map(x=>x.it);
+  const store=loadNobi(); store[S.n]=nobi.map(it=>it.k); saveNobi(store);
+  const rounds = retry ? '' : `<div class="rounds">${S.rounds.map((r,ri)=>{ const L=log.filter(x=>x.r===ri); const k=L.filter(x=>x.ok).length; return `<div class="rd"><div class="t">${ri+1}. ${r.name}</div><div class="v ${k===L.length?'full':''}">${k} / ${L.length}</div></div>`; }).join('')}</div>`;
+  $('stage').innerHTML=`<div class="res"><h2>${S.title}${retry?'（もう一度）':''} おつかれさま！</h2>
+    <div class="krs">○ ${ok} / ${log.length}　·　수고했어요! 아래 단어를 한 번 더 보면 완성!</div>
+    ${rounds}
+    ${nobi.length?`<div class="nobi"><div class="t">のびしろポイント<span>누르면 해설 — 모의고사 전에 한 번 더</span></div>
+      <div class="nchips">${nobi.map((it,j)=>`<button class="nchip" data-j="${j}">${chipText(it)}</button>`).join('')}</div></div>`
+      :`<div class="great">全部 ○！ この調子で金曜日の模試へ！<br><span style="font-size:14px;color:var(--kr)">전부 정답! 이 기세로 금요일 모의고사로!</span></div>`}
+    <div class="rbtns">
+      ${nobi.length?`<button class="btn primary wide" id="againBtn">のびしろ ${nobi.length}問だけ もう一度</button>`:''}
+      <button class="btn wide" id="copyBtn">結果をコピー（카카오로 보내기）</button>
+      <span class="copied hidden" id="copied"></span>
+      <button class="btn wide" id="backBtn">最初に戻る</button>
+    </div></div>`;
+  $('stage').querySelectorAll('.nchip').forEach(b=>b.onclick=()=>explain(nobi[+b.dataset.j]));
+  if(nobi.length) $('againBtn').onclick=()=>run(S.n,true);
+  $('copyBtn').onclick=()=>copyResult(ok,log.length,nobi);
+  $('backBtn').onclick=start;
+  scrollTo(0,0);
+}
+function explain(it){
+  $('ex-title').textContent=chipText(it);
+  $('ex-body').innerHTML=`<div class="s">${it.f==='yoho'?'<b>'+it.s+'</b>':it.s.replace('（　　）','（<span class="a">'+it.o[0]+'</span>）')}${it.f==='yoho'?'<br>○ <span class="a">'+it.o[0]+'</span>':''}</div>${it.n}<span class="k">${it.kr}</span>`;
+  $('explain').classList.remove('hidden');
+}
+function copyResult(ok,total,nobi){
+  const txt=`[得点アップ 読み方＆副詞チャレンジ ${S.title}${retry?' もう一度':''}]\n결과: ${ok}/${total}\n🔁 다시 볼 것: ${nobi.length?nobi.map(chipText).join(', '):'없음 — 전부 정답!'}`;
+  const done=()=>{ $('copied').textContent='✓ 복사됨 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); };
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(()=>box(txt)); else box(txt);
+}
+function box(txt){ let ta=$('copyBox'); if(!ta){ ta=document.createElement('textarea'); ta.id='copyBox'; ta.readOnly=true; $('stage').appendChild(ta); } ta.value=txt; ta.focus(); ta.select(); $('copied').textContent='↓ 길게 눌러 복사 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); }
+function leaveOk(){ if(inRun) return confirm('途中の答えは消えます。一覧に戻りますか？\n중간 답이 사라집니다. 목록으로 돌아갈까요?'); return true; }
+$('nextBtn').onclick=next;
+$('ex-close').onclick=()=>$('explain').classList.add('hidden');
+start();
+</script>
+</body>
+</html>
