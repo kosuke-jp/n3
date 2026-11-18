@@ -14,12 +14,47 @@ body{margin:0;font-family:"Hiragino Sans","Noto Sans JP","Malgun Gothic",sans-se
 .w{width:100%;max-width:520px}h1{font-size:24px;margin:0 0 6px}p{color:#1e40af;margin:0 0 24px;font-size:14px}
 a{display:block;background:#fff;border:2px solid #e2e0d8;border-radius:12px;padding:16px 18px;margin-bottom:12px;text-decoration:none;color:#1a1a1a;font-weight:700;font-size:18px}
 a span{display:block;font-weight:500;font-size:13px;color:#7a7a7a;margin-top:4px}
+a{position:relative}
+a .meta{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:12px;font-weight:700;color:#7a7a7a}
+.new{background:#e8743b;color:#fff;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:900;letter-spacing:.5px}
+.done{color:#166534}
+a.isnew{border-color:#e8743b;background:#fff8f2}
+#newbar{display:none;background:#e8743b;color:#fff;border-radius:12px;padding:12px 16px;margin:-8px 0 18px;font-weight:800;font-size:15px;line-height:1.5}
+#newbar span{display:block;font-size:13px;font-weight:600;opacity:.95}
 </style></head><body><div class="w">
 <h1>N3 試験直前 満点サプリ</h1><p>도전해 보고 싶은 것을 골라 보세요</p>
-<a href="100sen-1.html">紛らわしい濁音・長音 熟語100選 ①<span>헷갈리는 탁음·장음 한자어 1〜50 · 15분</span></a>
-<a href="100sen-2.html">紛らわしい濁音・長音 熟語100選 ②<span>헷갈리는 탁음·장음 한자어 51〜100 · 15분</span></a>
-<a href="bunkei-up.html">得点アップ 文型チャレンジ<span>모의고사 오답에서 만든 문형 문제 · 6세트 · 세트당 36문제 10분</span></a>
-<a href="bunkei30.html">必須文型30チャレンジ<span>N3 필수 문형 30 · 확인 문제 30 + 문형 카드 30 · 10분</span></a>
-<a href="yomi-fukushi.html">得点アップ 読み方＆副詞チャレンジ<span>탁음·장음·음독/훈독·부사와 접속사 · 2세트 · 세트당 32문제 15분</span></a>
-<a href="kakunin3.html">第3回模試 ふりかえりチャレンジ<span>제3회 모의고사 복습 20문제 · 10분</span></a>
+<div id="newbar"></div>
+<a href="100sen-1.html" data-added="2026-10-31">紛らわしい濁音・長音 熟語100選 ①<span>헷갈리는 탁음·장음 한자어 1〜50 · 15분</span></a>
+<a href="100sen-2.html" data-added="2026-11-09">紛らわしい濁音・長音 熟語100選 ②<span>헷갈리는 탁음·장음 한자어 51〜100 · 15분</span></a>
+<a href="bunkei-up.html" data-added="2026-11-09">得点アップ 文型チャレンジ<span>모의고사 오답에서 만든 문형 문제 · 6세트 · 세트당 36문제 10분</span></a>
+<a href="bunkei30.html" data-added="2026-11-19">必須文型30チャレンジ<span>N3 필수 문형 30 · 확인 문제 30 + 문형 카드 30 · 10분</span></a>
+<a href="yomi-fukushi.html" data-added="2026-11-10">得点アップ 読み方＆副詞チャレンジ<span>탁음·장음·음독/훈독·부사와 접속사 · 2세트 · 세트당 32문제 15분</span></a>
+<a href="kakunin3.html" data-added="2026-10-31">第3回模試 ふりかえりチャレンジ<span>제3회 모의고사 복습 20문제 · 10분</span></a>
+<script>
+// 新着の印：追加から7日以内で、この端末でまだ開いていないものに NEW を付ける
+(function(){
+  var KEY='n3_index_opened', DAYS=7, opened={};
+  try{ opened=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  var w=document.querySelector('.w'), links=[].slice.call(w.querySelectorAll('a[data-added]'));
+  var today=new Date(); today.setHours(0,0,0,0);
+  var md=function(d){ var p=d.split('-'); return (+p[1])+'/'+(+p[2]); };
+  // 新しい順に並べる
+  links.sort(function(a,b){ return a.dataset.added<b.dataset.added?1:a.dataset.added>b.dataset.added?-1:0; });
+  links.forEach(function(a){ w.appendChild(a); });
+  var news=0;
+  links.forEach(function(a){
+    var h=a.getAttribute('href'), d=a.dataset.added, age=(today-new Date(d+'T00:00:00'))/864e5;
+    var isNew = age<=DAYS && !opened[h];
+    var m=document.createElement('span'); m.className='meta';
+    m.innerHTML=(isNew?'<b class="new">NEW</b>':'')+md(d)+' 追加'+(opened[h]?' · <span class="done">✓ '+md(opened[h])+'に開いた</span>':' · まだ開いていない');
+    a.appendChild(m);
+    if(isNew){ a.classList.add('isnew'); news++; }
+    a.addEventListener('click',function(){
+      try{ opened[h]=new Date().toISOString().slice(0,10); localStorage.setItem(KEY,JSON.stringify(opened)); }catch(e){}
+    });
+  });
+  if(news){ var bar=document.getElementById('newbar'); bar.style.display='block';
+    bar.innerHTML='新しいチャレンジが '+news+'つ あります！<span>새로운 챌린지가 '+news+'개 있어요! 위에서부터 도전해 보세요.</span>'; }
+})();
+</script>
 </div></body></html>
