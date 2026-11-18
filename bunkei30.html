@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="必須文型30チャレンジ">
+<meta property="og:description" content="N3 필수 문형 30 — 확인 문제 30 + 문형 카드 30. 틀린 문형은 카드로 바로 복습">
+<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/index.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<meta name="description" content="N3 필수 문형 30 — 확인 문제 30 + 문형 카드 30. 틀린 문형은 카드로 바로 복습">
+<title>必須文型30チャレンジ｜N3 試験直前 満点サプリ</title>
+<style>
+:root{
+  --ink:#1a1a1a; --accent:#3b82f6; --accent2:#2f6fd6; --bg2:#faf9f6; --bd:#e2e0d8; --bd2:#d0cec6;
+  --mut:#7a7a7a; --ok:#166534; --okbg:#f0fdf4; --okbd:#86efac;
+  --ng:#dc2626; --ngbg:#fef2f2; --ngbd:#fca5a5; --amber:#f59e0b; --ambg:#fffbeb; --ambd:#fde68a;
+  --kr:#1e40af; --krbg:#eff6ff; --krbd:#bfdbfe;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto Sans JP","Malgun Gothic",sans-serif;color:var(--ink);background:#e9eaee;-webkit-text-size-adjust:100%}
+#app{max-width:560px;margin:0 auto;background:#fff;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.hidden{display:none!important}
+#bar{position:sticky;top:0;z-index:5;height:50px;flex:none;display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid var(--bd);background:var(--bg2)}
+#bar .home{flex:none;font-size:13px;font-weight:700;color:#555;text-decoration:none;border:1px solid var(--bd2);border-radius:8px;padding:5px 10px;background:#fff}
+#bar .brand{font-weight:900;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bar .brand .a{color:var(--accent)}
+#bar .sp{flex:1}
+#bar .cnt{font-size:13px;font-weight:800;color:#555;white-space:nowrap}
+#prog{height:5px;background:var(--bd);flex:none}
+#prog div{height:100%;background:var(--accent);width:0;transition:width .2s}
+#stage{flex:1;padding:16px 14px 24px}
+#ctrl{position:sticky;bottom:0;flex:none;display:flex;gap:10px;justify-content:flex-end;padding:10px 12px;border-top:1px solid var(--bd);background:var(--bg2)}
+.btn{border:1px solid var(--bd2);background:#fff;color:#444;font-size:15px;font-weight:700;padding:12px 18px;border-radius:10px;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.wide{width:100%}
+.btn:disabled{opacity:.4}
+
+.start h1{font-size:25px;font-weight:900;line-height:1.35;margin:8px 0 6px}
+.start h1 .a{color:var(--accent)}
+.start .sub{font-size:14px;color:#444;line-height:1.6}
+.start .subk{font-size:13px;color:var(--kr);margin:4px 0 18px;line-height:1.5}
+.setcard{border:2px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px;background:var(--bg2)}
+.setcard h2{font-size:19px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.setcard h2 .n{background:var(--accent);color:#fff;border-radius:8px;padding:1px 10px}
+.setcard h2 small{font-size:12px;color:#777;font-weight:700}
+.setcard ol{list-style:none;margin-bottom:10px}
+.setcard li{font-size:14.5px;font-weight:700;padding:6px 2px;border-bottom:1px dashed var(--bd);display:flex;gap:8px;align-items:baseline}
+.setcard li .no{color:var(--accent);font-weight:900}
+.setcard li .k{margin-left:auto;font-size:11.5px;color:var(--kr);font-weight:600;white-space:nowrap}
+.again{display:block;margin-top:8px;font-size:13px;color:#92700e;background:var(--ambg);border:1px solid var(--ambd);border-radius:10px;padding:9px;text-align:center;font-weight:700;cursor:pointer;font-family:inherit;width:100%}
+
+.cover .rno{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:1px;margin-top:6px}
+.cover h2{font-size:27px;font-weight:900}
+.cover .krn{font-size:15px;color:var(--kr);font-weight:700;margin-bottom:14px}
+.kotsu{border:2px solid var(--ambd);background:var(--ambg);border-radius:14px;padding:14px}
+.kotsu .lab{font-size:13px;font-weight:900;color:#92700e;margin-bottom:4px}
+.kotsu .jp{font-size:16px;line-height:1.65;font-weight:600}
+.kotsu .kr{font-size:13.5px;color:var(--kr);margin-top:6px;line-height:1.55}
+.kotsu ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+.kotsu li{font-size:15px;background:#fff;border:1px solid var(--ambd);border-radius:9px;padding:7px 10px;line-height:1.5}
+.kotsu li b{color:var(--ng)}
+
+.qtag{font-size:12.5px;font-weight:800;color:var(--accent)}
+.inst{font-size:12.5px;color:var(--mut);margin-top:2px;line-height:1.5}
+.sent{font-size:21px;font-weight:600;margin:18px 0 18px;line-height:1.65;white-space:pre-line}
+.sent u{text-decoration:none;border-bottom:3px solid var(--ink);padding:0 2px}
+.word{font-size:36px;font-weight:900;text-align:center;margin:12px 0 14px;letter-spacing:3px}
+.choices{display:grid;gap:9px}
+.choice{display:flex;align-items:center;gap:12px;border:2px solid var(--bd);border-radius:12px;padding:12px 13px;font-size:19px;font-weight:600;background:#fff;cursor:pointer;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.choice.long{font-size:15.5px;line-height:1.45}
+.choice .no{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#666}
+.choice.correct{border-color:var(--okbd);background:var(--okbg)}
+.choice.correct .no{background:var(--ok);border-color:var(--ok);color:#fff}
+.choice.wrong{border-color:var(--ngbd);background:var(--ngbg)}
+.choice.wrong .no{background:var(--ng);border-color:var(--ng);color:#fff}
+.fb{margin-top:14px;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6}
+.fb.ok{background:var(--okbg);border:1px solid var(--okbd)}
+.fb.ng{background:var(--ambg);border:1px solid var(--ambd)}
+.fb .h{font-weight:900;font-size:16px;margin-bottom:3px}
+.fb.ok .h{color:var(--ok)} .fb.ng .h{color:#92700e}
+.fb .k{display:block;color:var(--kr);font-size:13.5px;margin-top:4px;font-weight:600}
+
+.res h2{font-size:23px;font-weight:900;margin:6px 0 4px}
+.res .krs{font-size:13.5px;color:var(--kr);margin-bottom:12px;line-height:1.5}
+.rounds{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.rd{border:1px solid var(--bd);border-radius:10px;padding:8px 10px;background:var(--bg2)}
+.rd .t{font-size:12px;font-weight:800;color:#555}
+.rd .v{font-size:20px;font-weight:900;color:var(--accent)}
+.rd .v.full{color:var(--ok)}
+.nobi .t{font-size:15px;font-weight:900;color:#92700e}
+.nobi .t span{display:block;font-size:12px;color:var(--kr);font-weight:600}
+.nchips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.nchip{border:1px solid var(--ambd);background:var(--ambg);color:#92700e;font-weight:800;font-size:14.5px;padding:7px 11px;border-radius:10px;cursor:pointer;font-family:inherit}
+.great{font-size:19px;font-weight:900;color:var(--ok);margin:10px 0 14px}
+.rbtns{display:grid;gap:9px}
+.copied{color:var(--ok);font-weight:700;font-size:13px;text-align:center}
+#copyBox{width:100%;height:96px;margin-top:8px;font-size:14px;padding:8px;border:1px solid var(--bd2);border-radius:8px;font-family:inherit}
+
+#explain{position:fixed;inset:0;background:rgba(20,20,25,.45);display:flex;align-items:center;justify-content:center;z-index:60;padding:14px}
+.ex-card{width:100%;max-width:520px;background:#fff;border-radius:14px;overflow:hidden}
+.ex-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--ambg);border-bottom:1px solid var(--ambd)}
+.ex-head b{font-size:17px;color:#92700e}
+#ex-close{background:#fff;border:1px solid var(--bd2);border-radius:8px;width:32px;height:32px;font-size:14px;cursor:pointer;font-family:inherit}
+#ex-body{padding:14px;font-size:15px;line-height:1.65}
+#ex-body .s{font-size:16px;background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:10px 12px;margin-bottom:10px}
+#ex-body .a{color:var(--ok);font-weight:800}
+#ex-body .k{display:block;color:var(--kr);font-size:13.5px;font-weight:600;margin-top:4px}
+
+.cardlink{display:block;margin-top:10px;border:1px solid var(--krbd);background:var(--krbg);color:var(--kr);font-weight:800;font-size:14px;border-radius:9px;padding:8px 12px;cursor:pointer;font-family:inherit}
+.bcard{border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:10px 0;background:#fff;text-align:left}
+.bh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}.bh b{font-size:19px}
+.bno{background:var(--accent);color:#fff;border-radius:7px;padding:1px 8px;font-weight:900;font-size:13px}
+.bkr{color:var(--kr);font-size:13.5px;font-weight:700}
+.bcard .row{font-size:14.5px;line-height:1.55;margin:3px 0}.tg{display:inline-block;font-size:11.5px;font-weight:900;color:#fff;background:#7a7a7a;border-radius:5px;padding:0 6px;margin-right:6px}
+.exs{font-size:15.5px;line-height:1.55;margin-top:6px}.exs span{display:block;font-size:13px;color:var(--kr)}
+.note{margin-top:8px;background:var(--ambg);border:1px solid var(--ambd);border-radius:9px;padding:8px 10px;font-size:14px;line-height:1.55}.note b{color:#92700e}.note span{display:block;color:var(--kr);font-size:13px;margin-top:2px}
+.exn{font-size:15px;margin-bottom:6px}
+#ex-body{max-height:75vh;overflow:auto}
+.cards h2{font-size:21px;font-weight:900;margin:22px 0 6px;display:flex;align-items:center;gap:8px}.cards h2 .n{background:var(--accent);color:#fff;border-radius:8px;padding:1px 10px}.cards h2 small{font-size:13px;color:var(--kr)}
+.cards .lead{font-size:14px;line-height:1.55}.cards .lead span{display:block;color:var(--kr);font-size:13px}
+.gnav{position:sticky;top:50px;z-index:3;display:flex;gap:6px;background:#fff;padding:8px 0}.gnav a{flex:1;text-align:center;border:1px solid var(--bd2);border-radius:8px;padding:6px 0;font-weight:900;color:var(--accent);text-decoration:none}
+.gtab{border:1px solid var(--bd);border-radius:12px;padding:10px;background:var(--bg2);margin:10px 0 4px}.gtab .tt{font-weight:900;font-size:14px;color:#92700e;margin-bottom:6px}
+.gtab table{width:100%;border-collapse:collapse;font-size:13.5px}.gtab td{border-top:1px dashed var(--bd);padding:5px 4px;vertical-align:top}
+#cbBack2{margin-top:16px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="bar">
+    <a class="home" href="index.html" onclick="return leaveOk()">‹ 一覧</a>
+    <span class="brand">必須文型<span class="a">30</span></span>
+    <span class="sp"></span>
+    <span class="cnt" id="cnt"></span>
+  </div>
+  <div id="prog" class="hidden"><div id="progBar"></div></div>
+  <div id="stage"></div>
+  <div id="ctrl" class="hidden"><button class="btn primary" id="nextBtn">次へ →</button></div>
+  <div id="explain" class="hidden"><div class="ex-card"><div class="ex-head"><b id="ex-title"></b><button id="ex-close">✕</button></div><div id="ex-body"></div></div></div>
+</div>
+<script>
+// N3 필수 문형 30（Band配布版）から 必須文型30チャレンジ — 共通データ
+// o[0] が正解。表示時に選択肢を混ぜる。no＝文型カード番号（問題番号＝文型番号）
+const INST = { bun:'（　　）に入れるのに最もよいものを、1・2・3・4から一つえらびなさい。' };
+const FMT = { bun:'問題1 文法形式判断' };
+const GROUPS = [{"id": "A", "name": "推量・伝聞", "kr": "추측·전문", "lead": "「どこから判断したか」で形が変わる。見た・聞いた・考えた、を区別する。", "leadKr": "무엇을 근거로 판단했는지에 따라 형태가 달라집니다.", "tt": "根拠でえらぶ 근거로 고르기", "table": [["様態 そうだ", "目で見た", "降りそうだ"], ["伝聞 そうだ", "耳で聞いた", "降るそうだ"], ["らしい", "聞いた・見た根拠（客観的）", "降ったらしい"], ["はずだ", "論理的な根拠", "降るはずだ"], ["に違いない", "強い確信", "降るに違いない"]]}, {"id": "B", "name": "変化・決定・意志", "kr": "변화·결정·의지", "lead": "韓国語ではどれも「~하게 되다／~하도록 하다」。日本語は「自然か・意志か」で分ける。", "leadKr": "한국어로는 비슷하게 번역되지만 일본어는 “저절로인가, 의지인가”로 나뉩니다.", "tt": "2×2で整理 2×2로 정리", "table": [["", "変化（なる）", "決定（こと）"], ["自然に・他人が", "ようになる ~하게 되다(변화)", "ことになる ~하게 되다(결정)"], ["自分の意志で", "ようにする ~하도록 하다", "ことにする ~하기로 하다"]]}, {"id": "C", "name": "原因・理由・逆接", "kr": "원인·이유·역접", "lead": "原因の文型は「結果がよいか悪いか」「予想どおりか」で選ぶ。", "leadKr": "결과가 좋은지 나쁜지, 예상대로인지로 고릅니다.", "tt": "結果で見分ける 결과로 구분하기", "table": [["おかげで", "よい結果", "덕분에"], ["せいで", "悪い結果", "탓에"], ["ため", "原因（中立・書き言葉）", "때문에"], ["わりに", "予想と合わない", "~에 비해"], ["のに", "予想と違う・不満", "~인데도"]]}, {"id": "D", "name": "時間・タイミング", "kr": "시간·타이밍", "lead": "動作の「前・最中・直後・直後の変化」を形で言い分ける。", "leadKr": "동작의 직전·진행 중·직후를 형태로 구분합니다.", "tt": "「ところ」の時間軸 ところ의 시간 축", "table": [["Vるところ", "直前", "막 ~하려는 참"], ["Vているところ", "最中", "~하는 중"], ["Vたところ", "直後", "막 ~한 참"], ["Vたばかり", "直後〜少し後（主観）", "~한 지 얼마 안 됨"], ["Vたとたん", "した瞬間に予想外のことが起きる", "~하자마자"]]}, {"id": "E", "name": "対象・立場", "kr": "대상·입장", "lead": "韓国語の「~에 대해」「~에 의해」が日本語では複数の形に分かれる。", "leadKr": "한국어 “~에 대해”가 일본어에서는 여러 형태로 갈라집니다.", "tt": "韓国語から見た対応 한국어 → 일본어", "table": [["~에 대해 (주제)", "について", "話す・調べる・書く"], ["~에 대해 (대상)", "に対して", "答える・反対する"], ["~에 의해 / ~에 따라", "によって", "受身・違い"], ["~에 따르면", "によると", "＋そうだ／らしい"], ["~에게 있어", "にとって", "大切だ・難しい"], ["~로서", "として", "資格・立場"]]}, {"id": "F", "name": "限定・添加・判断", "kr": "한정·첨가·판단", "lead": "読解では筆者の主張の「強さ」を示す合図になる文型。", "leadKr": "독해에서 필자 주장의 “강도”를 알려 주는 신호가 됩니다.", "tt": "否定の強さ 부정의 강도", "table": [["わけではない", "部分否定", "꼭 ~인 건 아니다"], ["とは言えない", "断定を避ける", "~라고는 할 수 없다"], ["べきではない", "強い助言", "~해서는 안 된다"], ["はずがない", "論理的にありえない", "~일 리가 없다"], ["わけがない", "絶対にありえない", "~일 리가 없다"]]}];
+const CARDS = [{"no": 1, "name": "〜そうだ（様態）", "kr": "~할 것 같다 · ~해 보인다", "conn": "Vます形／イ形・ナ形の語幹 ＋ そうだ", "mean": "見た目や直前の様子から判断する", "ex": [["空が暗くなってきた。今にも雨が降りそうだ。", "하늘이 어두워졌어. 금방이라도 비가 올 것 같아."], ["このケーキ、とてもおいしそうですね。", "이 케이크, 정말 맛있어 보이네요."]], "note": "いい → よさそう、ない → なさそう。この2つだけ形が変わる。", "noteKr": "いい·ない는 よさそう·なさそう로 바뀝니다."}, {"no": 2, "name": "〜そうだ（伝聞）", "kr": "~라고 한다 · ~래", "conn": "普通形 ＋ そうだ", "mean": "人から聞いた情報を伝える", "ex": [["天気予報によると、明日は雪が降るそうだ。", "일기예보에 따르면 내일은 눈이 온대."], ["田中さんは来月結婚するそうです。", "다나카 씨는 다음 달에 결혼한대요."]], "note": "降りそうだ（目で見た）／降るそうだ（耳で聞いた）。「ます形は目、普通形は耳」。「〜によると」とよくいっしょに出る。", "noteKr": "ます형은 눈(모양), 보통형은 귀(전문)."}, {"no": 3, "name": "〜らしい", "kr": "~인 것 같다 · ~인 모양이다", "conn": "普通形 ＋ らしい （ナ形・名詞は「だ」を取らない）", "mean": "聞いた情報や根拠から、客観的に推量する", "ex": [["駅前に新しいカフェができたらしい。", "역 앞에 새 카페가 생겼나 봐."], ["部屋の電気が消えている。もう寝たらしい。", "방 불이 꺼져 있어. 벌써 잔 모양이야."]], "note": "名詞＋らしい には「その名詞の典型的な性質」の意味もある。例：今日は春らしい天気だ。", "noteKr": "명사+らしい는 “~다운”의 뜻도 있습니다(봄다운 날씨)."}, {"no": 4, "name": "〜はずだ", "kr": "(당연히) ~할 것이다", "conn": "普通形 ＋ はずだ （ナ形な／名詞の）", "mean": "根拠があって「当然そうだ」と判断する", "ex": [["8時に家を出たから、もう会社に着いているはずだ。", "8시에 집을 나섰으니까 벌써 회사에 도착했을 거야."], ["この薬を飲めば、明日には熱が下がるはずだ。", "이 약을 먹으면 내일쯤엔 열이 내릴 거야."]], "note": "〜はずがない＝絶対にそうではない。「〜ないはずだ」より否定がずっと強い。", "noteKr": "はずがない는 “~일 리가 없다”(강한 부정)."}, {"no": 5, "name": "〜に違いない", "kr": "~임에 틀림없다", "conn": "普通形 ＋ に違いない （ナ形・名詞は「だ」を取らない）", "mean": "強い確信をもって推量する", "ex": [["電気がついている。まだ誰か残っているに違いない。", "불이 켜져 있어. 아직 누군가 남아 있는 게 틀림없어."], ["あの店はいつも行列だ。おいしいに違いない。", "저 가게는 늘 줄이 서 있어. 맛있는 게 틀림없어."]], "note": "「はずだ」は論理的な根拠が必要。「に違いない」は話し手の直感・確信でも使える。", "noteKr": "はずだ는 논리적 근거, に違いない는 직감·확신."}, {"no": 6, "name": "〜ようになる", "kr": "~하게 되다 (변화)", "conn": "Vる／Vない ＋ ようになる （可能形が多い）", "mean": "能力・習慣・状態が自然に変わる（無意志）", "ex": [["練習を続けて、自転車に乗れるようになった。", "연습을 계속해서 자전거를 탈 수 있게 됐어."], ["子どもが生まれてから、早く寝るようになった。", "아이가 태어나고 나서 일찍 자게 됐어."]], "note": "「〜ようにする」（意志）と必ず対で覚える。変化の結果を言うときは「ようになる」。", "noteKr": "ようにする(의지)와 짝으로 외우세요."}, {"no": 7, "name": "〜ようにする", "kr": "~하도록 하다 (노력)", "conn": "Vる／Vない ＋ ようにする", "mean": "意識して努力する・習慣づける（有意志）", "ex": [["健康のために、毎日30分歩くようにしている。", "건강을 위해 매일 30분 걷도록 하고 있어."], ["夜遅くに甘いものを食べないようにしている。", "밤늦게 단 것을 먹지 않도록 하고 있어."]], "note": "「なるべく」「できるだけ」といっしょに出やすい。「〜ようにしている」＝続けている努力。", "noteKr": "なるべく·できるだけ와 자주 함께 나옵니다."}, {"no": 8, "name": "〜ことになる", "kr": "~하게 되다 (결정)", "conn": "Vる／Vない ＋ ことになる", "mean": "自分以外の力（会社・事情）で決まる", "ex": [["来月から大阪の支社で働くことになった。", "다음 달부터 오사카 지사에서 일하게 됐어."], ["雨のため、試合は中止することになりました。", "비 때문에 경기는 중지하게 되었습니다."]], "note": "〜ことになっている＝規則・予定。例：この部屋では靴を脱ぐことになっている。", "noteKr": "ことになっている는 “~하게 되어 있다”(규칙)."}, {"no": 9, "name": "〜ことにする", "kr": "~하기로 하다", "conn": "Vる／Vない ＋ ことにする", "mean": "自分の意志で決める", "ex": [["健康のために、たばこをやめることにした。", "건강을 위해 담배를 끊기로 했어."], ["今年の夏休みは、どこにも行かないことにしました。", "올해 여름휴가는 아무 데도 안 가기로 했어요."]], "note": "自分で決めた →「ことにする」、決まった →「ことになる」。〜ことにしている＝自分のルール。", "noteKr": "ことにしている는 “~하기로 하고 있다”(나의 규칙)."}, {"no": 10, "name": "〜がちだ", "kr": "~하기 쉽다 · 자주 ~하다", "conn": "Vます形／名詞 ＋ がちだ", "mean": "〜することが多い（よくない傾向）", "ex": [["冬は運動不足になりがちだ。", "겨울에는 운동 부족이 되기 쉬워."], ["弟は病気がちで、よく学校を休む。", "남동생은 잘 아파서 학교를 자주 쉬어."]], "note": "よいことには使わない。× よく勉強しがちだ", "noteKr": "좋은 일에는 쓰지 않습니다."}, {"no": 11, "name": "〜おかげで", "kr": "~덕분에", "conn": "普通形 ＋ おかげで （ナ形な／名詞の）", "mean": "よい結果の原因（感謝の気持ち）", "ex": [["先生のおかげで、試験に合格できました。", "선생님 덕분에 시험에 합격할 수 있었어요."], ["薬を飲んだおかげで、すぐに元気になった。", "약을 먹은 덕분에 금방 나았어."]], "note": "後ろには「よい結果」が来る。悪い結果なら「せいで」。", "noteKr": "뒤에는 좋은 결과가 옵니다."}, {"no": 12, "name": "〜せいで", "kr": "~탓에 · ~때문에", "conn": "普通形 ＋ せいで （ナ形な／名詞の）", "mean": "悪い結果の原因（責める気持ち）", "ex": [["電車が遅れたせいで、会議に間に合わなかった。", "전철이 늦은 탓에 회의에 늦었어."], ["夜更かしをしたせいで、朝起きられなかった。", "밤을 새운 탓에 아침에 못 일어났어."]], "note": "〜せいか＝はっきりしないが原因かもしれない。例：疲れているせいか、頭が痛い。", "noteKr": "せいか는 “~탓인지”."}, {"no": 13, "name": "〜ため（に）", "kr": "① ~하기 위해 ② ~때문에", "conn": "目的：Vる／名詞の ＋ ために　原因：普通形 ＋ ため", "mean": "① 目的 ② 原因・理由（書き言葉）", "ex": [["留学するために、お金をためている。（目的）", "유학하기 위해 돈을 모으고 있어."], ["大雪のため、電車が止まっている。（原因）", "폭설 때문에 전철이 멈춰 있어."]], "note": "目的の「ために」は意志動詞。可能形・無意志動詞なら「ように」：日本語が話せるように、毎日練習する。", "noteKr": "가능형·무의지 동사 뒤에는 ように를 씁니다."}, {"no": 14, "name": "〜わりに", "kr": "~에 비해(서는)", "conn": "普通形 ＋ わりに （ナ形な／名詞の）", "mean": "予想と結果が釣り合わない", "ex": [["この店は値段のわりに、料理の量が多い。", "이 가게는 가격에 비해 음식 양이 많아."], ["兄はたくさん食べるわりに、太らない。", "형은 많이 먹는 것에 비해 살이 안 쪄."]], "note": "「〜に比べて」はただの比較。「わりに」には「意外だ」という気持ちがある。", "noteKr": "わりに에는 “의외다”라는 느낌이 있습니다."}, {"no": 15, "name": "〜のに", "kr": "① ~인데도 ② ~하는 데에", "conn": "普通形 ＋ のに （ナ形な／名詞な）", "mean": "① 逆接（予想と違う・不満） ② Vる＋のに＝用途", "ex": [["一生懸命勉強したのに、試験に落ちてしまった。", "열심히 공부했는데도 시험에 떨어지고 말았어."], ["この傘は軽いので、持ち歩くのに便利だ。（用途）", "이 우산은 가벼워서 들고 다니기에 편리해."]], "note": "前が動詞の辞書形で、後ろが「便利だ・必要だ・使う」なら用途を疑う。読解では逆接の「のに」の後ろに答えが来る。", "noteKr": "역접 のに 뒤에 정답의 근거가 옵니다."}, {"no": 16, "name": "〜たところだ", "kr": "막 ~한 참이다", "conn": "Vた形 ＋ ところだ", "mean": "たった今、その動作が終わった", "ex": [["今、駅に着いたところです。", "지금 막 역에 도착했어요."], ["「宿題、終わった？」「うん、ちょうど終わったところ。」", "“숙제 끝났어?” “응, 방금 막 끝났어.”"]], "note": "ところは3つ：Vるところ（直前）／Vているところ（最中）／Vたところ（直後）。", "noteKr": "직전·진행 중·직후를 구분하세요."}, {"no": 17, "name": "〜たばかりだ", "kr": "이제 막 ~했다", "conn": "Vた形 ＋ ばかりだ", "mean": "終わってから、あまり時間がたっていない（主観的）", "ex": [["先月日本に来たばかりで、まだ日本語が下手だ。", "지난달 일본에 막 와서 아직 일본어가 서툴러."], ["買ったばかりのスマホを落としてしまった。", "산 지 얼마 안 된 스마트폰을 떨어뜨렸어."]], "note": "「たところ」は終わった直後の一点。「たばかり」は話し手が短いと感じれば1か月前でもよい。", "noteKr": "たばかり는 주관적으로 “얼마 안 됐다”는 느낌."}, {"no": 18, "name": "〜たとたん（に）", "kr": "~하자마자", "conn": "Vた形 ＋ とたん（に）", "mean": "〜した瞬間に（予想外のことが起きる）", "ex": [["立ち上がったとたんに、めまいがした。", "일어서자마자 현기증이 났어."], ["家を出たとたん、雨が降り出した。", "집을 나서자마자 비가 내리기 시작했어."]], "note": "後ろに話し手の意志的な行動は来ない。× 家に帰ったとたん、宿題をした", "noteKr": "뒤에 자신의 의지적 행동은 오지 않습니다."}, {"no": 19, "name": "〜うちに", "kr": "~하는 동안에 · ~하기 전에", "conn": "Vる／Vない／イ形／ナ形な／名詞の ＋ うちに", "mean": "その状態が変わる前に（〜している間に）", "ex": [["若いうちに、いろいろな国へ行ってみたい。", "젊을 때 여러 나라에 가 보고 싶어."], ["暗くならないうちに、家に帰りましょう。", "어두워지기 전에 집에 돌아갑시다."]], "note": "「〜ないうちに」は「〜する前に」の意味になる。後ろは意志的な行動が多い。", "noteKr": "ないうちに는 “~하기 전에”."}, {"no": 20, "name": "〜たびに", "kr": "~할 때마다", "conn": "Vる／名詞の ＋ たびに", "mean": "〜するときはいつも", "ex": [["この歌を聞くたびに、学生時代を思い出す。", "이 노래를 들을 때마다 학창 시절이 생각나."], ["旅行のたびに、家族にお土産を買う。", "여행 갈 때마다 가족에게 선물을 사."]], "note": "「〜とき、いつも」と言いかえられる。後ろは毎回くり返されること。", "noteKr": "뒤에는 매번 반복되는 일이 옵니다."}, {"no": 21, "name": "〜について", "kr": "~에 대해 (주제)", "conn": "名詞 ＋ について", "mean": "話題・内容（話す・調べる・書く・考える）", "ex": [["日本の歴史について、レポートを書いた。", "일본 역사에 대해 리포트를 썼어."], ["この問題について、みんなで話し合おう。", "이 문제에 대해 다 같이 이야기해 보자."]], "note": "韓国語の「~에 대해」は「について」と「に対して」の両方になる。中身・テーマなら「について」。", "noteKr": "“~에 대해”가 두 가지로 갈라집니다."}, {"no": 22, "name": "〜に対して", "kr": "~에 대해 · ~에게 (대상)", "conn": "名詞 ＋ に対して", "mean": "動作や気持ちが向かう相手／対比", "ex": [["客の質問に対して、丁寧に答えた。", "손님의 질문에 대해 정중하게 대답했어."], ["兄は活発なのに対して、弟はおとなしい。（対比）", "형은 활발한 데 비해 남동생은 얌전해."]], "note": "「について」＝話の中身、「に対して」＝向かう相手（答える・反対する・厳しい・優しい）。", "noteKr": "답하다·반대하다·엄하다 등 “상대”를 향할 때."}, {"no": 23, "name": "〜によって", "kr": "~에 의해 · ~에 따라", "conn": "名詞 ＋ によって", "mean": "① 原因・手段 ② 受身の動作主 ③ 〜ごとに違う", "ex": [["この建物は有名な建築家によって建てられた。", "이 건물은 유명한 건축가에 의해 지어졌어."], ["考え方は人によって違う。", "생각하는 방식은 사람에 따라 달라."]], "note": "「によると」（情報源）と混同しない。ニュースによると〜そうだ。", "noteKr": "によると는 “~에 따르면”(정보의 출처)."}, {"no": 24, "name": "〜にとって", "kr": "~에게 있어", "conn": "名詞 ＋ にとって", "mean": "その人の立場から見た評価", "ex": [["私にとって、家族は一番大切なものだ。", "나에게 있어 가족은 가장 소중한 존재야."], ["外国人にとって、敬語は難しい。", "외국인에게 있어 경어는 어려워."]], "note": "後ろは評価の言葉（大切だ・必要だ・難しい）。× 私にとって、その意見に賛成だ → 私は／私としては", "noteKr": "뒤에는 평가하는 말이 옵니다."}, {"no": 25, "name": "〜として", "kr": "~로서", "conn": "名詞 ＋ として", "mean": "資格・立場・名目", "ex": [["通訳として、会議に参加した。", "통역사로서 회의에 참가했어."], ["この町は温泉地として有名だ。", "이 마을은 온천지로서 유명해."]], "note": "親として心配だ（立場）／親にとって子どもは宝だ（その人から見た評価）。", "noteKr": "として는 자격·입장, にとって는 평가의 시점."}, {"no": 26, "name": "〜さえ〜ば", "kr": "~만 ~하면", "conn": "名詞 ＋ さえ ＋ Vば／あれば", "mean": "それ一つだけで十分だ（最低条件）", "ex": [["時間さえあれば、もっと旅行したい。", "시간만 있으면 더 여행하고 싶어."], ["この薬を飲みさえすれば、すぐ治る。", "이 약만 먹으면 금방 나아."]], "note": "「さえ」だけなら「〜も」の意味。例：忙しくて、ご飯を食べる時間さえない。", "noteKr": "さえ 단독은 “~조차”."}, {"no": 27, "name": "〜だけでなく〜も", "kr": "~뿐만 아니라 ~도", "conn": "普通形／名詞 ＋ だけでなく", "mean": "それに加えて、ほかにもある（追加）", "ex": [["この店は安いだけでなく、味もいい。", "이 가게는 쌀 뿐만 아니라 맛도 좋아."], ["英語だけでなく、中国語も話せる。", "영어뿐만 아니라 중국어도 할 수 있어."]], "note": "後ろに「も」が来るのが目印。書き言葉では「〜ばかりでなく」「〜のみならず」。", "noteKr": "뒤의 “も”가 표시입니다."}, {"no": 28, "name": "〜ずに済む", "kr": "~하지 않아도 되다 · ~하지 않고 끝나다", "conn": "Vない形（ない→ず／する→せず）＋ に済む", "mean": "しなくてもよい状態で終わる", "ex": [["友だちが車で送ってくれたので、雨に濡れずに済んだ。", "친구가 차로 데려다줘서 비를 안 맞고 끝났어."], ["早めに予約したので、並ばずに済んだ。", "일찍 예약해서 줄 서지 않아도 됐어."]], "note": "〜で済む＝その程度で終わる。例：けがは軽いやけどで済んだ。", "noteKr": "で済む는 “~로 끝나다”."}, {"no": 29, "name": "〜わけではない", "kr": "(꼭) ~인 것은 아니다", "conn": "普通形 ＋ わけではない （ナ形な／名詞の・な）", "mean": "全部そうだとは言えない（部分否定）", "ex": [["日本人がみんな納豆を好きなわけではない。", "일본인이 모두 낫토를 좋아하는 건 아니야."], ["嫌いなわけではないが、あまり食べない。", "싫어하는 건 아니지만 잘 안 먹어."]], "note": "「わけがない」＝絶対ない、とは逆方向。読解では「〜とは言えない」と並んで筆者の本当の主張を探す手がかり。", "noteKr": "わけがない는 “~일 리가 없다”(강한 부정)."}, {"no": 30, "name": "〜べきだ", "kr": "~해야 한다 · ~하는 것이 마땅하다", "conn": "Vる ＋ べきだ （する → するべき／すべき）", "mean": "そうするのが当然・正しい（強い意見）", "ex": [["約束は守るべきだ。", "약속은 지켜야 해."], ["若いうちに、いろいろな経験をするべきだ。", "젊을 때 여러 경험을 해야 해."]], "note": "否定は「べきではない」。× 守らないべきだ", "noteKr": "부정은 べきではない(~해서는 안 된다)."}];
+const SETS = [{"n": 1, "label": "30", "title": "必須文型30", "rounds": [{"id": "A", "name": "A 推量・伝聞", "kr": "추측·전문", "tip": {"jp": "「どこから判断したか」で形が変わる。見た・聞いた・考えた、を区別する。", "kr": "무엇을 근거로 판단했는지에 따라 형태가 달라집니다.", "ex": ["<b>様態 そうだ</b>　目で見た　｜　降りそうだ", "<b>伝聞 そうだ</b>　耳で聞いた　｜　降るそうだ", "<b>らしい</b>　聞いた・見た根拠（客観的）　｜　降ったらしい", "<b>はずだ</b>　論理的な根拠　｜　降るはずだ", "<b>に違いない</b>　強い確信　｜　降るに違いない"], "tt": "根拠でえらぶ 근거로 고르기"}, "items": [{"f": "bun", "k": "そうだ（様態）", "no": 1, "s": "手に取ってみると、このかばんはとても（　　）。", "o": ["丈夫そうだった", "丈夫なそうだった", "丈夫だそうだった", "丈夫ようだった"], "n": "見た目の判断＝様態。ナ形は語幹＋そうだ。", "kr": "~할 것 같다 · ~해 보인다"}, {"f": "bun", "k": "そうだ（伝聞）", "no": 2, "s": "新聞によると、あの工場は来年閉まる（　　）。", "o": ["そうだ", "ところだ", "ようにする", "ことにする"], "n": "「〜によると」＋普通形＋そうだ（伝聞）。", "kr": "~라고 한다 · ~래"}, {"f": "bun", "k": "らしい", "no": 3, "s": "隣の部屋から笑い声が聞こえる。パーティーをしている（　　）。", "o": ["らしい", "べきだ", "ことにする", "わけがない"], "n": "聞こえた声を根拠にした推量。", "kr": "~인 것 같다 · ~인 모양이다"}, {"f": "bun", "k": "はずだ", "no": 4, "s": "彼は毎朝このバスに乗っているから、今日も乗る（　　）。", "o": ["はずだ", "ばかりだ", "ところだ", "ようにする"], "n": "「毎朝乗っている」という根拠→当然の判断。", "kr": "(당연히) ~할 것이다"}, {"f": "bun", "k": "に違いない", "no": 5, "s": "彼の顔は真っ赤だ。お酒を飲んだ（　　）。", "o": ["に違いない", "おかげだ", "ことにする", "ようになる"], "n": "様子から強い確信をもった推量。", "kr": "~임에 틀림없다"}]}, {"id": "B", "name": "B 変化・決定・意志", "kr": "변화·결정·의지", "tip": {"jp": "韓国語ではどれも「~하게 되다／~하도록 하다」。日本語は「自然か・意志か」で分ける。", "kr": "한국어로는 비슷하게 번역되지만 일본어는 “저절로인가, 의지인가”로 나뉩니다.", "ex": ["<b>自然に・他人が</b>　ようになる ~하게 되다(변화)　｜　ことになる ~하게 되다(결정)", "<b>自分の意志で</b>　ようにする ~하도록 하다　｜　ことにする ~하기로 하다"], "tt": "2×2で整理 2×2로 정리"}, "items": [{"f": "bun", "k": "ようになる", "no": 6, "s": "日本に住んで3年、納豆が食べられる（　　）。", "o": ["ようになった", "ようにした", "ことにした", "ばかりだ"], "n": "可能形＋ようになる＝自然な変化。", "kr": "~하게 되다 (변화)"}, {"f": "bun", "k": "ようにする", "no": 7, "s": "健康のために、なるべく野菜を食べる（　　）。", "o": ["ようにしている", "ようになっている", "ことになっている", "ばかりだ"], "n": "「なるべく」＋ようにする＝意識的な努力。", "kr": "~하도록 하다 (노력)"}, {"f": "bun", "k": "ことになる", "no": 8, "s": "会社の命令で、来月からアメリカに転勤する（　　）。", "o": ["ことになった", "ことにした", "ようにした", "ばかりだった"], "n": "会社が決めた＝自分以外の決定。", "kr": "~하게 되다 (결정)"}, {"f": "bun", "k": "ことにする", "no": 9, "s": "よく考えて、私は自分の意志で大学院に進む（　　）。", "o": ["ことにした", "ことになった", "ようになった", "はずだった"], "n": "「自分の意志で」＝ことにする。", "kr": "~하기로 하다"}, {"f": "bun", "k": "がちだ", "no": 10, "s": "忙しいと、朝ごはんを（　　）になる。", "o": ["抜きがち", "抜いたばかり", "抜くべき", "抜くはず"], "n": "Vます形＋がち＝よくない傾向。", "kr": "~하기 쉽다 · 자주 ~하다"}]}, {"id": "C", "name": "C 原因・理由・逆接", "kr": "원인·이유·역접", "tip": {"jp": "原因の文型は「結果がよいか悪いか」「予想どおりか」で選ぶ。", "kr": "결과가 좋은지 나쁜지, 예상대로인지로 고릅니다.", "ex": ["<b>おかげで</b>　よい結果　｜　덕분에", "<b>せいで</b>　悪い結果　｜　탓에", "<b>ため</b>　原因（中立・書き言葉）　｜　때문에", "<b>わりに</b>　予想と合わない　｜　~에 비해", "<b>のに</b>　予想と違う・不満　｜　~인데도"], "tt": "結果で見分ける 결과로 구분하기"}, "items": [{"f": "bun", "k": "おかげで", "no": 11, "s": "友だちが手伝ってくれた（　　）、引っ越しが早く終わった。", "o": ["おかげで", "せいで", "とたん", "わりに"], "n": "よい結果の原因＋感謝。", "kr": "~덕분에"}, {"f": "bun", "k": "せいで", "no": 12, "s": "寝坊した（　　）、飛行機に乗り遅れてしまった。", "o": ["せいで", "おかげで", "うちに", "たびに"], "n": "悪い結果の原因。", "kr": "~탓에 · ~때문에"}, {"f": "bun", "k": "ため（に）", "no": 13, "s": "大学に入る（　　）、毎日遅くまで勉強している。", "o": ["ために", "ように", "せいで", "とおりに"], "n": "意志動詞の辞書形＋ために＝目的。", "kr": "① ~하기 위해 ② ~때문에"}, {"f": "bun", "k": "わりに", "no": 14, "s": "この部屋は駅から近い（　　）、家賃が安い。", "o": ["わりに", "ために", "たびに", "うちに"], "n": "「近い＝高いはず」なのに安い＝予想と合わない。", "kr": "~에 비해(서는)"}, {"f": "bun", "k": "のに", "no": 15, "s": "必ず来ると言った（　　）、彼は来なかった。", "o": ["のに", "ので", "ために", "から"], "n": "予想と違う結果＝逆接のに。", "kr": "① ~인데도 ② ~하는 데에"}]}, {"id": "D", "name": "D 時間・タイミング", "kr": "시간·타이밍", "tip": {"jp": "動作の「前・最中・直後・直後の変化」を形で言い分ける。", "kr": "동작의 직전·진행 중·직후를 형태로 구분합니다.", "ex": ["<b>Vるところ</b>　直前　｜　막 ~하려는 참", "<b>Vているところ</b>　最中　｜　~하는 중", "<b>Vたところ</b>　直後　｜　막 ~한 참", "<b>Vたばかり</b>　直後〜少し後（主観）　｜　~한 지 얼마 안 됨", "<b>Vたとたん</b>　した瞬間に予想外のことが起きる　｜　~하자마자"], "tt": "「ところ」の時間軸 ところ의 시간 축"}, "items": [{"f": "bun", "k": "たところだ", "no": 16, "s": "「ご飯、もう食べた？」「うん、ちょうど今（　　）ところ。」", "o": ["食べた", "食べる", "食べている", "食べ"], "n": "「もう食べた？」→直後＝Vたところ。", "kr": "막 ~한 참이다"}, {"f": "bun", "k": "たばかりだ", "no": 17, "s": "この車は先週買った（　　）なのに、もう故障した。", "o": ["ばかり", "ところ", "とたん", "うち"], "n": "「先週」でも短いと感じる＝たばかり。", "kr": "이제 막 ~했다"}, {"f": "bun", "k": "たとたん（に）", "no": 18, "s": "ドアを開けた（　　）、猫が外へ飛び出した。", "o": ["とたん", "うちに", "たびに", "まま"], "n": "した瞬間に予想外のことが起きる。", "kr": "~하자마자"}, {"f": "bun", "k": "うちに", "no": 19, "s": "料理が冷めない（　　）、早く食べてください。", "o": ["うちに", "たびに", "とたんに", "わりに"], "n": "「〜ないうちに」＝〜する前に。", "kr": "~하는 동안에 · ~하기 전에"}, {"f": "bun", "k": "たびに", "no": 20, "s": "母は電話をする（　　）、「ちゃんと食べてる？」と聞く。", "o": ["たびに", "うちに", "とたん", "ところ"], "n": "毎回くり返すこと＝たびに。", "kr": "~할 때마다"}]}, {"id": "E", "name": "E 対象・立場", "kr": "대상·입장", "tip": {"jp": "韓国語の「~에 대해」「~에 의해」が日本語では複数の形に分かれる。", "kr": "한국어 “~에 대해”가 일본어에서는 여러 형태로 갈라집니다.", "ex": ["<b>~에 대해 (주제)</b>　について　｜　話す・調べる・書く", "<b>~에 대해 (대상)</b>　に対して　｜　答える・反対する", "<b>~에 의해 / ~에 따라</b>　によって　｜　受身・違い", "<b>~에 따르면</b>　によると　｜　＋そうだ／らしい", "<b>~에게 있어</b>　にとって　｜　大切だ・難しい", "<b>~로서</b>　として　｜　資格・立場"], "tt": "韓国語から見た対応 한국어 → 일본어"}, "items": [{"f": "bun", "k": "について", "no": 21, "s": "日本の祭り（　　）調べて、クラスで発表した。", "o": ["について", "に対して", "にとって", "として"], "n": "調べる内容・テーマ＝について。", "kr": "~에 대해 (주제)"}, {"f": "bun", "k": "に対して", "no": 22, "s": "部長は部下（　　）、いつも厳しい。", "o": ["に対して", "について", "によって", "として"], "n": "態度が向かう相手＝に対して。", "kr": "~에 대해 · ~에게 (대상)"}, {"f": "bun", "k": "によって", "no": 23, "s": "この小説は、世界中の多くの人（　　）読まれている。", "o": ["によって", "にとって", "として", "について"], "n": "受身の動作主＝によって。", "kr": "~에 의해 · ~에 따라"}, {"f": "bun", "k": "にとって", "no": 24, "s": "学生（　　）、夏休みは一年で一番楽しい時期だ。", "o": ["にとって", "に対して", "として", "によって"], "n": "立場から見た評価（楽しい）＝にとって。", "kr": "~에게 있어"}, {"f": "bun", "k": "として", "no": 25, "s": "彼女は歌手（　　）、世界中で活躍している。", "o": ["として", "にとって", "に対して", "について"], "n": "資格・立場＝として。", "kr": "~로서"}]}, {"id": "F", "name": "F 限定・添加・判断", "kr": "한정·첨가·판단", "tip": {"jp": "読解では筆者の主張の「強さ」を示す合図になる文型。", "kr": "독해에서 필자 주장의 “강도”를 알려 주는 신호가 됩니다.", "ex": ["<b>わけではない</b>　部分否定　｜　꼭 ~인 건 아니다", "<b>とは言えない</b>　断定を避ける　｜　~라고는 할 수 없다", "<b>べきではない</b>　強い助言　｜　~해서는 안 된다", "<b>はずがない</b>　論理的にありえない　｜　~일 리가 없다", "<b>わけがない</b>　絶対にありえない　｜　~일 리가 없다"], "tt": "否定の強さ 부정의 강도"}, "items": [{"f": "bun", "k": "さえば", "no": 26, "s": "住所（　　）わかれば、地図ですぐに探せる。", "o": ["さえ", "だけでなく", "について", "ばかり"], "n": "最低条件＝さえ〜ば。", "kr": "~만 ~하면"}, {"f": "bun", "k": "だけでなくも", "no": 27, "s": "この本はおもしろい（　　）、勉強にもなる。", "o": ["だけでなく", "わりに", "のに", "おかげで"], "n": "後ろの「も」が目印＝追加。", "kr": "~뿐만 아니라 ~도"}, {"f": "bun", "k": "ずに済む", "no": 28, "s": "薬を飲んだので、会社を（　　）済んだ。", "o": ["休まずに", "休むように", "休んだのに", "休みがちに"], "n": "Vない→ず＋に済む。", "kr": "~하지 않아도 되다 · ~하지 않고 끝나다"}, {"f": "bun", "k": "わけではない", "no": 29, "s": "料理が嫌いな（　　）。ただ、時間がないだけだ。", "o": ["わけではない", "はずだ", "に違いない", "べきだ"], "n": "「ただ〜だけだ」と続く部分否定。", "kr": "(꼭) ~인 것은 아니다"}, {"f": "bun", "k": "べきだ", "no": 30, "s": "人の悪口は、言う（　　）ではない。", "o": ["べき", "はず", "おかげ", "そう"], "n": "Vる＋べきではない＝強い助言。", "kr": "~해야 한다 · ~하는 것이 마땅하다"}]}]}];
+
+</script>
+<script>
+const $=id=>document.getElementById(id);
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function prep(it){ const p=shuffle(it.o.map((o,i)=>({o,a:i===0}))); return Object.assign({},it,{opts:p.map(x=>x.o),ans:p.findIndex(x=>x.a)}); }
+const kName=it=>it.c||it.k.replace(/[①②]/,'');
+const chipText=it=> `${String(it.no).padStart(2,'0')} ${kName(it)}`;
+
+// 前回の「のびしろ」を覚えておく（この端末・このブラウザだけ）
+const LS='n3_bunkei30_nobi';
+function loadNobi(){ try{ return JSON.parse(localStorage.getItem(LS)||'{}'); }catch(e){ return {}; } }
+function saveNobi(o){ try{ localStorage.setItem(LS, JSON.stringify(o)); }catch(e){} }
+
+let S=null, seq=[], pos=0, log=[], retry=false, inRun=false;
+
+function start(){
+  inRun=false; S=null;
+  $('cnt').textContent=''; $('prog').classList.add('hidden'); $('ctrl').classList.add('hidden');
+  const nobi=(loadNobi()[1]||[]);
+  $('stage').innerHTML=`<div class="start">
+    <h1>N3 <span class="a">必須文型30</span> チャレンジ</h1>
+    <div class="sub">試験によく出る30の文型を、6つのグループで確認。まず解いて、間違えた文型だけカードで見直そう！</div>
+    <div class="subk">시험에 자주 나오는 30개 문형을 6개 그룹으로 확인. 먼저 풀고, 틀린 문형만 카드로 복습!</div>
+    <div class="setcard"><h2><span class="n">30</span>確認問題<small>30問・約10分</small></h2>
+      <ol>${GROUPS.map(g=>`<li><span class="no">${g.id}</span>${g.name}<span class="k">${g.kr}</span></li>`).join('')}</ol>
+      <button class="btn primary wide" data-s="1">チャレンジをはじめる</button>
+      ${nobi.length?`<button class="again" data-r="1">前回ののびしろ ${nobi.length}問だけ もう一度</button>`:''}
+    </div>
+    <div class="setcard"><h2><span class="n">📖</span>文型カード30<small>접속·의미·예문·주의</small></h2>
+      <button class="btn wide" id="cardsBtn">カードを見る</button>
+    </div>
+  </div>`;
+  $('stage').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>run(1,false));
+  $('stage').querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>run(1,true));
+  $('cardsBtn').onclick=cardList;
+  scrollTo(0,0);
+}
+function cardHTML(c){
+  return `<div class="bcard"><div class="bh"><span class="bno">${String(c.no).padStart(2,'0')}</span><b>${c.name}</b><span class="bkr">${c.kr}</span></div>
+    <div class="row"><span class="tg">接続</span>${c.conn}</div>
+    <div class="row"><span class="tg">意味</span>${c.mean}</div>
+    ${c.ex.map((e,i)=>`<div class="exs">${'①②'[i]} ${e[0]}<span>${e[1]}</span></div>`).join('')}
+    <div class="note"><b>注意</b> ${c.note}<span>${c.noteKr}</span></div></div>`;
+}
+function cardList(){
+  inRun=false; $('prog').classList.add('hidden'); $('ctrl').classList.add('hidden'); $('cnt').textContent='カード30';
+  $('stage').innerHTML=`<div class="cards"><button class="btn" id="cbBack">‹ もどる</button>
+    <div class="gnav">${GROUPS.map(g=>`<a href="#g${g.id}">${g.id}</a>`).join('')}</div>
+    ${GROUPS.map((g,gi)=>`<section id="g${g.id}"><h2><span class="n">${g.id}</span>${g.name}<small>${g.kr}</small></h2>
+      <div class="lead">${g.lead}<span>${g.leadKr}</span></div>
+      ${CARDS.slice(gi*5,gi*5+5).map(cardHTML).join('')}
+      <div class="gtab"><div class="tt">${g.tt}</div><table>${g.table.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</table></div>
+    </section>`).join('')}
+    <button class="btn primary wide" id="cbBack2">確認問題にチャレンジ</button></div>`;
+  $('cbBack').onclick=start; $('cbBack2').onclick=()=>run(1,false);
+  $('stage').querySelectorAll('.gnav a').forEach(a=>a.onclick=e=>{e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});});
+  scrollTo(0,0);
+}
+function run(n, isRetry){
+  S=SETS.find(s=>s.n===n); retry=isRetry; seq=[]; log=[]; pos=0; inRun=true;
+  if(isRetry){
+    const keys=loadNobi()[n]||[];
+    S.rounds.forEach((r,ri)=>r.items.forEach((it,i)=>{ if(keys.includes(it.k)) seq.push({t:'q',r:ri,it:prep(it)}); }));
+  } else {
+    S.rounds.forEach((r,ri)=>{ seq.push({t:'cover',r:ri}); r.items.forEach(it=>seq.push({t:'q',r:ri,it:prep(it)})); });
+  }
+  $('prog').classList.remove('hidden'); $('ctrl').classList.remove('hidden');
+  render();
+}
+function qTotal(){ return seq.filter(x=>x.t==='q').length; }
+function render(){
+  const sl=seq[pos], r=S.rounds[sl.r];
+  const done=seq.slice(0,pos).filter(x=>x.t==='q').length;
+  $('progBar').style.width=(done/qTotal()*100)+'%';
+  $('nextBtn').disabled=false;
+  if(sl.t==='cover'){
+    $('cnt').textContent=`GROUP ${r.id}`;
+    $('nextBtn').textContent='はじめる →';
+    $('stage').innerHTML=`<div class="cover"><div class="rno">ROUND ${sl.r+1} ／ ${S.rounds.length}</div><h2>${r.name}</h2><div class="krn">${r.kr}</div>
+      <div class="kotsu"><div class="lab">${r.tip.tt||'得点のコツ　점수 따는 요령'}</div><div class="jp">${r.tip.jp}</div><div class="kr">${r.tip.kr}</div>
+      <ul>${r.tip.ex.map(e=>`<li>${e}</li>`).join('')}</ul></div></div>`;
+  } else {
+    const it=sl.it;
+    $('cnt').textContent=`${done+1} / ${qTotal()}`;
+    $('nextBtn').textContent= pos===seq.length-1 ? '結果を見る →' : '次へ →';
+    $('nextBtn').disabled=!sl.done;
+    const long = it.f==='yoho' || it.opts.some(o=>o.length>9);
+    $('stage').innerHTML=`<div class="qtag">${retry?'もう一度 · ':''}${r.name}　${FMT[it.f]}</div><div class="inst">${INST[it.f]}</div>
+      ${it.f==='yoho'?`<div class="word">${it.s}</div>`:`<div class="sent">${it.s.replace('（　　）','（<span style="display:inline-block;min-width:60px"></span>）')}</div>`}
+      <div class="choices">${it.opts.map((o,i)=>`<button class="choice ${long?'long':''}" data-i="${i}"><span class="no">${i+1}</span><span>${o}</span></button>`).join('')}</div>
+      <div id="fb"></div>`;
+    $('stage').querySelectorAll('.choice').forEach(c=>c.onclick=()=>answer(+c.dataset.i));
+    if(sl.done) paint();
+  }
+  scrollTo(0,0);
+}
+function answer(i){
+  const sl=seq[pos]; if(sl.done) return;
+  sl.done=true; sl.sel=i; log.push({r:sl.r, it:sl.it, ok:i===sl.it.ans});
+  paint(); $('nextBtn').disabled=false;
+  $('fb').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function paint(){
+  const sl=seq[pos], it=sl.it, ok=sl.sel===it.ans;
+  $('stage').querySelectorAll('.choice').forEach(c=>{ const i=+c.dataset.i; c.classList.toggle('correct',i===it.ans); c.classList.toggle('wrong',i===sl.sel&&!ok); });
+  $('fb').innerHTML=`<div class="fb ${ok?'ok':'ng'}"><div class="h">${ok?'○ そのとおり！':'のびしろ発見！ 正しくは「'+it.opts[it.ans]+'」'}</div>${it.n}<span class="k">${it.kr}</span><button class="cardlink" id="fbCard">📖 文型カード No.${it.no} を見る</button></div>`;
+  $('fbCard').onclick=()=>showCard(it);
+}
+function next(){ if(pos<seq.length-1){ pos++; render(); } else result(); }
+
+function result(){
+  inRun=false;
+  $('prog').classList.add('hidden'); $('ctrl').classList.add('hidden'); $('cnt').textContent='';
+  const ok=log.filter(x=>x.ok).length, nobi=log.filter(x=>!x.ok).map(x=>x.it);
+  const store=loadNobi(); store[S.n]=nobi.map(it=>it.k); saveNobi(store);
+  const rounds = retry ? '' : `<div class="rounds">${S.rounds.map((r,ri)=>{ const L=log.filter(x=>x.r===ri); const k=L.filter(x=>x.ok).length; return `<div class="rd"><div class="t">${ri+1}. ${r.name}</div><div class="v ${k===L.length?'full':''}">${k} / ${L.length}</div></div>`; }).join('')}</div>`;
+  $('stage').innerHTML=`<div class="res"><h2>${S.title}${retry?'（もう一度）':''} おつかれさま！</h2>
+    <div class="krs">○ ${ok} / ${log.length}　·　수고했어요! 아래 단어를 한 번 더 보면 완성!</div>
+    ${rounds}
+    ${nobi.length?`<div class="nobi"><div class="t">のびしろポイント<span>누르면 해설 — 본시험 전에 한 번 더</span></div>
+      <div class="nchips">${nobi.map((it,j)=>`<button class="nchip" data-j="${j}">${chipText(it)}</button>`).join('')}</div></div>`
+      :`<div class="great">全部 ○！ この調子で12/6の本試験へ！<br><span style="font-size:14px;color:var(--kr)">전부 정답! 이 기세로 12/6 본시험으로!</span></div>`}
+    <div class="rbtns">
+      ${nobi.length?`<button class="btn primary wide" id="againBtn">のびしろ ${nobi.length}問だけ もう一度</button>`:''}
+      <button class="btn wide" id="copyBtn">結果をコピー（카카오로 보내기）</button>
+      <span class="copied hidden" id="copied"></span>
+      <button class="btn wide" id="backBtn">最初に戻る</button>
+    </div></div>`;
+  $('stage').querySelectorAll('.nchip').forEach(b=>b.onclick=()=>explain(nobi[+b.dataset.j]));
+  if(nobi.length) $('againBtn').onclick=()=>run(S.n,true);
+  $('copyBtn').onclick=()=>copyResult(ok,log.length,nobi);
+  $('backBtn').onclick=start;
+  scrollTo(0,0);
+}
+function explain(it){ showCard(it); }
+function showCard(it){
+  const c=CARDS[it.no-1];
+  $('ex-title').textContent=chipText(it);
+  $('ex-body').innerHTML=`<div class="s">${it.s.replace('（　　）','（<span class="a">'+it.o[0]+'</span>）')}</div><div class="exn">${it.n}</div>${cardHTML(c)}`;
+  $('explain').classList.remove('hidden');
+}
+function copyResult(ok,total,nobi){
+  const txt=`[必須文型30チャレンジ ${S.title}${retry?' もう一度':''}]\n결과: ${ok}/${total}\n🔁 다시 볼 것: ${nobi.length?nobi.map(chipText).join(', '):'없음 — 전부 정답!'}`;
+  const done=()=>{ $('copied').textContent='✓ 복사됨 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); };
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(()=>box(txt)); else box(txt);
+}
+function box(txt){ let ta=$('copyBox'); if(!ta){ ta=document.createElement('textarea'); ta.id='copyBox'; ta.readOnly=true; $('stage').appendChild(ta); } ta.value=txt; ta.focus(); ta.select(); $('copied').textContent='↓ 길게 눌러 복사 — 카카오에 붙여넣기'; $('copied').classList.remove('hidden'); }
+function leaveOk(){ if(inRun) return confirm('途中の答えは消えます。一覧に戻りますか？\n중간 답이 사라집니다. 목록으로 돌아갈까요?'); return true; }
+$('nextBtn').onclick=next;
+$('ex-close').onclick=()=>$('explain').classList.add('hidden');
+start();
+</script>
+</body>
+</html>
