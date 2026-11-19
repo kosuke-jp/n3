@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="n3-updated" content="2026-11-19">
+<meta name="n3-added" content="2026-11-19">
 <meta property="og:title" content="必須文型30チャレンジ">
 <meta property="og:description" content="N3 필수 문형 30 — 확인 문제 30 + 문형 카드 30. 틀린 문형은 카드로 바로 복습">
-<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/index.png">
+<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/bunkei30.png?v=20261119n">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -125,6 +127,46 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
 .gtab{border:1px solid var(--bd);border-radius:12px;padding:10px;background:var(--bg2);margin:10px 0 4px}.gtab .tt{font-weight:900;font-size:14px;color:#92700e;margin-bottom:6px}
 .gtab table{width:100%;border-collapse:collapse;font-size:13.5px}.gtab td{border-top:1px dashed var(--bd);padding:5px 4px;vertical-align:top}
 #cbBack2{margin-top:16px}
+/* 横長の画面（パソコン・Zoom画面共有）では授業用の大きい表示に自動で切り替わる */
+@media (min-width:1000px) and (min-aspect-ratio:4/3){
+/* ===== 横画面（Zoom画面共有）版 ===== */
+#app{max-width:none}
+#bar{height:60px;padding:0 28px}
+#bar .home{display:none}
+#bar .brand{font-size:20px}
+#bar .cnt{font-size:18px}
+#prog{height:7px}
+#stage{padding:22px 56px 28px}
+#ctrl{padding:12px 28px}
+.btn{font-size:20px;padding:14px 28px}
+.start{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;max-width:1500px;margin:0 auto}
+.start h1,.start .sub,.start .subk{grid-column:1/-1}
+.start h1{font-size:36px}.start h1 br{display:none}.start h1 .a{margin-left:.4em}
+.start .sub{font-size:19px}.start .subk{font-size:17px}
+.setcard h2{font-size:24px}.setcard li{font-size:19px}.setcard li .k{font-size:15px}
+.again{font-size:17px}
+.cover{max-width:1300px;margin:0 auto}
+.cover .rno{font-size:17px}.cover h2{font-size:40px}.cover .krn{font-size:20px}
+.kotsu{padding:20px 24px}.kotsu .lab{font-size:17px}.kotsu .jp{font-size:22px}.kotsu .kr{font-size:18px}
+.kotsu ul{grid-template-columns:repeat(3,1fr);gap:12px}.kotsu li{font-size:20px;padding:10px 14px}
+.qtag{font-size:17px}.inst{font-size:16px}
+.sent{font-size:36px;margin:22px 0 24px}
+.word{font-size:68px;margin:16px 0 22px}
+.choices{grid-template-columns:1fr 1fr;gap:14px}
+.choice{font-size:30px;padding:16px 20px;gap:16px}
+.choice.long{font-size:22px}
+.choice .no{width:40px;height:40px;font-size:20px}
+.fb{font-size:20px;padding:14px 20px;margin-top:16px}.fb .h{font-size:22px}.fb .k{font-size:18px}
+.res{max-width:1300px;margin:0 auto}
+.res h2{font-size:34px}.res .krs{font-size:18px}
+.rounds{grid-template-columns:repeat(4,1fr);gap:12px}.rd .t{font-size:16px}.rd .v{font-size:30px}
+.nobi .t{font-size:20px}.nobi .t span{font-size:16px}.nchip{font-size:19px}
+.great{font-size:26px}.rbtns{grid-template-columns:1fr 1fr}
+.ex-card{max-width:820px}.ex-head b{font-size:22px}
+#ex-body{font-size:20px;padding:20px}#ex-body .s{font-size:22px}#ex-body .k{font-size:18px}
+.cardlink{font-size:18px}.bh b{font-size:24px}.bcard .row{font-size:18px}.exs{font-size:20px}.exs span{font-size:16px}.note{font-size:17px}.note span{font-size:16px}.exn{font-size:19px}.cards{max-width:1100px;margin:0 auto}.gnav{top:60px}.gtab table{font-size:17px}.cards .lead{font-size:18px}
+.start .setcard:last-child{align-self:start}
+}
 </style>
 </head>
 <body>
@@ -301,5 +343,6 @@ $('nextBtn').onclick=next;
 $('ex-close').onclick=()=>$('explain').classList.add('hidden');
 start();
 </script>
+<script src="share.js" defer></script>
 </body>
 </html>

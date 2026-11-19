@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="n3-updated" content="2026-11-19">
 <meta property="og:title" content="N3 試験直前 満点サプリ">
 <meta property="og:description" content="시험 직전에 챙겨 먹는 만점 영양제 — 헷갈리는 탁음·장음 100선, 문형 챌린지, 모의고사 복습 챌린지">
-<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/index.png">
+<meta property="og:image" content="https://kosuke-jp.github.io/n3/og/index.png?v=20261119u">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -24,37 +25,41 @@ a.isnew{border-color:#e8743b;background:#fff8f2}
 </style></head><body><div class="w">
 <h1>N3 試験直前 満点サプリ</h1><p>도전해 보고 싶은 것을 골라 보세요</p>
 <div id="newbar"></div>
-<a href="100sen-1.html" data-added="2026-10-31">紛らわしい濁音・長音 熟語100選 ①<span>헷갈리는 탁음·장음 한자어 1〜50 · 15분</span></a>
-<a href="100sen-2.html" data-added="2026-11-09">紛らわしい濁音・長音 熟語100選 ②<span>헷갈리는 탁음·장음 한자어 51〜100 · 15분</span></a>
-<a href="bunkei-up.html" data-added="2026-11-09">得点アップ 文型チャレンジ<span>모의고사 오답에서 만든 문형 문제 · 6세트 · 세트당 36문제 10분</span></a>
-<a href="bunkei30.html" data-added="2026-11-19">必須文型30チャレンジ<span>N3 필수 문형 30 · 확인 문제 30 + 문형 카드 30 · 10분</span></a>
-<a href="yomi-fukushi.html" data-added="2026-11-10">得点アップ 読み方＆副詞チャレンジ<span>탁음·장음·음독/훈독·부사와 접속사 · 2세트 · 세트당 32문제 15분</span></a>
-<a href="kakunin3.html" data-added="2026-10-31">第3回模試 ふりかえりチャレンジ<span>제3회 모의고사 복습 20문제 · 10분</span></a>
+<a href="100sen-1.html" data-added="2026-10-31" data-updated="2026-11-09">紛らわしい濁音・長音 熟語100選 ①<span>헷갈리는 탁음·장음 한자어 1〜50 · 15분</span></a>
+<a href="100sen-2.html" data-added="2026-11-09" data-updated="2026-11-09">紛らわしい濁音・長音 熟語100選 ②<span>헷갈리는 탁음·장음 한자어 51〜100 · 15분</span></a>
+<a href="bunkei-up.html" data-added="2026-11-09" data-updated="2026-11-09">得点アップ 文型チャレンジ<span>모의고사 오답에서 만든 문형 문제 · 6세트 · 세트당 36문제 10분</span></a>
+<a href="bunkei30.html" data-added="2026-11-19" data-updated="2026-11-19">必須文型30チャレンジ<span>N3 필수 문형 30 · 확인 문제 30 + 문형 카드 30 · 10분</span></a>
+<a href="yomi-fukushi.html" data-added="2026-11-10" data-updated="2026-11-19">得点アップ 読み方＆副詞チャレンジ<span>탁음·장음·음독/훈독·부사와 접속사 · 2세트 · 세트당 32문제 15분</span></a>
+<a href="kakunin3.html" data-added="2026-10-31" data-updated="2026-11-09">第3回模試 ふりかえりチャレンジ<span>제3회 모의고사 복습 20문제 · 10분</span></a>
 <script>
-// 新着の印：追加から7日以内で、この端末でまだ開いていないものに NEW を付ける
+// 新着の印：追加から7日以内で未読なら NEW、更新から7日以内で更新後に開いていなければ UPDATE
 (function(){
   var KEY='n3_index_opened', DAYS=7, opened={};
   try{ opened=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
   var w=document.querySelector('.w'), links=[].slice.call(w.querySelectorAll('a[data-added]'));
   var today=new Date(); today.setHours(0,0,0,0);
   var md=function(d){ var p=d.split('-'); return (+p[1])+'/'+(+p[2]); };
-  // 新しい順に並べる
-  links.sort(function(a,b){ return a.dataset.added<b.dataset.added?1:a.dataset.added>b.dataset.added?-1:0; });
+  // 更新の新しい順に並べる
+  var key=function(a){ return a.dataset.updated||a.dataset.added; };
+  links.sort(function(a,b){ return key(a)<key(b)?1:key(a)>key(b)?-1:0; });
   links.forEach(function(a){ w.appendChild(a); });
   var news=0;
   links.forEach(function(a){
-    var h=a.getAttribute('href'), d=a.dataset.added, age=(today-new Date(d+'T00:00:00'))/864e5;
-    var isNew = age<=DAYS && !opened[h];
+    var h=a.getAttribute('href'), d=a.dataset.added, u=a.dataset.updated||d;
+    var age=(today-new Date(d+'T00:00:00'))/864e5, uage=(today-new Date(u+'T00:00:00'))/864e5;
+    var isNew = age<DAYS && !opened[h];
+    var isUpd = !isNew && u!==d && uage<DAYS && (!opened[h] || opened[h]<u);
     var m=document.createElement('span'); m.className='meta';
-    m.innerHTML=(isNew?'<b class="new">NEW</b>':'')+md(d)+' 追加'+(opened[h]?' · <span class="done">✓ '+md(opened[h])+'に開いた</span>':' · まだ開いていない');
+    m.innerHTML=(isNew?'<b class="new">NEW</b>':isUpd?'<b class="new">UPDATE</b>':'')+md(d)+' 追加'+(u!==d?' · '+md(u)+' 更新':'')+(opened[h]?' · <span class="done">✓ '+md(opened[h])+'に開いた</span>':' · まだ開いていない');
     a.appendChild(m);
-    if(isNew){ a.classList.add('isnew'); news++; }
+    if(isNew||isUpd){ a.classList.add('isnew'); news++; }
     a.addEventListener('click',function(){
-      try{ opened[h]=new Date().toISOString().slice(0,10); localStorage.setItem(KEY,JSON.stringify(opened)); }catch(e){}
+      try{ var n=new Date(); opened[h]=n.getFullYear()+'-'+('0'+(n.getMonth()+1)).slice(-2)+'-'+('0'+n.getDate()).slice(-2); localStorage.setItem(KEY,JSON.stringify(opened)); }catch(e){}
     });
   });
   if(news){ var bar=document.getElementById('newbar'); bar.style.display='block';
-    bar.innerHTML='新しいチャレンジが '+news+'つ あります！<span>새로운 챌린지가 '+news+'개 있어요! 위에서부터 도전해 보세요.</span>'; }
+    bar.innerHTML='新着・更新が '+news+'つ あります！<span>새로 추가·업데이트된 챌린지가 '+news+'개 있어요!</span>'; }
 })();
 </script>
-</div></body></html>
+</div><script src="share.js" defer></script>
+</body></html>

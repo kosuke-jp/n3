@@ -1,0 +1,44 @@
+name: カード画像と更新日の自動更新
+
+# main に反映されるたび、と毎日0:05（韓国時間）に動く。
+# 追加・更新から7日たったカードの「NEW / UPDATE」帯は、毎日の実行で自動で外れる。
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '5 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cards
+  cancel-in-progress: false
+
+jobs:
+  cards:
+    if: ${{ !contains(github.event.head_commit.message, '[auto]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 準備
+        run: |
+          pip install --quiet pillow
+          test -f /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf || (sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core)
+      - name: カード画像と更新日を作り直す
+        run: python tools/update_cards.py
+      - name: 変わったものだけ反映
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A og *.html
+          if git diff --cached --quiet; then echo "変更なし"; else
+            git commit -m "[auto] カード画像と更新日を更新"
+            git push
+          fi
