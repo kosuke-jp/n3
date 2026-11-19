@@ -124,7 +124,7 @@ body{font-family:"Hiragino Sans","Noto Sans CJK JP","Noto Sans CJK KR","Noto San
   <div id="explain" class="hidden"><div class="ex-card"><div class="ex-head"><b id="ex-title"></b><button id="ex-close">✕</button></div><div id="ex-body"></div></div></div>
 </div>
 <script>
-// 第4回模試前 得点アップ 読み方＆副詞チャレンジ — 共通データ
+// 本試験前 得点アップ 読み方＆副詞チャレンジ — 共通データ
 // o[0] が正解。表示時に選択肢を混ぜる。f: yomi=漢字読み / hyoki=表記 / bun=文脈・文法 / yoho=用法
 const INST = {
   yomi: '＿＿＿のことばの読み方として最もよいものを、1・2・3・4から一つえらびなさい。',
@@ -276,8 +276,8 @@ function start(){
   const nobi=loadNobi();
   $('stage').innerHTML=`<div class="start">
     <h1>得点アップ<br><span class="a">読み方＆副詞チャレンジ</span></h1>
-    <div class="sub">濁る・のばす・音と訓、使い方が2つある副詞と接続詞。見たことのあることばで、模試の前に総仕上げ！</div>
-    <div class="subk">탁음·장음·음독과 훈독, 쓰임이 두 가지인 부사와 접속사. 본 적 있는 단어로 모의고사 전 마무리!</div>
+    <div class="sub">濁る・のばす・音と訓、使い方が2つある副詞と接続詞。見たことのあることばで、本試験の前に総仕上げ！</div>
+    <div class="subk">탁음·장음·음독과 훈독, 쓰임이 두 가지인 부사와 접속사. 본 적 있는 단어로 본시험 전 마무리!</div>
     ${SETS.map(s=>`<div class="setcard"><h2><span class="n">${s.label}</span>${s.title}<small>32問・約15分</small></h2>
       <ol>${s.rounds.map((r,ri)=>`<li><span class="no">${ri+1}</span>${r.name}<span class="k">${r.kr}</span></li>`).join('')}</ol>
       <button class="btn primary wide" data-s="${s.n}">${s.label} をはじめる</button>
@@ -348,9 +348,9 @@ function result(){
   $('stage').innerHTML=`<div class="res"><h2>${S.title}${retry?'（もう一度）':''} おつかれさま！</h2>
     <div class="krs">○ ${ok} / ${log.length}　·　수고했어요! 아래 단어를 한 번 더 보면 완성!</div>
     ${rounds}
-    ${nobi.length?`<div class="nobi"><div class="t">のびしろポイント<span>누르면 해설 — 모의고사 전에 한 번 더</span></div>
+    ${nobi.length?`<div class="nobi"><div class="t">のびしろポイント<span>누르면 해설 — 본시험 전에 한 번 더</span></div>
       <div class="nchips">${nobi.map((it,j)=>`<button class="nchip" data-j="${j}">${chipText(it)}</button>`).join('')}</div></div>`
-      :`<div class="great">全部 ○！ この調子で金曜日の模試へ！<br><span style="font-size:14px;color:var(--kr)">전부 정답! 이 기세로 금요일 모의고사로!</span></div>`}
+      :`<div class="great">全部 ○！ この調子で12/6の本試験へ！<br><span style="font-size:14px;color:var(--kr)">전부 정답! 이 기세로 12/6 본시험으로!</span></div>`}
     <div class="rbtns">
       ${nobi.length?`<button class="btn primary wide" id="againBtn">のびしろ ${nobi.length}問だけ もう一度</button>`:''}
       <button class="btn wide" id="copyBtn">結果をコピー（카카오로 보내기）</button>
