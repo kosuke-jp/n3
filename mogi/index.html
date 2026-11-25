@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>N3 公式サンプル模試</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+KR:wght@400;700&display=swap">
+<style>
+/*
+VOICE: 試験前の受験票。落ち着いて、迷わない。
+IDEA: 受験票のような1枚のカード。上に名前、下に押すボタンが2つ。
+PICTURE: カードそのもの。2つの大きなボタンと、時間の目安。
+COLOUR and TYPE: 白い紙、墨、マークシートの薄い赤の縁取り。Zen Kaku Gothic New＋Noto Sans KR。
+LAYOUT: スマホ1画面に収まる1列。
+*/
+:root{color-scheme:light dark;--bg:light-dark(#f4f1ee,#111316);--card:light-dark(#fff,#1b1e22);--ink:light-dark(#1b1b1b,#ececec);--mute:light-dark(#6b6b6b,#a3a3a3);--line:light-dark(#f0c9c3,#4a2f2b);--accent:light-dark(#c0645a,#ff8a7a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Zen Kaku Gothic New",sans-serif;min-height:100vh;display:grid;place-items:center;padding:20px 14px}
+.ko{font-family:"Noto Sans KR",sans-serif;color:var(--mute);font-size:13px;font-weight:400}
+.card{width:100%;max-width:420px;background:var(--card);border:2px solid var(--line);border-radius:18px;padding:22px 20px 18px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--accent);border:1.5px solid var(--accent);border-radius:999px;padding:1px 10px}
+h1{font-size:30px;font-weight:900;line-height:1.15;margin:10px 0 2px}
+.who{margin:0 0 16px;font-size:15px;color:var(--mute)}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;margin:0 0 12px;min-height:72px}
+.btn.main{background:var(--ink);color:var(--card)}
+.btn.main .ko{color:inherit;opacity:.75}
+.btn .n{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-weight:900}
+.btn b{display:block;font-size:18px;line-height:1.3}
+.time{margin:16px 0 0;border-top:1.5px dashed var(--line);padding-top:12px}
+.time h2{font-size:15px;margin:0 0 6px}
+.time table{width:100%;border-collapse:collapse;font-size:15px}
+.time td{padding:3px 0}
+.time td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.steps{margin:12px 0 0;padding-left:1.2em;font-size:14px}
+.steps li{margin:2px 0}
+.foot{margin:14px 0 0;font-size:14px;text-align:center;color:var(--accent);font-weight:700}
+a:focus-visible{outline:3px solid #5b8def;outline-offset:2px}
+</style>
+</head>
+<body>
+<main class="card">
+ <span class="tag">12/6 本試験の前に</span>
+ <h1>N3 公式サンプル模試</h1>
+ <p class="who">ウジェくんへ　<span class="ko">실제 시험과 같은 형식의 모의고사</span></p>
+
+ <a class="btn" href="https://drive.google.com/drive/folders/1rn9jDC9JM-Nh5yH_kSLtYMBZ2WJ0_Xtb" target="_blank" rel="noopener">
+  <span class="n">1</span><span><b>問題と音声を開く</b><span class="ko">문제(PDF)와 음성 열기</span></span></a>
+ <a class="btn main" href="sheet.html">
+  <span class="n">2</span><span><b>解答用紙に答えを入れる</b><span class="ko">답안지에 답 입력하기</span></span></a>
+
+ <div class="time">
+  <h2>時間の目安 <span class="ko">시간</span></h2>
+  <table><tbody>
+   <tr><td>言語知識（文字・語彙）</td><td class="num">30分</td></tr>
+   <tr><td>言語知識（文法）・読解</td><td class="num">70分</td></tr>
+   <tr><td>聴解</td><td class="num">40分</td></tr>
+  </tbody></table>
+  <ol class="steps">
+   <li>時間を計って、本番のように解く <span class="ko">시간을 재고 실전처럼</span></li>
+   <li>自信がない問題には ☆ <span class="ko">자신 없는 문제는 ☆</span></li>
+   <li>「答えをコピー」→ カカオトークで送る <span class="ko">'답 복사' → 카톡으로 보내기</span></li>
+  </ol>
+ </div>
+ <p class="foot">ファイティン！ 화이팅!</p>
+</main>
+</body>
+</html>
